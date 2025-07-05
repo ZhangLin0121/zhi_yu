@@ -3,11 +3,13 @@
 class RoomVisualization {
     constructor() {
         this.roomsData = null;
+        this.roomsDetailsCache = null; // 新增：缓存所有房间详细信息
         this.currentFloor = null;
         this.searchTerm = '';
         this.filterFloor = '';
         this.filterStatus = '';
         this.currentView = 'overview'; // 'overview' 或 'floors'
+        this.cacheLoaded = false; // 新增：标记缓存是否已加载
 
         this.init();
     }
@@ -83,19 +85,44 @@ class RoomVisualization {
         try {
             this.showLoading();
 
-            const response = await fetch('/api/rooms');
-            const data = await response.json();
+            // 同时加载基本数据和详细数据
+            const [basicResponse, detailsResponse] = await Promise.all([
+                fetch('/api/rooms'),
+                fetch('/api/rooms/details')
+            ]);
 
-            if (data.error) {
-                throw new Error(data.error);
+            const basicData = await basicResponse.json();
+            const detailsData = await detailsResponse.json();
+
+            if (basicData.error) {
+                throw new Error(basicData.error);
             }
 
-            this.roomsData = data;
+            if (detailsData.error) {
+                console.warn('加载详细数据失败，将使用基本数据:', detailsData.error);
+                this.roomsDetailsCache = null;
+                this.cacheLoaded = false;
+            } else {
+                // 将详细数据转换为以房间ID为键的映射，便于快速查找
+                this.roomsDetailsCache = new Map();
+                detailsData.rooms.forEach(room => {
+                    // 确保house_id统一转换为字符串类型，避免类型不匹配
+                    const houseIdStr = String(room.house_id);
+                    this.roomsDetailsCache.set(houseIdStr, room);
+                });
+                this.cacheLoaded = true;
+                console.log(`已缓存 ${detailsData.rooms.length} 个房间的详细信息`);
+            }
+
+            this.roomsData = basicData;
             this.updateHeaderInfo();
             this.createFloorButtons();
             this.populateFloorFilter();
             this.renderCurrentView();
             this.hideLoading();
+
+            // 显示缓存状态
+            this.updateCacheStatus();
 
         } catch (error) {
             console.error('加载房间数据失败:', error);
@@ -110,6 +137,35 @@ class RoomVisualization {
             const date = new Date(this.roomsData.timestamp);
             document.getElementById('lastUpdate').textContent =
                 `最后更新: ${date.toLocaleString('zh-CN')}`;
+        }
+    }
+
+    updateCacheStatus() {
+        // 在页面顶部显示缓存状态
+        const existingStatus = document.getElementById('cacheStatus');
+        if (existingStatus) {
+            existingStatus.remove();
+        }
+
+        if (this.cacheLoaded) {
+            const statusDiv = document.createElement('div');
+            statusDiv.id = 'cacheStatus';
+            statusDiv.className = 'cache-status-success';
+            statusDiv.innerHTML = `
+                <i class="fas fa-check-circle"></i>
+                已缓存所有房间详细信息，点击房间可即时查看
+            `;
+
+            const header = document.querySelector('.header');
+            header.appendChild(statusDiv);
+
+            // 3秒后自动隐藏
+            setTimeout(() => {
+                if (statusDiv.parentNode) {
+                    statusDiv.style.opacity = '0';
+                    setTimeout(() => statusDiv.remove(), 300);
+                }
+            }, 3000);
         }
     }
 
@@ -188,8 +244,94 @@ class RoomVisualization {
         overviewView.style.display = 'block';
         floorViews.style.display = 'none';
 
+        // 建筑信息头部 - 从floors对象中获取所有房间
+        const allRooms = [];
+        Object.values(this.roomsData.floors).forEach(floorRooms => {
+            allRooms.push(...floorRooms);
+        });
+
+        const totalRooms = allRooms.length;
+        const occupiedRooms = allRooms.filter(room => room.tenants.length > 0).length;
+        const vacantRooms = totalRooms - occupiedRooms;
+        const multiTenantRooms = allRooms.filter(room => room.tenants.length > 1).length;
+
+        // 50平米房间统计
+        const largeRooms = allRooms.filter(room => this.isLargeRoom(room.room_in_floor)).length;
+        const largeRoomsOccupied = allRooms.filter(room =>
+            this.isLargeRoom(room.room_in_floor) && room.tenants.length > 0
+        ).length;
+        const largeRoomsVacant = largeRooms - largeRoomsOccupied;
+
+        // 35平米房间统计
+        const smallRooms = allRooms.filter(room => !this.isLargeRoom(room.room_in_floor)).length;
+        const smallRoomsOccupied = allRooms.filter(room =>
+            !this.isLargeRoom(room.room_in_floor) && room.tenants.length > 0
+        ).length;
+        const smallRoomsVacant = smallRooms - smallRoomsOccupied;
+
+        // 17-20层统计
+        const highFloorRooms = allRooms.filter(room => {
+            const floorNumber = Math.floor(parseInt(room.room_number) / 100);
+            return floorNumber >= 17 && floorNumber <= 20;
+        }).length;
+        const highFloorRoomsOccupied = allRooms.filter(room => {
+            const floorNumber = Math.floor(parseInt(room.room_number) / 100);
+            return floorNumber >= 17 && floorNumber <= 20 && room.tenants.length > 0;
+        }).length;
+        const highFloorRoomsVacant = highFloorRooms - highFloorRoomsOccupied;
+
+        // 计算入住率
+        const occupancyRate = totalRooms > 0 ? ((occupiedRooms / totalRooms) * 100).toFixed(1) : 0;
+        const largeRoomsRate = largeRooms > 0 ? ((largeRoomsOccupied / largeRooms) * 100).toFixed(1) : 0;
+        const smallRoomsRate = smallRooms > 0 ? ((smallRoomsOccupied / smallRooms) * 100).toFixed(1) : 0;
+        const highFloorRate = highFloorRooms > 0 ? ((highFloorRoomsOccupied / highFloorRooms) * 100).toFixed(1) : 0;
+
         // 生成全景视图HTML
         let html = '<div class="building-overview">';
+
+        // 添加建筑信息头部
+        html += `
+            <div class="building-header">
+                <div class="building-title">A4栋学生公寓</div>
+                <div class="building-stats">
+                    <div class="stats-row">
+                        <strong>总计：</strong>共计 ${totalRooms} 套，入住 ${occupiedRooms} 套，入住率 ${occupancyRate}%
+                    </div>
+                    <div class="stats-row">
+                        <strong>35平米：</strong>共计 ${smallRooms} 套，入住 ${smallRoomsOccupied} 套，入住率 ${smallRoomsRate}%
+                    </div>
+                    <div class="stats-row">
+                        <strong>50平米：</strong>共计 ${largeRooms} 套，入住 ${largeRoomsOccupied} 套，入住率 ${largeRoomsRate}%
+                    </div>
+                    <div class="stats-row">
+                        <strong>17-20层：</strong>共计 ${highFloorRooms} 套，入住 ${highFloorRoomsOccupied} 套，入住率 ${highFloorRate}%
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // 添加图例
+        const legendHtml = `
+            <div class="room-type-legend">
+                <div class="legend-item-inline">
+                    <div class="mini-room vacant">01</div>
+                    <span>空闲房间</span>
+                </div>
+                <div class="legend-item-inline">
+                    <div class="mini-room occupied">02</div>
+                    <span>已入住</span>
+                </div>
+                <div class="legend-item-inline">
+                    <div class="mini-room multi-tenant">03</div>
+                    <span>多人合租</span>
+                </div>
+                <div class="legend-item-inline">
+                    <span style="color: #64748b; font-size: 13px; font-weight: 500;">竖直虚线左侧为50㎡房间，右侧为35㎡房间</span>
+                </div>
+            </div>
+        `;
+
+        html += legendHtml;
 
         // 从20楼到1楼显示（顶层到底层）
         for (let floor = 20; floor >= 1; floor--) {
@@ -204,8 +346,9 @@ class RoomVisualization {
                         ${this.createFloorRoomsOverview(rooms, floor)}
                     </div>
                     <div class="floor-stats">
-                        ${occupiedCount}/${rooms.length} 入住<br>
-                        <small>${rooms.length > 0 ? Math.round(occupiedCount/rooms.length*100) : 0}%</small>
+                        <span class="stat-line">入住: <span class="occupied-count">${occupiedCount}</span></span>
+                        <span class="stat-line">空闲: <span class="vacant-count">${vacantCount}</span></span>
+                        <span class="stat-line">率: <span class="occupancy-rate">${rooms.length > 0 ? Math.round(occupiedCount/rooms.length*100) : 0}%</span></span>
                     </div>
                 </div>
             `;
@@ -213,6 +356,11 @@ class RoomVisualization {
 
         html += '</div>';
         overviewView.innerHTML = html;
+    }
+
+    // 判断是否为50平米房间 (1、2、3和11、12号房间)
+    isLargeRoom(roomInFloor) {
+        return [1, 2, 3, 11, 12].includes(roomInFloor);
     }
 
     createFloorRoomsOverview(rooms, floor) {
@@ -245,6 +393,16 @@ class RoomVisualization {
                         const tenantCount = room.tenants.length;
                         let roomClass = 'mini-room';
 
+                        // 检查是否为50平米房间
+                        if (this.isLargeRoom(room.room_in_floor)) {
+                            roomClass += ' large-room';
+                        }
+
+                        // 添加房间分隔虚线（3号和10号房间后面）
+                        if (room.room_in_floor === 3 || room.room_in_floor === 10) {
+                            roomClass += ' room-divider-after';
+                        }
+
                         if (tenantCount === 0) {
                             roomClass += ' vacant';
                         } else if (tenantCount === 1) {
@@ -253,16 +411,27 @@ class RoomVisualization {
                             roomClass += ' multi-tenant';
                         }
 
+                        const roomTitle = `${room.house_name}${room.tenants.length > 0 ? ' - ' + room.tenants.map(t => t.tenant_name).join(', ') : ' - 空闲'}`;
+
                         roomsHtml.push(`
-                            <div class="${roomClass}" onclick="app.showRoomDetail(${room.house_id})" title="${room.house_name}${room.tenants.length > 0 ? ' - ' + room.tenants.map(t => t.tenant_name).join(', ') : ' - 空闲'}">
-                                ${item.number}
+                            <div class="${roomClass}" onclick="app.showRoomDetail('${room.house_id}')" title="${roomTitle}">
+                                ${room.room_number}
                             </div>
                         `);
                     } else {
                         // 空房间占位
+                        const roomInFloor = parseInt(item.number);
+                        const isLarge = this.isLargeRoom(roomInFloor);
+                        let emptyRoomClass = `mini-room vacant${isLarge ? ' large-room' : ''}`;
+
+                        // 添加房间分隔虚线（3号和10号房间后面）
+                        if (roomInFloor === 3 || roomInFloor === 10) {
+                            emptyRoomClass += ' room-divider-after';
+                        }
+
                         roomsHtml.push(`
-                            <div class="mini-room vacant" title="房间${roomNumber} - 空闲">
-                                ${item.number}
+                            <div class="${emptyRoomClass}" title="房间${roomNumber} - 空闲">
+                                ${roomNumber}
                             </div>
                         `);
                     }
@@ -276,7 +445,17 @@ class RoomVisualization {
                 if (room) {
                     const tenantCount = room.tenants.length;
                     let roomClass = 'mini-room';
-                    let roomText = room.room_number.slice(-2); // 显示房间号后两位
+                    let roomText = room.room_number; // 显示完整房间号
+
+                    // 检查是否为50平米房间
+                    if (this.isLargeRoom(room.room_in_floor)) {
+                        roomClass += ' large-room';
+                    }
+
+                    // 添加房间分隔虚线（3号和10号房间后面）
+                    if (room.room_in_floor === 3 || room.room_in_floor === 10) {
+                        roomClass += ' room-divider-after';
+                    }
 
                     if (tenantCount === 0) {
                         roomClass += ' vacant';
@@ -286,16 +465,26 @@ class RoomVisualization {
                         roomClass += ' multi-tenant';
                     }
 
+                    const roomTitle = `${room.house_name}${room.tenants.length > 0 ? ' - ' + room.tenants.map(t => t.tenant_name).join(', ') : ' - 空闲'}`;
+
                     roomsHtml.push(`
-                        <div class="${roomClass}" onclick="app.showRoomDetail(${room.house_id})" title="${room.house_name}${room.tenants.length > 0 ? ' - ' + room.tenants.map(t => t.tenant_name).join(', ') : ' - 空闲'}">
+                        <div class="${roomClass}" onclick="app.showRoomDetail('${room.house_id}')" title="${roomTitle}">
                             ${roomText}
                         </div>
                     `);
                 } else {
                     // 空房间占位
+                    const isLarge = this.isLargeRoom(i);
+                    let emptyRoomClass = `mini-room vacant${isLarge ? ' large-room' : ''}`;
+
+                    // 添加房间分隔虚线（3号和10号房间后面）
+                    if (i === 3 || i === 10) {
+                        emptyRoomClass += ' room-divider-after';
+                    }
+
                     roomsHtml.push(`
-                        <div class="mini-room vacant" title="房间${floor}${i.toString().padStart(2, '0')} - 空闲">
-                            ${i.toString().padStart(2, '0')}
+                        <div class="${emptyRoomClass}" title="房间${floor}${i.toString().padStart(2, '0')} - 空闲">
+                            ${floor}${i.toString().padStart(2, '0')}
                         </div>
                     `);
                 }
@@ -380,6 +569,11 @@ class RoomVisualization {
         let cardClass = 'room-card';
         let tenantInfo = '';
 
+        // 检查是否为50平米房间
+        if (this.isLargeRoom(room.room_in_floor)) {
+            cardClass += ' large-room';
+        }
+
         if (tenantCount === 0) {
             cardClass += ' vacant-room';
             tenantInfo = '<div class="tenant-info">空闲</div>';
@@ -402,9 +596,11 @@ class RoomVisualization {
             `;
         }
 
+        const roomTitle = `${room.room_number}${this.isLargeRoom(room.room_in_floor) ? ' (50㎡)' : ''}`;
+
         return `
-            <div class="${cardClass}" onclick="app.showRoomDetail(${room.house_id})">
-                <div class="room-number">${room.room_number}</div>
+            <div class="${cardClass}" onclick="app.showRoomDetail('${room.house_id}')">
+                <div class="room-number">${roomTitle}</div>
                 ${tenantInfo}
             </div>
         `;
@@ -412,11 +608,29 @@ class RoomVisualization {
 
     async showRoomDetail(houseId) {
         try {
-            const response = await fetch(`/api/room/${houseId}`);
+            // 确保houseId为字符串类型，与缓存键类型一致
+            const houseIdStr = String(houseId);
+
+            // 优先使用缓存数据
+            if (this.cacheLoaded && this.roomsDetailsCache.has(houseIdStr)) {
+                const room = this.roomsDetailsCache.get(houseIdStr);
+                this.displayRoomModal(room);
+                console.log(`从缓存加载房间 ${houseIdStr} 详情`);
+                return;
+            }
+
+            // 如果缓存不可用，则从API获取
+            console.log(`缓存未命中，从API获取房间 ${houseIdStr} 详情`);
+            const response = await fetch(`/api/room/${houseIdStr}`);
             const room = await response.json();
 
             if (room.error) {
                 throw new Error(room.error);
+            }
+
+            // 将获取的数据添加到缓存中
+            if (this.roomsDetailsCache) {
+                this.roomsDetailsCache.set(houseIdStr, room);
             }
 
             this.displayRoomModal(room);
@@ -427,74 +641,91 @@ class RoomVisualization {
         }
     }
 
+    async updateRoomInfo(houseId, roomData) {
+        try {
+            const response = await fetch(`/api/room/${houseId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(roomData)
+            });
+
+            const result = await response.json();
+
+            if (result.error) {
+                throw new Error(result.error);
+            }
+
+            return result;
+
+        } catch (error) {
+            console.error('更新房间信息失败:', error);
+            throw error;
+        }
+    }
+
     displayRoomModal(room) {
-        const modalTitle = document.getElementById('modalTitle');
-        const modalBody = document.getElementById('modalBody');
+            const modal = document.getElementById('roomModal');
+            const modalBody = modal.querySelector('.modal-body');
+            const modalTitle = modal.querySelector('.modal-header h3');
 
-        modalTitle.textContent = `${room.house_name} 详情`;
+            // 设置标题
+            const isLarge = this.isLargeRoom(room.room_in_floor);
+            modalTitle.innerHTML = `
+            <i class="fas fa-home"></i> 
+            ${room.house_name} ${isLarge ? '(50㎡)' : '(35㎡)'}
+        `;
 
-        // 房间基本信息
-        let roomInfo = `
+            let roomInfo = `
             <div class="room-detail">
-                <h4><i class="fas fa-home"></i> 房间信息</h4>
+                <h4><i class="fas fa-info-circle"></i> 基本信息</h4>
                 <div class="detail-grid">
-                    <span class="detail-label">房间号:</span>
-                    <span class="detail-value">${room.room_number}</span>
-                    <span class="detail-label">楼层:</span>
-                    <span class="detail-value">${room.floor}楼</span>
-                    <span class="detail-label">栋号:</span>
-                    <span class="detail-value">A${room.building}栋</span>
-                    <span class="detail-label">单元:</span>
-                    <span class="detail-value">${room.unit}单元</span>
+                    <div><strong>房间号:</strong> ${room.room_number}</div>
+                    <div><strong>楼层:</strong> ${room.floor}楼</div>
+                    <div><strong>房间面积:</strong> ${isLarge ? '50㎡' : '35㎡'}</div>
+                    <div><strong>入住状态:</strong> ${room.tenants.length > 0 ? `已入住 (${room.tenants.length}人)` : '空闲'}</div>
                 </div>
             </div>
         `;
 
-        // 租户信息
         if (room.tenants.length > 0) {
-            roomInfo += '<div class="room-detail"><h4><i class="fas fa-users"></i> 租户信息</h4>';
+            roomInfo += `
+                <div class="room-detail">
+                    <h4><i class="fas fa-users"></i> 租户信息</h4>
+                    <div class="detail-grid">
+            `;
 
             room.tenants.forEach(tenant => {
-                const isMain = tenant.is_main === 1;
+                const isMainTenant = room.main_tenant && room.main_tenant.tenant_id === tenant.tenant_id;
                 roomInfo += `
-                    <div class="tenant-card ${isMain ? 'main-tenant' : ''}">
+                    <div class="tenant-card ${isMainTenant ? 'main-tenant' : ''}">
                         <div class="tenant-header">
-                            <span class="tenant-name-large">${tenant.tenant_name}</span>
-                            <span class="tenant-badge ${isMain ? 'main' : ''}">${isMain ? '主租户' : '合租户'}</span>
-                        </div>
-                        <div class="detail-grid">
-                            <span class="detail-label">手机号:</span>
-                            <span class="detail-value">${tenant.mobile}</span>
-                            <span class="detail-label">身份证:</span>
-                            <span class="detail-value">${this.maskIdCard(tenant.certificate_num)}</span>
-                            <span class="detail-label">紧急联系人:</span>
-                            <span class="detail-value">${tenant.emergency_contact}</span>
-                            <span class="detail-label">紧急联系电话:</span>
-                            <span class="detail-value">${tenant.emergency_mobile}</span>
-                            <span class="detail-label">签约状态:</span>
-                            <span class="detail-value">${tenant.sign_status === 1 ? '已签约' : '未签约'}</span>
-                            <span class="detail-label">入住状态:</span>
-                            <span class="detail-value">${tenant.occupancy_flag === 1 ? '已入住' : '未入住'}</span>
+                            <div class="tenant-name-large">${tenant.tenant_name}</div>
+                            ${isMainTenant ? '<span class="tenant-badge main">主租户</span>' : '<span class="tenant-badge">合租户</span>'}
                         </div>
                     </div>
                 `;
             });
 
-            roomInfo += '</div>';
+            roomInfo += `
+                    </div>
+                </div>
+            `;
         } else {
             roomInfo += `
                 <div class="room-detail">
                     <h4><i class="fas fa-bed"></i> 房间状态</h4>
-                    <p style="color: #666; text-align: center; padding: 20px;">
-                        <i class="fas fa-home" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
-                        该房间目前空闲，暂无租户入住
-                    </p>
+                    <div style="text-align: center; padding: 40px 20px; color: #64748b;">
+                        <i class="fas fa-home" style="font-size: 3rem; margin-bottom: 16px; display: block; color: #94a3b8;"></i>
+                        <p style="font-size: 1.1rem; margin: 0;">该房间目前空闲，暂无租户入住</p>
+                    </div>
                 </div>
             `;
         }
 
         modalBody.innerHTML = roomInfo;
-        document.getElementById('roomModal').style.display = 'block';
+        modal.style.display = 'block';
     }
 
     closeModal() {

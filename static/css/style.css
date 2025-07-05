@@ -1,4 +1,4 @@
-/* 全局样式 */
+/* 全局样式 - 简洁专业风格 */
 
 * {
     margin: 0;
@@ -7,30 +7,31 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     background: #f8fafc;
     min-height: 100vh;
     color: #1e293b;
     line-height: 1.5;
+    font-weight: 400;
 }
 
 .container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 24px;
 }
 
 
 /* 头部样式 */
 
 .header {
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(20px);
+    background: #ffffff;
     border-bottom: 1px solid #e2e8f0;
-    padding: 12px 0;
+    padding: 16px 0;
     position: sticky;
     top: 0;
     z-index: 100;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .header .container {
@@ -40,10 +41,10 @@ body {
 }
 
 .header h1 {
-    color: #0f172a;
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: -0.025em;
+    color: #1e293b;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
 }
 
 .header h1 i {
@@ -53,7 +54,7 @@ body {
 
 .header-info {
     display: flex;
-    gap: 16px;
+    gap: 24px;
     font-size: 0.875rem;
     color: #64748b;
     font-weight: 500;
@@ -63,9 +64,9 @@ body {
 /* 控制面板 */
 
 .control-panel {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 12px 0;
-    border-bottom: 1px solid #f1f5f9;
+    background: #ffffff;
+    padding: 16px 0;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .control-panel .container {
@@ -73,7 +74,7 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 16px;
 }
 
 .search-box {
@@ -93,11 +94,11 @@ body {
 
 .search-box input {
     width: 100%;
-    padding: 8px 40px 8px 32px;
-    border: 1px solid #e2e8f0;
+    padding: 8px 40px 8px 36px;
+    border: 1px solid #d1d5db;
     border-radius: 8px;
     font-size: 14px;
-    background: white;
+    background: #ffffff;
     transition: all 0.2s ease;
 }
 
@@ -109,7 +110,7 @@ body {
 
 .search-box button {
     position: absolute;
-    right: 4px;
+    right: 8px;
     top: 50%;
     transform: translateY(-50%);
     background: none;
@@ -117,30 +118,30 @@ body {
     padding: 6px;
     cursor: pointer;
     border-radius: 4px;
-    transition: background 0.2s ease;
+    transition: all 0.2s ease;
     color: #94a3b8;
 }
 
 .search-box button:hover {
     background: #f1f5f9;
-    color: #64748b;
+    color: #1e293b;
 }
 
 .filters {
     display: flex;
-    gap: 8px;
+    gap: 12px;
     align-items: center;
 }
 
 .filters select {
     padding: 8px 12px;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    background: white;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #ffffff;
     font-size: 14px;
     cursor: pointer;
-    transition: border-color 0.2s ease;
-    color: #475569;
+    transition: all 0.2s ease;
+    color: #1e293b;
 }
 
 .filters select:focus {
@@ -151,12 +152,11 @@ body {
 
 .filters button {
     padding: 8px 16px;
-    background: #3b82f6;
-    color: white;
-    border: none;
-    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #1e293b;
     font-size: 14px;
-    font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
     display: flex;
@@ -165,139 +165,130 @@ body {
 }
 
 .filters button:hover {
-    background: #2563eb;
+    background: #f8fafc;
+    border-color: #94a3b8;
 }
 
 .filters button:active {
-    transform: translateY(1px);
+    background: #f1f5f9;
 }
 
 
 /* 视图导航 */
 
 .view-navigator {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 8px 0;
-    border-bottom: 1px solid #f1f5f9;
+    background: #ffffff;
+    padding: 12px 0;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .view-buttons {
     display: flex;
     gap: 8px;
-    justify-content: center;
-    margin-bottom: 8px;
 }
 
 .view-btn {
-    padding: 6px 16px;
-    background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    cursor: pointer;
+    padding: 8px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #64748b;
     font-size: 14px;
-    font-weight: 500;
+    cursor: pointer;
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
     gap: 6px;
-    color: #64748b;
 }
 
 .view-btn:hover {
-    border-color: #3b82f6;
-    color: #3b82f6;
     background: #f8fafc;
+    color: #1e293b;
 }
 
 .view-btn.active {
     background: #3b82f6;
+    color: #ffffff;
     border-color: #3b82f6;
-    color: white;
 }
 
 .floor-buttons {
     display: flex;
-    flex-wrap: wrap;
     gap: 6px;
-    justify-content: center;
+    margin-top: 12px;
+    flex-wrap: wrap;
 }
 
 .floor-btn {
-    padding: 4px 12px;
-    background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 500;
-    transition: all 0.2s ease;
+    padding: 4px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: #ffffff;
     color: #64748b;
-    min-width: 40px;
-    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .floor-btn:hover {
-    border-color: #3b82f6;
-    color: #3b82f6;
     background: #f8fafc;
+    color: #1e293b;
 }
 
 .floor-btn.active {
     background: #3b82f6;
+    color: #ffffff;
     border-color: #3b82f6;
-    color: white;
 }
 
 
-/* 主内容区 */
+/* 主内容 */
 
 .main-content {
-    padding: 16px 0;
-    min-height: calc(100vh - 200px);
+    padding: 20px 0;
 }
-
-
-/* 加载和错误状态 */
 
 .loading,
 .error {
     text-align: center;
-    padding: 40px 20px;
+    padding: 60px 20px;
     color: #64748b;
 }
 
 .loading i {
-    font-size: 2rem;
-    animation: spin 1s linear infinite;
+    font-size: 24px;
+    margin-bottom: 12px;
+    color: #3b82f6;
 }
 
 .error i {
-    font-size: 2rem;
+    font-size: 24px;
+    margin-bottom: 12px;
     color: #ef4444;
 }
 
 .loading p,
 .error p {
-    margin-top: 16px;
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: 16px;
+    margin-top: 8px;
 }
 
 
 /* 搜索结果 */
 
 .search-results {
-    background: white;
-    border-radius: 8px;
+    margin-bottom: 20px;
     padding: 16px;
-    margin-bottom: 16px;
+    background: #ffffff;
+    border-radius: 12px;
     border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .search-results h3 {
-    color: #0f172a;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
+    color: #1e293b;
     margin-bottom: 12px;
 }
 
@@ -307,28 +298,98 @@ body {
 }
 
 
-/* 全景视图 */
+/* 全景视图 - 优化布局 */
 
 .overview-view {
-    background: white;
-    border-radius: 8px;
-    padding: 16px;
+    background: #ffffff;
+    border-radius: 12px;
     border: 1px solid #e2e8f0;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .building-overview {
+    padding: 0;
+}
+
+
+/* 建筑信息头部 */
+
+.building-header {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    padding: 16px 24px;
+    text-align: center;
+}
+
+.building-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.building-stats {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.stats-row {
+    margin-bottom: 6px;
+}
+
+.stats-row:last-child {
+    margin-bottom: 0;
+}
+
+.stats-row strong {
+    color: #1e293b;
+    font-weight: 600;
+    margin-right: 4px;
+}
+
+.room-type-legend {
+    background: #f8fafc;
+    padding: 16px 24px;
+    border-bottom: 1px solid #e2e8f0;
     display: flex;
-    flex-direction: column;
-    gap: 6px;
+    justify-content: center;
+    gap: 32px;
+    font-size: 0.875rem;
+    color: #64748b;
+    flex-wrap: wrap;
+}
+
+.legend-item-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 4px 0;
+}
+
+.legend-item-inline .mini-room {
+    width: 24px;
+    height: 20px;
+    border-radius: 3px;
+    font-size: 10px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
 }
 
 .floor-row {
     display: flex;
     align-items: center;
-    padding: 6px 12px;
-    border-radius: 6px;
-    transition: background 0.2s ease;
-    gap: 16px;
+    padding: 4px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    transition: all 0.2s ease;
+    min-height: 36px;
+}
+
+.floor-row:last-child {
+    border-bottom: none;
 }
 
 .floor-row:hover {
@@ -336,39 +397,63 @@ body {
 }
 
 .floor-label {
+    min-width: 80px;
     font-weight: 600;
-    color: #475569;
-    min-width: 40px;
+    color: #1e293b;
     font-size: 14px;
+    margin-right: 16px;
     text-align: center;
+    background: #f1f5f9;
+    padding: 6px 10px;
+    border-radius: 6px;
 }
 
 .floor-rooms {
     display: flex;
+    gap: 18px;
     flex-wrap: wrap;
-    gap: 4px;
     flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* 房间分隔虚线 - 在3号和4号房间之间，10号和11号房间之间 */
+
+.mini-room.room-divider-after::after {
+    content: '';
+    position: absolute;
+    right: -11px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 28px;
+    border-right: 2px dashed #cbd5e1;
+    z-index: 5;
 }
 
 .mini-room {
-    width: 45px;
-    height: 38px;
-    border-radius: 6px;
+    width: 48px;
+    height: 36px;
+    border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s ease;
+    border: 1px solid transparent;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 12px;
     font-weight: 600;
     color: white;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    margin: 2px 0;
 }
 
 .mini-room:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    border-color: #3b82f6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     z-index: 10;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .mini-room.occupied {
@@ -377,103 +462,179 @@ body {
 
 .mini-room.vacant {
     background: #94a3b8;
-    color: #64748b;
-    text-shadow: none;
+    color: white;
 }
 
 .mini-room.multi-tenant {
     background: #f59e0b;
 }
 
+.mini-room.large-room {
+    width: 48px;
+    height: 36px;
+    border-radius: 4px;
+    font-weight: 600;
+    position: relative;
+}
+
+.mini-room.large-room.occupied {
+    background: #10b981;
+    color: white;
+}
+
+.mini-room.large-room.vacant {
+    background: #94a3b8;
+    color: white;
+}
+
+.mini-room.large-room.multi-tenant {
+    background: #f59e0b;
+    color: white;
+}
+
 .mini-room.passage {
-    background: #e5e7eb;
-    color: #6b7280;
-    font-size: 10px;
+    background: #f1f5f9;
     cursor: default;
-    text-shadow: none;
+    border: 1px dashed #cbd5e1;
+    color: #94a3b8;
+    font-size: 8px;
+    font-weight: 400;
+}
+
+.mini-room.passage:hover {
+    transform: none;
+    border-color: #cbd5e1;
+    box-shadow: none;
 }
 
 .floor-stats {
+    min-width: 140px;
+    text-align: right;
     font-size: 12px;
     color: #64748b;
-    font-weight: 500;
-    min-width: 80px;
-    text-align: right;
+    line-height: 1.3;
+    background: #f8fafc;
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin-left: 12px;
+}
+
+.floor-stats .stat-line {
+    display: block;
+    margin-bottom: 1px;
+}
+
+.floor-stats .stat-line:last-child {
+    margin-bottom: 0;
+}
+
+.occupied-count {
+    color: #059669;
+    font-weight: 600;
+}
+
+.vacant-count {
+    color: #64748b;
+    font-weight: 600;
+}
+
+.occupancy-rate {
+    color: #3b82f6;
+    font-weight: 600;
 }
 
 
 /* 楼层视图 */
 
 .floor-view {
-    background: white;
-    border-radius: 8px;
-    padding: 16px;
+    background: #ffffff;
+    border-radius: 12px;
     border: 1px solid #e2e8f0;
+    margin-bottom: 24px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .floor-header {
-    margin-bottom: 16px;
-    padding-bottom: 12px;
+    padding: 20px;
     border-bottom: 1px solid #f1f5f9;
+    background: #f8fafc;
 }
 
 .floor-title {
-    color: #0f172a;
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 4px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e293b;
 }
 
 .floor-info {
-    color: #64748b;
     font-size: 14px;
+    color: #64748b;
+    margin-top: 4px;
 }
 
 .rooms-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 12px;
-    margin-bottom: 16px;
+    gap: 16px;
+    padding: 20px;
 }
 
-
-/* 房间卡片 */
-
 .room-card {
-    background: white;
+    background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    padding: 12px;
+    border-radius: 10px;
+    padding: 16px;
     cursor: pointer;
     transition: all 0.2s ease;
-    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .room-card:hover {
     border-color: #3b82f6;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transform: translateY(-1px);
 }
 
 .room-card.occupied-room {
-    border-color: #10b981;
-    background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+    border-left: 4px solid #10b981;
+    background: #f0fdf4;
 }
 
 .room-card.vacant-room {
-    border-color: #e2e8f0;
+    border-left: 4px solid #94a3b8;
     background: #f8fafc;
 }
 
 .room-card.multi-tenant {
-    border-color: #f59e0b;
-    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border-left: 4px solid #f59e0b;
+    background: #fffbeb;
+}
+
+.room-card.large-room {
+    border: 2px solid #fbbf24;
+    background: #fefce8;
+    position: relative;
+}
+
+.room-card.large-room::before {
+    content: '50m²';
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    color: #1e293b;
+    font-size: 12px;
+    background: white;
+    border-radius: 4px;
+    padding: 2px 4px;
+    font-weight: 600;
+    border: 1px solid #fbbf24;
 }
 
 .room-number {
-    font-weight: 700;
-    color: #0f172a;
     font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
     margin-bottom: 8px;
 }
 
@@ -483,17 +644,17 @@ body {
 }
 
 .tenant-name {
-    font-weight: 600;
-    color: #374151;
+    color: #1e293b;
+    font-weight: 500;
 }
 
 .tenant-count {
-    background: rgba(59, 130, 246, 0.1);
-    color: #3b82f6;
-    padding: 2px 6px;
-    border-radius: 4px;
+    background: #e2e8f0;
+    color: #64748b;
+    padding: 2px 8px;
+    border-radius: 12px;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 500;
     display: inline-block;
     margin-top: 4px;
 }
@@ -504,29 +665,32 @@ body {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-content {
-    background-color: white;
-    margin: 5% auto;
+    background: #ffffff;
     padding: 0;
     border-radius: 12px;
     width: 90%;
-    max-width: 500px;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    max-width: 800px;
+    max-height: 90vh;
     overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .modal-header {
-    background: #f8fafc;
-    padding: 16px 20px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    padding: 20px 24px;
     border-bottom: 1px solid #e2e8f0;
     display: flex;
     justify-content: space-between;
@@ -534,16 +698,15 @@ body {
 }
 
 .modal-header h3 {
-    color: #0f172a;
     font-size: 1.2rem;
-    font-weight: 700;
-    margin: 0;
+    font-weight: 600;
+    color: #1e293b;
 }
 
 .close-btn {
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: 18px;
     cursor: pointer;
     color: #64748b;
     padding: 4px;
@@ -553,54 +716,69 @@ body {
 
 .close-btn:hover {
     background: #e2e8f0;
-    color: #374151;
+    color: #1e293b;
 }
 
 .modal-body {
-    padding: 20px;
+    padding: 24px;
+    max-height: calc(90vh - 120px);
+    overflow-y: auto;
 }
 
 .room-detail {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+}
+
+.room-detail:last-child {
+    margin-bottom: 0;
 }
 
 .room-detail h4 {
-    color: #374151;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    margin-bottom: 12px;
+    color: #1e293b;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #f1f5f9;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .detail-grid {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
     margin-bottom: 16px;
 }
 
 .detail-label {
+    font-size: 14px;
     color: #64748b;
     font-weight: 500;
-    font-size: 14px;
 }
 
 .detail-value {
-    color: #374151;
-    font-weight: 600;
     font-size: 14px;
+    color: #1e293b;
 }
 
 .tenant-card {
     background: #f8fafc;
     border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    padding: 12px;
-    margin-bottom: 8px;
+    border-radius: 8px;
+    padding: 16px;
+    transition: all 0.2s ease;
+}
+
+.tenant-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .tenant-card.main-tenant {
-    border-color: #10b981;
-    background: #ecfdf5;
+    border-left: 4px solid #3b82f6;
+    background: #eff6ff;
 }
 
 .tenant-header {
@@ -611,66 +789,98 @@ body {
 }
 
 .tenant-name-large {
-    font-weight: 700;
-    color: #0f172a;
     font-size: 1rem;
+    font-weight: 600;
+    color: #1e293b;
 }
 
 .tenant-badge {
-    background: #3b82f6;
-    color: white;
+    background: #e2e8f0;
+    color: #64748b;
     padding: 2px 8px;
-    border-radius: 4px;
+    border-radius: 12px;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .tenant-badge.main {
-    background: #10b981;
+    background: #dbeafe;
+    color: #3b82f6;
 }
 
 
 /* 图例 */
 
 .legend {
-    background: white;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 16px;
-    margin-top: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    min-width: 200px;
 }
 
 .legend h4 {
-    color: #0f172a;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
+    color: #1e293b;
     margin-bottom: 12px;
+    text-align: center;
+}
+
+.legend h4 i {
+    color: #3b82f6;
+    margin-right: 6px;
 }
 
 .legend-items {
     display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .legend-item {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .legend .room-card {
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
+    width: 24px;
+    height: 18px;
+    border-radius: 4px;
     padding: 0;
     margin: 0;
-    border-radius: 4px;
-    cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: 600;
+    color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.legend .room-card.occupied-room {
+    background: #10b981;
+}
+
+.legend .room-card.vacant-room {
+    background: #94a3b8;
+}
+
+.legend .room-card.multi-tenant {
+    background: #f59e0b;
+}
+
+.legend .room-card.large-room {
+    background: #fbbf24;
 }
 
 .legend-item span {
-    font-size: 14px;
+    font-size: 13px;
     color: #64748b;
     font-weight: 500;
 }
@@ -679,16 +889,20 @@ body {
 /* 响应式设计 */
 
 @media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+        max-width: 100%;
+    }
     .header .container {
         flex-direction: column;
-        gap: 8px;
+        gap: 12px;
     }
     .control-panel .container {
         flex-direction: column;
         align-items: stretch;
     }
     .search-box {
-        max-width: none;
+        max-width: 100%;
     }
     .filters {
         justify-content: center;
@@ -697,42 +911,70 @@ body {
         grid-template-columns: 1fr;
     }
     .legend {
-        margin-top: 12px;
+        position: static;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
     .modal-content {
-        margin: 10% auto;
         width: 95%;
+        margin: 20px;
+    }
+    .mini-room {
+        width: 36px;
+        height: 28px;
+    }
+    .mini-room.large-room {
+        width: 42px;
+        height: 28px;
+    }
+    .floor-rooms {
+        gap: 12px;
+    }
+    .room-type-legend {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
     }
 }
 
 @media (max-width: 480px) {
     .floor-buttons {
-        gap: 4px;
+        justify-content: center;
     }
     .floor-btn {
-        padding: 4px 8px;
-        font-size: 12px;
-    }
-    .rooms-grid {
-        gap: 8px;
+        font-size: 11px;
+        padding: 3px 8px;
     }
     .container {
         padding: 0 12px;
     }
     .main-content {
-        padding: 12px 0;
+        padding: 16px 0;
     }
     .floor-row {
-        gap: 8px;
-        padding: 6px 8px;
+        padding: 3px 16px;
+        min-height: 32px;
+    }
+    .floor-label {
+        min-width: 70px;
+        font-size: 12px;
+        padding: 4px 8px;
     }
     .mini-room {
-        width: 24px;
+        width: 32px;
         height: 24px;
         font-size: 9px;
     }
+    .mini-room.large-room {
+        width: 38px;
+        height: 24px;
+    }
     .floor-stats {
-        min-width: 60px;
+        min-width: 120px;
         font-size: 11px;
+        padding: 4px 8px;
+    }
+    .floor-rooms {
+        gap: 10px;
     }
 }
