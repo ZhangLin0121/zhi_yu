@@ -86,9 +86,11 @@ class RoomVisualization {
             this.showLoading();
 
             // 同时加载基本数据和详细数据
+            // 自动检测API基础路径
+            const basePath = window.location.pathname.includes('/rooms/') ? '/rooms' : '';
             const [basicResponse, detailsResponse] = await Promise.all([
-                fetch('/api/rooms'),
-                fetch('/api/rooms/details')
+                fetch(`${basePath}/api/rooms`),
+                fetch(`${basePath}/api/rooms/details`)
             ]);
 
             const basicData = await basicResponse.json();
@@ -621,7 +623,9 @@ class RoomVisualization {
 
             // 如果缓存不可用，则从API获取
             console.log(`缓存未命中，从API获取房间 ${houseIdStr} 详情`);
-            const response = await fetch(`/api/room/${houseIdStr}`);
+            // 自动检测API基础路径
+            const basePath = window.location.pathname.includes('/rooms/') ? '/rooms' : '';
+            const response = await fetch(`${basePath}/api/room/${houseIdStr}`);
             const room = await response.json();
 
             if (room.error) {
@@ -643,7 +647,9 @@ class RoomVisualization {
 
     async updateRoomInfo(houseId, roomData) {
         try {
-            const response = await fetch(`/api/room/${houseId}`, {
+            // 自动检测API基础路径
+            const basePath = window.location.pathname.includes('/rooms/') ? '/rooms' : '';
+            const response = await fetch(`${basePath}/api/room/${houseId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -739,7 +745,9 @@ class RoomVisualization {
 
     async performSearch() {
         try {
-            const response = await fetch(`/api/search?q=${encodeURIComponent(this.searchTerm)}`);
+            // 自动检测API基础路径
+        const basePath = window.location.pathname.includes('/rooms/') ? '/rooms' : '';
+        const response = await fetch(`${basePath}/api/search?q=${encodeURIComponent(this.searchTerm)}`);
             const data = await response.json();
 
             if (data.error) {
