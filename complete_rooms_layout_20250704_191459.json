@@ -1,0 +1,6755 @@
+{
+  "total_rooms": 238,
+  "rooms": [
+    {
+      "house_id": "empty_1_1",
+      "house_name": "之寓·未来-A4栋-1单元-101",
+      "building": 4,
+      "unit": 1,
+      "floor": 1,
+      "room_in_floor": 1,
+      "room_number": "101",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_1_2",
+      "house_name": "之寓·未来-A4栋-1单元-102",
+      "building": 4,
+      "unit": 1,
+      "floor": 1,
+      "room_in_floor": 2,
+      "room_number": "102",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_1_3",
+      "house_name": "之寓·未来-A4栋-1单元-103",
+      "building": 4,
+      "unit": 1,
+      "floor": 1,
+      "room_in_floor": 3,
+      "room_number": "103",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_1_4",
+      "house_name": "之寓·未来-A4栋-1单元-104",
+      "building": 4,
+      "unit": 1,
+      "floor": 1,
+      "room_in_floor": 4,
+      "room_number": "104",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_1_5",
+      "house_name": "之寓·未来-A4栋-1单元-105",
+      "building": 4,
+      "unit": 1,
+      "floor": 1,
+      "room_in_floor": 5,
+      "room_number": "105",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_1_6",
+      "house_name": "之寓·未来-A4栋-1单元-106",
+      "building": 4,
+      "unit": 1,
+      "floor": 1,
+      "room_in_floor": 6,
+      "room_number": "106",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11704,
+      "house_name": "之寓·未来-A4栋-1单元-107",
+      "building": 4,
+      "unit": 1,
+      "floor": 1,
+      "room_in_floor": 7,
+      "room_number": "107",
+      "tenants": [
+        {
+          "id": 25543,
+          "guests_id": "24922",
+          "tenant_name": "张志远",
+          "mobile": "18607145210",
+          "is_main": 1,
+          "certificate_num": "421022200001211816",
+          "emergency_contact": "18871627553",
+          "emergency_mobile": "18871627553",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        },
+        {
+          "id": 25544,
+          "guests_id": "22536",
+          "tenant_name": "刘静怡",
+          "mobile": "19945001600",
+          "is_main": 0,
+          "certificate_num": "42080119880309312X",
+          "emergency_contact": "张志远",
+          "emergency_mobile": "18871627553",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25543,
+        "guests_id": "24922",
+        "tenant_name": "张志远",
+        "mobile": "18607145210",
+        "is_main": 1,
+        "certificate_num": "421022200001211816",
+        "emergency_contact": "18871627553",
+        "emergency_mobile": "18871627553",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": [
+        {
+          "id": 25544,
+          "guests_id": "22536",
+          "tenant_name": "刘静怡",
+          "mobile": "19945001600",
+          "is_main": 0,
+          "certificate_num": "42080119880309312X",
+          "emergency_contact": "张志远",
+          "emergency_mobile": "18871627553",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ]
+    },
+    {
+      "house_id": "empty_1_8",
+      "house_name": "之寓·未来-A4栋-1单元-108",
+      "building": 4,
+      "unit": 1,
+      "floor": 1,
+      "room_in_floor": 8,
+      "room_number": "108",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_1_9",
+      "house_name": "之寓·未来-A4栋-1单元-109",
+      "building": 4,
+      "unit": 1,
+      "floor": 1,
+      "room_in_floor": 9,
+      "room_number": "109",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_1_10",
+      "house_name": "之寓·未来-A4栋-1单元-110",
+      "building": 4,
+      "unit": 1,
+      "floor": 1,
+      "room_in_floor": 10,
+      "room_number": "110",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_2_1",
+      "house_name": "之寓·未来-A4栋-1单元-201",
+      "building": 4,
+      "unit": 1,
+      "floor": 2,
+      "room_in_floor": 1,
+      "room_number": "201",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11709,
+      "house_name": "之寓·未来-A4栋-1单元-202",
+      "building": 4,
+      "unit": 1,
+      "floor": 2,
+      "room_in_floor": 2,
+      "room_number": "202",
+      "tenants": [
+        {
+          "id": 27442,
+          "guests_id": "28220",
+          "tenant_name": "陈可溢",
+          "mobile": "18156929802",
+          "is_main": 1,
+          "certificate_num": "340824200011022440",
+          "emergency_contact": "张志结",
+          "emergency_mobile": "18133060950",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27442,
+        "guests_id": "28220",
+        "tenant_name": "陈可溢",
+        "mobile": "18156929802",
+        "is_main": 1,
+        "certificate_num": "340824200011022440",
+        "emergency_contact": "张志结",
+        "emergency_mobile": "18133060950",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_2_3",
+      "house_name": "之寓·未来-A4栋-1单元-203",
+      "building": 4,
+      "unit": 1,
+      "floor": 2,
+      "room_in_floor": 3,
+      "room_number": "203",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11711,
+      "house_name": "之寓·未来-A4栋-1单元-204",
+      "building": 4,
+      "unit": 1,
+      "floor": 2,
+      "room_in_floor": 4,
+      "room_number": "204",
+      "tenants": [
+        {
+          "id": 25545,
+          "guests_id": "28156",
+          "tenant_name": "代传雪",
+          "mobile": "17313453211",
+          "is_main": 1,
+          "certificate_num": "510504199911160325",
+          "emergency_contact": "雷定蓉",
+          "emergency_mobile": "18113553739",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25545,
+        "guests_id": "28156",
+        "tenant_name": "代传雪",
+        "mobile": "17313453211",
+        "is_main": 1,
+        "certificate_num": "510504199911160325",
+        "emergency_contact": "雷定蓉",
+        "emergency_mobile": "18113553739",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11712,
+      "house_name": "之寓·未来-A4栋-1单元-205",
+      "building": 4,
+      "unit": 1,
+      "floor": 2,
+      "room_in_floor": 5,
+      "room_number": "205",
+      "tenants": [
+        {
+          "id": 25546,
+          "guests_id": "28154",
+          "tenant_name": "朱茜",
+          "mobile": "15038190557",
+          "is_main": 1,
+          "certificate_num": "410105200002100022",
+          "emergency_contact": "望苏雅",
+          "emergency_mobile": "15623906069",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25546,
+        "guests_id": "28154",
+        "tenant_name": "朱茜",
+        "mobile": "15038190557",
+        "is_main": 1,
+        "certificate_num": "410105200002100022",
+        "emergency_contact": "望苏雅",
+        "emergency_mobile": "15623906069",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_2_6",
+      "house_name": "之寓·未来-A4栋-1单元-206",
+      "building": 4,
+      "unit": 1,
+      "floor": 2,
+      "room_in_floor": 6,
+      "room_number": "206",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_2_7",
+      "house_name": "之寓·未来-A4栋-1单元-207",
+      "building": 4,
+      "unit": 1,
+      "floor": 2,
+      "room_in_floor": 7,
+      "room_number": "207",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11715,
+      "house_name": "之寓·未来-A4栋-1单元-208",
+      "building": 4,
+      "unit": 1,
+      "floor": 2,
+      "room_in_floor": 8,
+      "room_number": "208",
+      "tenants": [
+        {
+          "id": 28944,
+          "guests_id": "37777",
+          "tenant_name": "汪芳林",
+          "mobile": "13866027508",
+          "is_main": 1,
+          "certificate_num": "340827200202033424",
+          "emergency_contact": "汪余芳",
+          "emergency_mobile": "18001656291",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 28944,
+        "guests_id": "37777",
+        "tenant_name": "汪芳林",
+        "mobile": "13866027508",
+        "is_main": 1,
+        "certificate_num": "340827200202033424",
+        "emergency_contact": "汪余芳",
+        "emergency_mobile": "18001656291",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11716,
+      "house_name": "之寓·未来-A4栋-1单元-209",
+      "building": 4,
+      "unit": 1,
+      "floor": 2,
+      "room_in_floor": 9,
+      "room_number": "209",
+      "tenants": [
+        {
+          "id": 28956,
+          "guests_id": "37780",
+          "tenant_name": "袁喆",
+          "mobile": "19972052833",
+          "is_main": 1,
+          "certificate_num": "42011520020318321X",
+          "emergency_contact": "朱焕娣",
+          "emergency_mobile": "13871469310",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 28956,
+        "guests_id": "37780",
+        "tenant_name": "袁喆",
+        "mobile": "19972052833",
+        "is_main": 1,
+        "certificate_num": "42011520020318321X",
+        "emergency_contact": "朱焕娣",
+        "emergency_mobile": "13871469310",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11717,
+      "house_name": "之寓·未来-A4栋-1单元-210",
+      "building": 4,
+      "unit": 1,
+      "floor": 2,
+      "room_in_floor": 10,
+      "room_number": "210",
+      "tenants": [
+        {
+          "id": 28963,
+          "guests_id": "37786",
+          "tenant_name": "孙贝孜",
+          "mobile": "16671268786",
+          "is_main": 1,
+          "certificate_num": "420902200209042225",
+          "emergency_contact": "李丽萍",
+          "emergency_mobile": "16671268786",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 28963,
+        "guests_id": "37786",
+        "tenant_name": "孙贝孜",
+        "mobile": "16671268786",
+        "is_main": 1,
+        "certificate_num": "420902200209042225",
+        "emergency_contact": "李丽萍",
+        "emergency_mobile": "16671268786",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11718,
+      "house_name": "之寓·未来-A4栋-1单元-211",
+      "building": 4,
+      "unit": 1,
+      "floor": 2,
+      "room_in_floor": 11,
+      "room_number": "211",
+      "tenants": [
+        {
+          "id": 28983,
+          "guests_id": "37794",
+          "tenant_name": "张玉涵",
+          "mobile": "13969940028",
+          "is_main": 1,
+          "certificate_num": "371302200208160637",
+          "emergency_contact": "张景利",
+          "emergency_mobile": "15963924083",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 28983,
+        "guests_id": "37794",
+        "tenant_name": "张玉涵",
+        "mobile": "13969940028",
+        "is_main": 1,
+        "certificate_num": "371302200208160637",
+        "emergency_contact": "张景利",
+        "emergency_mobile": "15963924083",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_2_12",
+      "house_name": "之寓·未来-A4栋-1单元-212",
+      "building": 4,
+      "unit": 1,
+      "floor": 2,
+      "room_in_floor": 12,
+      "room_number": "212",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_3_1",
+      "house_name": "之寓·未来-A4栋-1单元-301",
+      "building": 4,
+      "unit": 1,
+      "floor": 3,
+      "room_in_floor": 1,
+      "room_number": "301",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11721,
+      "house_name": "之寓·未来-A4栋-1单元-302",
+      "building": 4,
+      "unit": 1,
+      "floor": 3,
+      "room_in_floor": 2,
+      "room_number": "302",
+      "tenants": [
+        {
+          "id": 27443,
+          "guests_id": "28153",
+          "tenant_name": "李依璇",
+          "mobile": "18904370306",
+          "is_main": 1,
+          "certificate_num": "220402200003060028",
+          "emergency_contact": "方友桥",
+          "emergency_mobile": "13897420903",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27443,
+        "guests_id": "28153",
+        "tenant_name": "李依璇",
+        "mobile": "18904370306",
+        "is_main": 1,
+        "certificate_num": "220402200003060028",
+        "emergency_contact": "方友桥",
+        "emergency_mobile": "13897420903",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11722,
+      "house_name": "之寓·未来-A4栋-1单元-303",
+      "building": 4,
+      "unit": 1,
+      "floor": 3,
+      "room_in_floor": 3,
+      "room_number": "303",
+      "tenants": [
+        {
+          "id": 25553,
+          "guests_id": "28697",
+          "tenant_name": "邬沛伶",
+          "mobile": "18229221657",
+          "is_main": 1,
+          "certificate_num": "430407200106210026",
+          "emergency_contact": "邬秀春",
+          "emergency_mobile": "13787346258",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25553,
+        "guests_id": "28697",
+        "tenant_name": "邬沛伶",
+        "mobile": "18229221657",
+        "is_main": 1,
+        "certificate_num": "430407200106210026",
+        "emergency_contact": "邬秀春",
+        "emergency_mobile": "13787346258",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11723,
+      "house_name": "之寓·未来-A4栋-1单元-304",
+      "building": 4,
+      "unit": 1,
+      "floor": 3,
+      "room_in_floor": 4,
+      "room_number": "304",
+      "tenants": [
+        {
+          "id": 28982,
+          "guests_id": "37800",
+          "tenant_name": "邓伊婷",
+          "mobile": "15364470330",
+          "is_main": 1,
+          "certificate_num": "431121200208128789",
+          "emergency_contact": "邓奇",
+          "emergency_mobile": "15869995073",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 28982,
+        "guests_id": "37800",
+        "tenant_name": "邓伊婷",
+        "mobile": "15364470330",
+        "is_main": 1,
+        "certificate_num": "431121200208128789",
+        "emergency_contact": "邓奇",
+        "emergency_mobile": "15869995073",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11724,
+      "house_name": "之寓·未来-A4栋-1单元-305",
+      "building": 4,
+      "unit": 1,
+      "floor": 3,
+      "room_in_floor": 5,
+      "room_number": "305",
+      "tenants": [
+        {
+          "id": 31162,
+          "guests_id": "34576",
+          "tenant_name": "胡艳均",
+          "mobile": "13618639606",
+          "is_main": 1,
+          "certificate_num": "44068120010223422X",
+          "emergency_contact": "林倩梅",
+          "emergency_mobile": "13534479991",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31162,
+        "guests_id": "34576",
+        "tenant_name": "胡艳均",
+        "mobile": "13618639606",
+        "is_main": 1,
+        "certificate_num": "44068120010223422X",
+        "emergency_contact": "林倩梅",
+        "emergency_mobile": "13534479991",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11725,
+      "house_name": "之寓·未来-A4栋-1单元-306",
+      "building": 4,
+      "unit": 1,
+      "floor": 3,
+      "room_in_floor": 6,
+      "room_number": "306",
+      "tenants": [
+        {
+          "id": 31498,
+          "guests_id": "39354",
+          "tenant_name": "兰苗绮",
+          "mobile": "18958971337",
+          "is_main": 1,
+          "certificate_num": "330327200111140428",
+          "emergency_contact": "兰小青",
+          "emergency_mobile": "13958729285",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31498,
+        "guests_id": "39354",
+        "tenant_name": "兰苗绮",
+        "mobile": "18958971337",
+        "is_main": 1,
+        "certificate_num": "330327200111140428",
+        "emergency_contact": "兰小青",
+        "emergency_mobile": "13958729285",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11726,
+      "house_name": "之寓·未来-A4栋-1单元-307",
+      "building": 4,
+      "unit": 1,
+      "floor": 3,
+      "room_in_floor": 7,
+      "room_number": "307",
+      "tenants": [
+        {
+          "id": 25556,
+          "guests_id": "29897",
+          "tenant_name": "赵一阳",
+          "mobile": "13566632347",
+          "is_main": 1,
+          "certificate_num": "330203200012143619",
+          "emergency_contact": "毛叶女",
+          "emergency_mobile": "13957890073",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25556,
+        "guests_id": "29897",
+        "tenant_name": "赵一阳",
+        "mobile": "13566632347",
+        "is_main": 1,
+        "certificate_num": "330203200012143619",
+        "emergency_contact": "毛叶女",
+        "emergency_mobile": "13957890073",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_3_8",
+      "house_name": "之寓·未来-A4栋-1单元-308",
+      "building": 4,
+      "unit": 1,
+      "floor": 3,
+      "room_in_floor": 8,
+      "room_number": "308",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_3_9",
+      "house_name": "之寓·未来-A4栋-1单元-309",
+      "building": 4,
+      "unit": 1,
+      "floor": 3,
+      "room_in_floor": 9,
+      "room_number": "309",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_3_10",
+      "house_name": "之寓·未来-A4栋-1单元-310",
+      "building": 4,
+      "unit": 1,
+      "floor": 3,
+      "room_in_floor": 10,
+      "room_number": "310",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11730,
+      "house_name": "之寓·未来-A4栋-1单元-311",
+      "building": 4,
+      "unit": 1,
+      "floor": 3,
+      "room_in_floor": 11,
+      "room_number": "311",
+      "tenants": [
+        {
+          "id": 25559,
+          "guests_id": "20465",
+          "tenant_name": "樊齐静",
+          "mobile": "18652998279",
+          "is_main": 1,
+          "certificate_num": "410711199709242520",
+          "emergency_contact": "廖祥英",
+          "emergency_mobile": "18237328163",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25559,
+        "guests_id": "20465",
+        "tenant_name": "樊齐静",
+        "mobile": "18652998279",
+        "is_main": 1,
+        "certificate_num": "410711199709242520",
+        "emergency_contact": "廖祥英",
+        "emergency_mobile": "18237328163",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11731,
+      "house_name": "之寓·未来-A4栋-1单元-312",
+      "building": 4,
+      "unit": 1,
+      "floor": 3,
+      "room_in_floor": 12,
+      "room_number": "312",
+      "tenants": [
+        {
+          "id": 25560,
+          "guests_id": "30791",
+          "tenant_name": "袁丽文",
+          "mobile": "15623246990",
+          "is_main": 1,
+          "certificate_num": "360102200010043343",
+          "emergency_contact": "黄庆红",
+          "emergency_mobile": "13697001308",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25560,
+        "guests_id": "30791",
+        "tenant_name": "袁丽文",
+        "mobile": "15623246990",
+        "is_main": 1,
+        "certificate_num": "360102200010043343",
+        "emergency_contact": "黄庆红",
+        "emergency_mobile": "13697001308",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_4_1",
+      "house_name": "之寓·未来-A4栋-1单元-401",
+      "building": 4,
+      "unit": 1,
+      "floor": 4,
+      "room_in_floor": 1,
+      "room_number": "401",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11733,
+      "house_name": "之寓·未来-A4栋-1单元-402",
+      "building": 4,
+      "unit": 1,
+      "floor": 4,
+      "room_in_floor": 2,
+      "room_number": "402",
+      "tenants": [
+        {
+          "id": 25562,
+          "guests_id": "29912",
+          "tenant_name": "钱文琢",
+          "mobile": "15156888322",
+          "is_main": 1,
+          "certificate_num": "340102200012104011",
+          "emergency_contact": "吴素红",
+          "emergency_mobile": "13505513707",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25562,
+        "guests_id": "29912",
+        "tenant_name": "钱文琢",
+        "mobile": "15156888322",
+        "is_main": 1,
+        "certificate_num": "340102200012104011",
+        "emergency_contact": "吴素红",
+        "emergency_mobile": "13505513707",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11734,
+      "house_name": "之寓·未来-A4栋-1单元-403",
+      "building": 4,
+      "unit": 1,
+      "floor": 4,
+      "room_in_floor": 3,
+      "room_number": "403",
+      "tenants": [
+        {
+          "id": 25563,
+          "guests_id": "29770",
+          "tenant_name": "谭亚君",
+          "mobile": "19936480603",
+          "is_main": 1,
+          "certificate_num": "500234200201109571",
+          "emergency_contact": "赵琼",
+          "emergency_mobile": "19936480503",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25563,
+        "guests_id": "29770",
+        "tenant_name": "谭亚君",
+        "mobile": "19936480603",
+        "is_main": 1,
+        "certificate_num": "500234200201109571",
+        "emergency_contact": "赵琼",
+        "emergency_mobile": "19936480503",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11735,
+      "house_name": "之寓·未来-A4栋-1单元-404",
+      "building": 4,
+      "unit": 1,
+      "floor": 4,
+      "room_in_floor": 4,
+      "room_number": "404",
+      "tenants": [
+        {
+          "id": 25564,
+          "guests_id": "28188",
+          "tenant_name": "李文婷",
+          "mobile": "15611662799",
+          "is_main": 1,
+          "certificate_num": "110106200003123926",
+          "emergency_contact": "李山宝",
+          "emergency_mobile": "13701162295",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25564,
+        "guests_id": "28188",
+        "tenant_name": "李文婷",
+        "mobile": "15611662799",
+        "is_main": 1,
+        "certificate_num": "110106200003123926",
+        "emergency_contact": "李山宝",
+        "emergency_mobile": "13701162295",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_4_5",
+      "house_name": "之寓·未来-A4栋-1单元-405",
+      "building": 4,
+      "unit": 1,
+      "floor": 4,
+      "room_in_floor": 5,
+      "room_number": "405",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11737,
+      "house_name": "之寓·未来-A4栋-1单元-406",
+      "building": 4,
+      "unit": 1,
+      "floor": 4,
+      "room_in_floor": 6,
+      "room_number": "406",
+      "tenants": [
+        {
+          "id": 31075,
+          "guests_id": "39028",
+          "tenant_name": "孟伟杰",
+          "mobile": "18266283118",
+          "is_main": 1,
+          "certificate_num": "370481200111226038",
+          "emergency_contact": "孟伟杰",
+          "emergency_mobile": "18266283118",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31075,
+        "guests_id": "39028",
+        "tenant_name": "孟伟杰",
+        "mobile": "18266283118",
+        "is_main": 1,
+        "certificate_num": "370481200111226038",
+        "emergency_contact": "孟伟杰",
+        "emergency_mobile": "18266283118",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11738,
+      "house_name": "之寓·未来-A4栋-1单元-407",
+      "building": 4,
+      "unit": 1,
+      "floor": 4,
+      "room_in_floor": 7,
+      "room_number": "407",
+      "tenants": [
+        {
+          "id": 25567,
+          "guests_id": "30979",
+          "tenant_name": "傅翰文",
+          "mobile": "18873627358",
+          "is_main": 1,
+          "certificate_num": "430723200108154212",
+          "emergency_contact": "洪霞",
+          "emergency_mobile": "13875147823",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25567,
+        "guests_id": "30979",
+        "tenant_name": "傅翰文",
+        "mobile": "18873627358",
+        "is_main": 1,
+        "certificate_num": "430723200108154212",
+        "emergency_contact": "洪霞",
+        "emergency_mobile": "13875147823",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11739,
+      "house_name": "之寓·未来-A4栋-1单元-408",
+      "building": 4,
+      "unit": 1,
+      "floor": 4,
+      "room_in_floor": 8,
+      "room_number": "408",
+      "tenants": [
+        {
+          "id": 25568,
+          "guests_id": "29914",
+          "tenant_name": "曾颖琦",
+          "mobile": "15079873095",
+          "is_main": 1,
+          "certificate_num": "360203200108223520",
+          "emergency_contact": "曾伯成",
+          "emergency_mobile": "13979830359",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25568,
+        "guests_id": "29914",
+        "tenant_name": "曾颖琦",
+        "mobile": "15079873095",
+        "is_main": 1,
+        "certificate_num": "360203200108223520",
+        "emergency_contact": "曾伯成",
+        "emergency_mobile": "13979830359",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_4_9",
+      "house_name": "之寓·未来-A4栋-1单元-409",
+      "building": 4,
+      "unit": 1,
+      "floor": 4,
+      "room_in_floor": 9,
+      "room_number": "409",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11741,
+      "house_name": "之寓·未来-A4栋-1单元-410",
+      "building": 4,
+      "unit": 1,
+      "floor": 4,
+      "room_in_floor": 10,
+      "room_number": "410",
+      "tenants": [
+        {
+          "id": 31156,
+          "guests_id": "39111",
+          "tenant_name": "赵国才",
+          "mobile": "15027117340",
+          "is_main": 1,
+          "certificate_num": "421081200305116412",
+          "emergency_contact": "赵慧",
+          "emergency_mobile": "18320945650",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31156,
+        "guests_id": "39111",
+        "tenant_name": "赵国才",
+        "mobile": "15027117340",
+        "is_main": 1,
+        "certificate_num": "421081200305116412",
+        "emergency_contact": "赵慧",
+        "emergency_mobile": "18320945650",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11742,
+      "house_name": "之寓·未来-A4栋-1单元-411",
+      "building": 4,
+      "unit": 1,
+      "floor": 4,
+      "room_in_floor": 11,
+      "room_number": "411",
+      "tenants": [
+        {
+          "id": 25571,
+          "guests_id": "25209",
+          "tenant_name": "叶子俊",
+          "mobile": "15002718626",
+          "is_main": 1,
+          "certificate_num": "420106199309114018",
+          "emergency_contact": "菲",
+          "emergency_mobile": "17852020558",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25571,
+        "guests_id": "25209",
+        "tenant_name": "叶子俊",
+        "mobile": "15002718626",
+        "is_main": 1,
+        "certificate_num": "420106199309114018",
+        "emergency_contact": "菲",
+        "emergency_mobile": "17852020558",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11743,
+      "house_name": "之寓·未来-A4栋-1单元-412",
+      "building": 4,
+      "unit": 1,
+      "floor": 4,
+      "room_in_floor": 12,
+      "room_number": "412",
+      "tenants": [
+        {
+          "id": 31649,
+          "guests_id": "25502",
+          "tenant_name": "彭健",
+          "mobile": "18326452231",
+          "is_main": 1,
+          "certificate_num": "342427200003285514",
+          "emergency_contact": "彭宗云",
+          "emergency_mobile": "15156480524",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31649,
+        "guests_id": "25502",
+        "tenant_name": "彭健",
+        "mobile": "18326452231",
+        "is_main": 1,
+        "certificate_num": "342427200003285514",
+        "emergency_contact": "彭宗云",
+        "emergency_mobile": "15156480524",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_5_1",
+      "house_name": "之寓·未来-A4栋-1单元-501",
+      "building": 4,
+      "unit": 1,
+      "floor": 5,
+      "room_in_floor": 1,
+      "room_number": "501",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_5_2",
+      "house_name": "之寓·未来-A4栋-1单元-502",
+      "building": 4,
+      "unit": 1,
+      "floor": 5,
+      "room_in_floor": 2,
+      "room_number": "502",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11746,
+      "house_name": "之寓·未来-A4栋-1单元-503",
+      "building": 4,
+      "unit": 1,
+      "floor": 5,
+      "room_in_floor": 3,
+      "room_number": "503",
+      "tenants": [
+        {
+          "id": 25573,
+          "guests_id": "31506",
+          "tenant_name": "唐海天",
+          "mobile": "13884086728",
+          "is_main": 1,
+          "certificate_num": "622323200012030034",
+          "emergency_contact": "唐培贤",
+          "emergency_mobile": "13993528802",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25573,
+        "guests_id": "31506",
+        "tenant_name": "唐海天",
+        "mobile": "13884086728",
+        "is_main": 1,
+        "certificate_num": "622323200012030034",
+        "emergency_contact": "唐培贤",
+        "emergency_mobile": "13993528802",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11747,
+      "house_name": "之寓·未来-A4栋-1单元-504",
+      "building": 4,
+      "unit": 1,
+      "floor": 5,
+      "room_in_floor": 4,
+      "room_number": "504",
+      "tenants": [
+        {
+          "id": 25574,
+          "guests_id": "30197",
+          "tenant_name": "杜远腾飞",
+          "mobile": "13368535497",
+          "is_main": 1,
+          "certificate_num": "522501200009290811",
+          "emergency_contact": "贺",
+          "emergency_mobile": "13985326145",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25574,
+        "guests_id": "30197",
+        "tenant_name": "杜远腾飞",
+        "mobile": "13368535497",
+        "is_main": 1,
+        "certificate_num": "522501200009290811",
+        "emergency_contact": "贺",
+        "emergency_mobile": "13985326145",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11748,
+      "house_name": "之寓·未来-A4栋-1单元-505",
+      "building": 4,
+      "unit": 1,
+      "floor": 5,
+      "room_in_floor": 5,
+      "room_number": "505",
+      "tenants": [
+        {
+          "id": 29203,
+          "guests_id": "37775",
+          "tenant_name": "周文翰",
+          "mobile": "15377698729",
+          "is_main": 1,
+          "certificate_num": "421202200210070912",
+          "emergency_contact": "周方亮",
+          "emergency_mobile": "13971800268",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 29203,
+        "guests_id": "37775",
+        "tenant_name": "周文翰",
+        "mobile": "15377698729",
+        "is_main": 1,
+        "certificate_num": "421202200210070912",
+        "emergency_contact": "周方亮",
+        "emergency_mobile": "13971800268",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11749,
+      "house_name": "之寓·未来-A4栋-1单元-506",
+      "building": 4,
+      "unit": 1,
+      "floor": 5,
+      "room_in_floor": 6,
+      "room_number": "506",
+      "tenants": [
+        {
+          "id": 29534,
+          "guests_id": "37835",
+          "tenant_name": "陈雅楠",
+          "mobile": "13980552916",
+          "is_main": 1,
+          "certificate_num": "510131200203116828",
+          "emergency_contact": "自己",
+          "emergency_mobile": "13980552916",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 29534,
+        "guests_id": "37835",
+        "tenant_name": "陈雅楠",
+        "mobile": "13980552916",
+        "is_main": 1,
+        "certificate_num": "510131200203116828",
+        "emergency_contact": "自己",
+        "emergency_mobile": "13980552916",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11750,
+      "house_name": "之寓·未来-A4栋-1单元-507",
+      "building": 4,
+      "unit": 1,
+      "floor": 5,
+      "room_in_floor": 7,
+      "room_number": "507",
+      "tenants": [
+        {
+          "id": 31160,
+          "guests_id": "34381",
+          "tenant_name": "杨慧",
+          "mobile": "17371994752",
+          "is_main": 1,
+          "certificate_num": "430611200109020020",
+          "emergency_contact": "17371994752",
+          "emergency_mobile": "17371994752",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31160,
+        "guests_id": "34381",
+        "tenant_name": "杨慧",
+        "mobile": "17371994752",
+        "is_main": 1,
+        "certificate_num": "430611200109020020",
+        "emergency_contact": "17371994752",
+        "emergency_mobile": "17371994752",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11751,
+      "house_name": "之寓·未来-A4栋-1单元-508",
+      "building": 4,
+      "unit": 1,
+      "floor": 5,
+      "room_in_floor": 8,
+      "room_number": "508",
+      "tenants": [
+        {
+          "id": 25579,
+          "guests_id": "31114",
+          "tenant_name": "谢涵",
+          "mobile": "13593912349",
+          "is_main": 1,
+          "certificate_num": "429004200110310017",
+          "emergency_contact": "尹玲",
+          "emergency_mobile": "13593917366",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25579,
+        "guests_id": "31114",
+        "tenant_name": "谢涵",
+        "mobile": "13593912349",
+        "is_main": 1,
+        "certificate_num": "429004200110310017",
+        "emergency_contact": "尹玲",
+        "emergency_mobile": "13593917366",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11752,
+      "house_name": "之寓·未来-A4栋-1单元-509",
+      "building": 4,
+      "unit": 1,
+      "floor": 5,
+      "room_in_floor": 9,
+      "room_number": "509",
+      "tenants": [
+        {
+          "id": 25580,
+          "guests_id": "31112",
+          "tenant_name": "方谈",
+          "mobile": "18272090024",
+          "is_main": 1,
+          "certificate_num": "420902200104010016",
+          "emergency_contact": "谈红",
+          "emergency_mobile": "13972678451",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25580,
+        "guests_id": "31112",
+        "tenant_name": "方谈",
+        "mobile": "18272090024",
+        "is_main": 1,
+        "certificate_num": "420902200104010016",
+        "emergency_contact": "谈红",
+        "emergency_mobile": "13972678451",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11753,
+      "house_name": "之寓·未来-A4栋-1单元-510",
+      "building": 4,
+      "unit": 1,
+      "floor": 5,
+      "room_in_floor": 10,
+      "room_number": "510",
+      "tenants": [
+        {
+          "id": 25581,
+          "guests_id": "31115",
+          "tenant_name": "曹一帆",
+          "mobile": "13613934002",
+          "is_main": 1,
+          "certificate_num": "410926200104203650",
+          "emergency_contact": "侯银彩",
+          "emergency_mobile": "13643938502",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25581,
+        "guests_id": "31115",
+        "tenant_name": "曹一帆",
+        "mobile": "13613934002",
+        "is_main": 1,
+        "certificate_num": "410926200104203650",
+        "emergency_contact": "侯银彩",
+        "emergency_mobile": "13643938502",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_5_11",
+      "house_name": "之寓·未来-A4栋-1单元-511",
+      "building": 4,
+      "unit": 1,
+      "floor": 5,
+      "room_in_floor": 11,
+      "room_number": "511",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11755,
+      "house_name": "之寓·未来-A4栋-1单元-512",
+      "building": 4,
+      "unit": 1,
+      "floor": 5,
+      "room_in_floor": 12,
+      "room_number": "512",
+      "tenants": [
+        {
+          "id": 25583,
+          "guests_id": "31743",
+          "tenant_name": "陈永润",
+          "mobile": "17608383595",
+          "is_main": 1,
+          "certificate_num": "513902200009180775",
+          "emergency_contact": "曾文英",
+          "emergency_mobile": "18781089276",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25583,
+        "guests_id": "31743",
+        "tenant_name": "陈永润",
+        "mobile": "17608383595",
+        "is_main": 1,
+        "certificate_num": "513902200009180775",
+        "emergency_contact": "曾文英",
+        "emergency_mobile": "18781089276",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11756,
+      "house_name": "之寓·未来-A4栋-1单元-601",
+      "building": 4,
+      "unit": 1,
+      "floor": 6,
+      "room_in_floor": 1,
+      "room_number": "601",
+      "tenants": [
+        {
+          "id": 27438,
+          "guests_id": "28190",
+          "tenant_name": "宫梦晴",
+          "mobile": "15135371034",
+          "is_main": 1,
+          "certificate_num": "341222199909245560",
+          "emergency_contact": "潘宇",
+          "emergency_mobile": "15055511526",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27438,
+        "guests_id": "28190",
+        "tenant_name": "宫梦晴",
+        "mobile": "15135371034",
+        "is_main": 1,
+        "certificate_num": "341222199909245560",
+        "emergency_contact": "潘宇",
+        "emergency_mobile": "15055511526",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11757,
+      "house_name": "之寓·未来-A4栋-1单元-602",
+      "building": 4,
+      "unit": 1,
+      "floor": 6,
+      "room_in_floor": 2,
+      "room_number": "602",
+      "tenants": [
+        {
+          "id": 27440,
+          "guests_id": "29628",
+          "tenant_name": "袁伊",
+          "mobile": "18090488780",
+          "is_main": 1,
+          "certificate_num": "510802200012025823",
+          "emergency_contact": "杜淑华",
+          "emergency_mobile": "13980168780",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27440,
+        "guests_id": "29628",
+        "tenant_name": "袁伊",
+        "mobile": "18090488780",
+        "is_main": 1,
+        "certificate_num": "510802200012025823",
+        "emergency_contact": "杜淑华",
+        "emergency_mobile": "13980168780",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11758,
+      "house_name": "之寓·未来-A4栋-1单元-603",
+      "building": 4,
+      "unit": 1,
+      "floor": 6,
+      "room_in_floor": 3,
+      "room_number": "603",
+      "tenants": [
+        {
+          "id": 25584,
+          "guests_id": "28694",
+          "tenant_name": "吕晟杰",
+          "mobile": "15803419073",
+          "is_main": 1,
+          "certificate_num": "140106200103101236",
+          "emergency_contact": "吕明",
+          "emergency_mobile": "13903410668",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25584,
+        "guests_id": "28694",
+        "tenant_name": "吕晟杰",
+        "mobile": "15803419073",
+        "is_main": 1,
+        "certificate_num": "140106200103101236",
+        "emergency_contact": "吕明",
+        "emergency_mobile": "13903410668",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11759,
+      "house_name": "之寓·未来-A4栋-1单元-604",
+      "building": 4,
+      "unit": 1,
+      "floor": 6,
+      "room_in_floor": 4,
+      "room_number": "604",
+      "tenants": [
+        {
+          "id": 25585,
+          "guests_id": "28515",
+          "tenant_name": "尹远",
+          "mobile": "17786108126",
+          "is_main": 1,
+          "certificate_num": "420984200101262431",
+          "emergency_contact": "王燕",
+          "emergency_mobile": "13317161102",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        },
+        {
+          "id": 25586,
+          "guests_id": "31619",
+          "tenant_name": "董珊珊",
+          "mobile": "17721106927",
+          "is_main": 0,
+          "certificate_num": "421126200212233143",
+          "emergency_contact": "张香玲",
+          "emergency_mobile": "15618558879",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25585,
+        "guests_id": "28515",
+        "tenant_name": "尹远",
+        "mobile": "17786108126",
+        "is_main": 1,
+        "certificate_num": "420984200101262431",
+        "emergency_contact": "王燕",
+        "emergency_mobile": "13317161102",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": [
+        {
+          "id": 25586,
+          "guests_id": "31619",
+          "tenant_name": "董珊珊",
+          "mobile": "17721106927",
+          "is_main": 0,
+          "certificate_num": "421126200212233143",
+          "emergency_contact": "张香玲",
+          "emergency_mobile": "15618558879",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ]
+    },
+    {
+      "house_id": 11760,
+      "house_name": "之寓·未来-A4栋-1单元-605",
+      "building": 4,
+      "unit": 1,
+      "floor": 6,
+      "room_in_floor": 5,
+      "room_number": "605",
+      "tenants": [
+        {
+          "id": 25587,
+          "guests_id": "28553",
+          "tenant_name": "杨雨微",
+          "mobile": "18607165989",
+          "is_main": 1,
+          "certificate_num": "530103199912292544",
+          "emergency_contact": "赵菊仙",
+          "emergency_mobile": "13888509407",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        },
+        {
+          "id": 25588,
+          "guests_id": "32834",
+          "tenant_name": "汪子恒",
+          "mobile": "13865911465",
+          "is_main": 0,
+          "certificate_num": "342502200112110332",
+          "emergency_contact": "杨雨微",
+          "emergency_mobile": "18607165989",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25587,
+        "guests_id": "28553",
+        "tenant_name": "杨雨微",
+        "mobile": "18607165989",
+        "is_main": 1,
+        "certificate_num": "530103199912292544",
+        "emergency_contact": "赵菊仙",
+        "emergency_mobile": "13888509407",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": [
+        {
+          "id": 25588,
+          "guests_id": "32834",
+          "tenant_name": "汪子恒",
+          "mobile": "13865911465",
+          "is_main": 0,
+          "certificate_num": "342502200112110332",
+          "emergency_contact": "杨雨微",
+          "emergency_mobile": "18607165989",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ]
+    },
+    {
+      "house_id": 11761,
+      "house_name": "之寓·未来-A4栋-1单元-606",
+      "building": 4,
+      "unit": 1,
+      "floor": 6,
+      "room_in_floor": 6,
+      "room_number": "606",
+      "tenants": [
+        {
+          "id": 25589,
+          "guests_id": "28555",
+          "tenant_name": "白雨轩",
+          "mobile": "15342783257",
+          "is_main": 1,
+          "certificate_num": "13010220010416002X",
+          "emergency_contact": "张芳苗",
+          "emergency_mobile": "15342783257",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25589,
+        "guests_id": "28555",
+        "tenant_name": "白雨轩",
+        "mobile": "15342783257",
+        "is_main": 1,
+        "certificate_num": "13010220010416002X",
+        "emergency_contact": "张芳苗",
+        "emergency_mobile": "15342783257",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11762,
+      "house_name": "之寓·未来-A4栋-1单元-607",
+      "building": 4,
+      "unit": 1,
+      "floor": 6,
+      "room_in_floor": 7,
+      "room_number": "607",
+      "tenants": [
+        {
+          "id": 25590,
+          "guests_id": "28696",
+          "tenant_name": "欧阳露佳",
+          "mobile": "18771763992",
+          "is_main": 1,
+          "certificate_num": "420581200005271222",
+          "emergency_contact": "阳光寿",
+          "emergency_mobile": "15272134219",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25590,
+        "guests_id": "28696",
+        "tenant_name": "欧阳露佳",
+        "mobile": "18771763992",
+        "is_main": 1,
+        "certificate_num": "420581200005271222",
+        "emergency_contact": "阳光寿",
+        "emergency_mobile": "15272134219",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11763,
+      "house_name": "之寓·未来-A4栋-1单元-608",
+      "building": 4,
+      "unit": 1,
+      "floor": 6,
+      "room_in_floor": 8,
+      "room_number": "608",
+      "tenants": [
+        {
+          "id": 25591,
+          "guests_id": "28519",
+          "tenant_name": "胡廷威",
+          "mobile": "15623206511",
+          "is_main": 1,
+          "certificate_num": "420281200010028837",
+          "emergency_contact": "刘晨玉",
+          "emergency_mobile": "15327266976",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25591,
+        "guests_id": "28519",
+        "tenant_name": "胡廷威",
+        "mobile": "15623206511",
+        "is_main": 1,
+        "certificate_num": "420281200010028837",
+        "emergency_contact": "刘晨玉",
+        "emergency_mobile": "15327266976",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_6_9",
+      "house_name": "之寓·未来-A4栋-1单元-609",
+      "building": 4,
+      "unit": 1,
+      "floor": 6,
+      "room_in_floor": 9,
+      "room_number": "609",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11765,
+      "house_name": "之寓·未来-A4栋-1单元-610",
+      "building": 4,
+      "unit": 1,
+      "floor": 6,
+      "room_in_floor": 10,
+      "room_number": "610",
+      "tenants": [
+        {
+          "id": 25592,
+          "guests_id": "29620",
+          "tenant_name": "梅渝军",
+          "mobile": "13717465898",
+          "is_main": 1,
+          "certificate_num": "500381200102276016",
+          "emergency_contact": "梅名臣",
+          "emergency_mobile": "13717465898",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25592,
+        "guests_id": "29620",
+        "tenant_name": "梅渝军",
+        "mobile": "13717465898",
+        "is_main": 1,
+        "certificate_num": "500381200102276016",
+        "emergency_contact": "梅名臣",
+        "emergency_mobile": "13717465898",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11766,
+      "house_name": "之寓·未来-A4栋-1单元-611",
+      "building": 4,
+      "unit": 1,
+      "floor": 6,
+      "room_in_floor": 11,
+      "room_number": "611",
+      "tenants": [
+        {
+          "id": 27436,
+          "guests_id": "31402",
+          "tenant_name": "俞诗源",
+          "mobile": "18058139389",
+          "is_main": 1,
+          "certificate_num": "339005200105150025",
+          "emergency_contact": "俞革华",
+          "emergency_mobile": "13175117550",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27436,
+        "guests_id": "31402",
+        "tenant_name": "俞诗源",
+        "mobile": "18058139389",
+        "is_main": 1,
+        "certificate_num": "339005200105150025",
+        "emergency_contact": "俞革华",
+        "emergency_mobile": "13175117550",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11767,
+      "house_name": "之寓·未来-A4栋-1单元-612",
+      "building": 4,
+      "unit": 1,
+      "floor": 6,
+      "room_in_floor": 12,
+      "room_number": "612",
+      "tenants": [
+        {
+          "id": 27433,
+          "guests_id": "29595",
+          "tenant_name": "孙晓雨",
+          "mobile": "18627158286",
+          "is_main": 1,
+          "certificate_num": "411525200102053049",
+          "emergency_contact": "孙国年",
+          "emergency_mobile": "18612037649",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27433,
+        "guests_id": "29595",
+        "tenant_name": "孙晓雨",
+        "mobile": "18627158286",
+        "is_main": 1,
+        "certificate_num": "411525200102053049",
+        "emergency_contact": "孙国年",
+        "emergency_mobile": "18612037649",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11768,
+      "house_name": "之寓·未来-A4栋-1单元-701",
+      "building": 4,
+      "unit": 1,
+      "floor": 7,
+      "room_in_floor": 1,
+      "room_number": "701",
+      "tenants": [
+        {
+          "id": 31789,
+          "guests_id": "39528",
+          "tenant_name": "李安东",
+          "mobile": "13593607916",
+          "is_main": 1,
+          "certificate_num": "422823200007290616",
+          "emergency_contact": "李艳",
+          "emergency_mobile": "15171047739",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31789,
+        "guests_id": "39528",
+        "tenant_name": "李安东",
+        "mobile": "13593607916",
+        "is_main": 1,
+        "certificate_num": "422823200007290616",
+        "emergency_contact": "李艳",
+        "emergency_mobile": "15171047739",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11769,
+      "house_name": "之寓·未来-A4栋-1单元-702",
+      "building": 4,
+      "unit": 1,
+      "floor": 7,
+      "room_in_floor": 2,
+      "room_number": "702",
+      "tenants": [
+        {
+          "id": 27437,
+          "guests_id": "31404",
+          "tenant_name": "孙诗睿",
+          "mobile": "18427065232",
+          "is_main": 1,
+          "certificate_num": "220724200108223625",
+          "emergency_contact": "张超杰",
+          "emergency_mobile": "18266357168",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27437,
+        "guests_id": "31404",
+        "tenant_name": "孙诗睿",
+        "mobile": "18427065232",
+        "is_main": 1,
+        "certificate_num": "220724200108223625",
+        "emergency_contact": "张超杰",
+        "emergency_mobile": "18266357168",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11770,
+      "house_name": "之寓·未来-A4栋-1单元-703",
+      "building": 4,
+      "unit": 1,
+      "floor": 7,
+      "room_in_floor": 3,
+      "room_number": "703",
+      "tenants": [
+        {
+          "id": 25595,
+          "guests_id": "27312",
+          "tenant_name": "李长意",
+          "mobile": "15926768212",
+          "is_main": 1,
+          "certificate_num": "421181200207092379",
+          "emergency_contact": "李年旺",
+          "emergency_mobile": "13477609279",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25595,
+        "guests_id": "27312",
+        "tenant_name": "李长意",
+        "mobile": "15926768212",
+        "is_main": 1,
+        "certificate_num": "421181200207092379",
+        "emergency_contact": "李年旺",
+        "emergency_mobile": "13477609279",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11771,
+      "house_name": "之寓·未来-A4栋-1单元-704",
+      "building": 4,
+      "unit": 1,
+      "floor": 7,
+      "room_in_floor": 4,
+      "room_number": "704",
+      "tenants": [
+        {
+          "id": 25596,
+          "guests_id": "27314",
+          "tenant_name": "殷倩雯",
+          "mobile": "17556865687",
+          "is_main": 1,
+          "certificate_num": "341221200102140847",
+          "emergency_contact": "马传扬",
+          "emergency_mobile": "18855813993",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        },
+        {
+          "id": 25597,
+          "guests_id": "27455",
+          "tenant_name": "马传扬",
+          "mobile": "18855813993",
+          "is_main": 0,
+          "certificate_num": "34122120030505579X",
+          "emergency_contact": "殷倩雯",
+          "emergency_mobile": "17556865687",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25596,
+        "guests_id": "27314",
+        "tenant_name": "殷倩雯",
+        "mobile": "17556865687",
+        "is_main": 1,
+        "certificate_num": "341221200102140847",
+        "emergency_contact": "马传扬",
+        "emergency_mobile": "18855813993",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": [
+        {
+          "id": 25597,
+          "guests_id": "27455",
+          "tenant_name": "马传扬",
+          "mobile": "18855813993",
+          "is_main": 0,
+          "certificate_num": "34122120030505579X",
+          "emergency_contact": "殷倩雯",
+          "emergency_mobile": "17556865687",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ]
+    },
+    {
+      "house_id": 11772,
+      "house_name": "之寓·未来-A4栋-1单元-705",
+      "building": 4,
+      "unit": 1,
+      "floor": 7,
+      "room_in_floor": 5,
+      "room_number": "705",
+      "tenants": [
+        {
+          "id": 25598,
+          "guests_id": "29901",
+          "tenant_name": "韦庆昌",
+          "mobile": "18296663705",
+          "is_main": 1,
+          "certificate_num": "36240120001002403X",
+          "emergency_contact": "韦仁祖",
+          "emergency_mobile": "15170813615",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25598,
+        "guests_id": "29901",
+        "tenant_name": "韦庆昌",
+        "mobile": "18296663705",
+        "is_main": 1,
+        "certificate_num": "36240120001002403X",
+        "emergency_contact": "韦仁祖",
+        "emergency_mobile": "15170813615",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_7_6",
+      "house_name": "之寓·未来-A4栋-1单元-706",
+      "building": 4,
+      "unit": 1,
+      "floor": 7,
+      "room_in_floor": 6,
+      "room_number": "706",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_7_7",
+      "house_name": "之寓·未来-A4栋-1单元-707",
+      "building": 4,
+      "unit": 1,
+      "floor": 7,
+      "room_in_floor": 7,
+      "room_number": "707",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11775,
+      "house_name": "之寓·未来-A4栋-1单元-708",
+      "building": 4,
+      "unit": 1,
+      "floor": 7,
+      "room_in_floor": 8,
+      "room_number": "708",
+      "tenants": [
+        {
+          "id": 27753,
+          "guests_id": "36561",
+          "tenant_name": "杨宇",
+          "mobile": "19326497220",
+          "is_main": 1,
+          "certificate_num": "362330200111173794",
+          "emergency_contact": "杨嗣政",
+          "emergency_mobile": "15179302143",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27753,
+        "guests_id": "36561",
+        "tenant_name": "杨宇",
+        "mobile": "19326497220",
+        "is_main": 1,
+        "certificate_num": "362330200111173794",
+        "emergency_contact": "杨嗣政",
+        "emergency_mobile": "15179302143",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11776,
+      "house_name": "之寓·未来-A4栋-1单元-709",
+      "building": 4,
+      "unit": 1,
+      "floor": 7,
+      "room_in_floor": 9,
+      "room_number": "709",
+      "tenants": [
+        {
+          "id": 27798,
+          "guests_id": "34086",
+          "tenant_name": "沈云萌",
+          "mobile": "17607110225",
+          "is_main": 1,
+          "certificate_num": "421087200103018812",
+          "emergency_contact": "代术菊",
+          "emergency_mobile": "17607110225",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27798,
+        "guests_id": "34086",
+        "tenant_name": "沈云萌",
+        "mobile": "17607110225",
+        "is_main": 1,
+        "certificate_num": "421087200103018812",
+        "emergency_contact": "代术菊",
+        "emergency_mobile": "17607110225",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11777,
+      "house_name": "之寓·未来-A4栋-1单元-710",
+      "building": 4,
+      "unit": 1,
+      "floor": 7,
+      "room_in_floor": 10,
+      "room_number": "710",
+      "tenants": [
+        {
+          "id": 30764,
+          "guests_id": "38788",
+          "tenant_name": "周志宏",
+          "mobile": "13664224269",
+          "is_main": 1,
+          "certificate_num": "210202200109044920",
+          "emergency_contact": "董梅",
+          "emergency_mobile": "13998545073",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 30764,
+        "guests_id": "38788",
+        "tenant_name": "周志宏",
+        "mobile": "13664224269",
+        "is_main": 1,
+        "certificate_num": "210202200109044920",
+        "emergency_contact": "董梅",
+        "emergency_mobile": "13998545073",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11778,
+      "house_name": "之寓·未来-A4栋-1单元-711",
+      "building": 4,
+      "unit": 1,
+      "floor": 7,
+      "room_in_floor": 11,
+      "room_number": "711",
+      "tenants": [
+        {
+          "id": 25604,
+          "guests_id": "27445",
+          "tenant_name": "何知明",
+          "mobile": "18971429491",
+          "is_main": 1,
+          "certificate_num": "420102200104042428",
+          "emergency_contact": "王娟",
+          "emergency_mobile": "17720480281",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25604,
+        "guests_id": "27445",
+        "tenant_name": "何知明",
+        "mobile": "18971429491",
+        "is_main": 1,
+        "certificate_num": "420102200104042428",
+        "emergency_contact": "王娟",
+        "emergency_mobile": "17720480281",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11779,
+      "house_name": "之寓·未来-A4栋-1单元-712",
+      "building": 4,
+      "unit": 1,
+      "floor": 7,
+      "room_in_floor": 12,
+      "room_number": "712",
+      "tenants": [
+        {
+          "id": 27432,
+          "guests_id": "31401",
+          "tenant_name": "郝振宇",
+          "mobile": "15247618951",
+          "is_main": 1,
+          "certificate_num": "150429200107090012",
+          "emergency_contact": "刘亚丽",
+          "emergency_mobile": "13948681861",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27432,
+        "guests_id": "31401",
+        "tenant_name": "郝振宇",
+        "mobile": "15247618951",
+        "is_main": 1,
+        "certificate_num": "150429200107090012",
+        "emergency_contact": "刘亚丽",
+        "emergency_mobile": "13948681861",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11780,
+      "house_name": "之寓·未来-A4栋-1单元-801",
+      "building": 4,
+      "unit": 1,
+      "floor": 8,
+      "room_in_floor": 1,
+      "room_number": "801",
+      "tenants": [
+        {
+          "id": 31214,
+          "guests_id": "38824",
+          "tenant_name": "邓萼爽",
+          "mobile": "17868336975",
+          "is_main": 1,
+          "certificate_num": "610525200110020040",
+          "emergency_contact": "马娟",
+          "emergency_mobile": "13772758143",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31214,
+        "guests_id": "38824",
+        "tenant_name": "邓萼爽",
+        "mobile": "17868336975",
+        "is_main": 1,
+        "certificate_num": "610525200110020040",
+        "emergency_contact": "马娟",
+        "emergency_mobile": "13772758143",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11781,
+      "house_name": "之寓·未来-A4栋-1单元-802",
+      "building": 4,
+      "unit": 1,
+      "floor": 8,
+      "room_in_floor": 2,
+      "room_number": "802",
+      "tenants": [
+        {
+          "id": 27637,
+          "guests_id": "28220",
+          "tenant_name": "陈可溢",
+          "mobile": "18156929802",
+          "is_main": 1,
+          "certificate_num": "340824200011022440",
+          "emergency_contact": "张志结",
+          "emergency_mobile": "18133060950",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27637,
+        "guests_id": "28220",
+        "tenant_name": "陈可溢",
+        "mobile": "18156929802",
+        "is_main": 1,
+        "certificate_num": "340824200011022440",
+        "emergency_contact": "张志结",
+        "emergency_mobile": "18133060950",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11782,
+      "house_name": "之寓·未来-A4栋-1单元-803",
+      "building": 4,
+      "unit": 1,
+      "floor": 8,
+      "room_in_floor": 3,
+      "room_number": "803",
+      "tenants": [
+        {
+          "id": 25605,
+          "guests_id": "30287",
+          "tenant_name": "高嘉诺",
+          "mobile": "13659829975",
+          "is_main": 1,
+          "certificate_num": "130132200008095342",
+          "emergency_contact": "高嘉诺",
+          "emergency_mobile": "13659829975",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25605,
+        "guests_id": "30287",
+        "tenant_name": "高嘉诺",
+        "mobile": "13659829975",
+        "is_main": 1,
+        "certificate_num": "130132200008095342",
+        "emergency_contact": "高嘉诺",
+        "emergency_mobile": "13659829975",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11783,
+      "house_name": "之寓·未来-A4栋-1单元-804",
+      "building": 4,
+      "unit": 1,
+      "floor": 8,
+      "room_in_floor": 4,
+      "room_number": "804",
+      "tenants": [
+        {
+          "id": 25606,
+          "guests_id": "25627",
+          "tenant_name": "刘雨廷",
+          "mobile": "17786510312",
+          "is_main": 1,
+          "certificate_num": "420105199807230410",
+          "emergency_contact": "张琦",
+          "emergency_mobile": "15327198072",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25606,
+        "guests_id": "25627",
+        "tenant_name": "刘雨廷",
+        "mobile": "17786510312",
+        "is_main": 1,
+        "certificate_num": "420105199807230410",
+        "emergency_contact": "张琦",
+        "emergency_mobile": "15327198072",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11784,
+      "house_name": "之寓·未来-A4栋-1单元-805",
+      "building": 4,
+      "unit": 1,
+      "floor": 8,
+      "room_in_floor": 5,
+      "room_number": "805",
+      "tenants": [
+        {
+          "id": 25607,
+          "guests_id": "28227",
+          "tenant_name": "张慧",
+          "mobile": "18627092552",
+          "is_main": 1,
+          "certificate_num": "152701200004180340",
+          "emergency_contact": "张卫东",
+          "emergency_mobile": "15547796669",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25607,
+        "guests_id": "28227",
+        "tenant_name": "张慧",
+        "mobile": "18627092552",
+        "is_main": 1,
+        "certificate_num": "152701200004180340",
+        "emergency_contact": "张卫东",
+        "emergency_mobile": "15547796669",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_8_6",
+      "house_name": "之寓·未来-A4栋-1单元-806",
+      "building": 4,
+      "unit": 1,
+      "floor": 8,
+      "room_in_floor": 6,
+      "room_number": "806",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11786,
+      "house_name": "之寓·未来-A4栋-1单元-807",
+      "building": 4,
+      "unit": 1,
+      "floor": 8,
+      "room_in_floor": 7,
+      "room_number": "807",
+      "tenants": [
+        {
+          "id": 31805,
+          "guests_id": "37777",
+          "tenant_name": "汪芳林",
+          "mobile": "13866027508",
+          "is_main": 1,
+          "certificate_num": "340827200202033424",
+          "emergency_contact": "汪余芳",
+          "emergency_mobile": "18001656291",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31805,
+        "guests_id": "37777",
+        "tenant_name": "汪芳林",
+        "mobile": "13866027508",
+        "is_main": 1,
+        "certificate_num": "340827200202033424",
+        "emergency_contact": "汪余芳",
+        "emergency_mobile": "18001656291",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11787,
+      "house_name": "之寓·未来-A4栋-1单元-808",
+      "building": 4,
+      "unit": 1,
+      "floor": 8,
+      "room_in_floor": 8,
+      "room_number": "808",
+      "tenants": [
+        {
+          "id": 31656,
+          "guests_id": "34576",
+          "tenant_name": "胡艳均",
+          "mobile": "13618639606",
+          "is_main": 1,
+          "certificate_num": "44068120010223422X",
+          "emergency_contact": "林倩梅",
+          "emergency_mobile": "13534479991",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31656,
+        "guests_id": "34576",
+        "tenant_name": "胡艳均",
+        "mobile": "13618639606",
+        "is_main": 1,
+        "certificate_num": "44068120010223422X",
+        "emergency_contact": "林倩梅",
+        "emergency_mobile": "13534479991",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11788,
+      "house_name": "之寓·未来-A4栋-1单元-809",
+      "building": 4,
+      "unit": 1,
+      "floor": 8,
+      "room_in_floor": 9,
+      "room_number": "809",
+      "tenants": [
+        {
+          "id": 25611,
+          "guests_id": "23455",
+          "tenant_name": "张天倩",
+          "mobile": "17396122160",
+          "is_main": 1,
+          "certificate_num": "411303200010206782",
+          "emergency_contact": "李重阳",
+          "emergency_mobile": "18972097207",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25611,
+        "guests_id": "23455",
+        "tenant_name": "张天倩",
+        "mobile": "17396122160",
+        "is_main": 1,
+        "certificate_num": "411303200010206782",
+        "emergency_contact": "李重阳",
+        "emergency_mobile": "18972097207",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11789,
+      "house_name": "之寓·未来-A4栋-1单元-810",
+      "building": 4,
+      "unit": 1,
+      "floor": 8,
+      "room_in_floor": 10,
+      "room_number": "810",
+      "tenants": [
+        {
+          "id": 31212,
+          "guests_id": "31858",
+          "tenant_name": "李泽川",
+          "mobile": "18986270215",
+          "is_main": 1,
+          "certificate_num": "140122200003270112",
+          "emergency_contact": "李雄波",
+          "emergency_mobile": "13971006269",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31212,
+        "guests_id": "31858",
+        "tenant_name": "李泽川",
+        "mobile": "18986270215",
+        "is_main": 1,
+        "certificate_num": "140122200003270112",
+        "emergency_contact": "李雄波",
+        "emergency_mobile": "13971006269",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11790,
+      "house_name": "之寓·未来-A4栋-1单元-811",
+      "building": 4,
+      "unit": 1,
+      "floor": 8,
+      "room_in_floor": 11,
+      "room_number": "811",
+      "tenants": [
+        {
+          "id": 27445,
+          "guests_id": "31489",
+          "tenant_name": "方瑞冲",
+          "mobile": "15279849065",
+          "is_main": 1,
+          "certificate_num": "362430200202130031",
+          "emergency_contact": "方治",
+          "emergency_mobile": "13970462141",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27445,
+        "guests_id": "31489",
+        "tenant_name": "方瑞冲",
+        "mobile": "15279849065",
+        "is_main": 1,
+        "certificate_num": "362430200202130031",
+        "emergency_contact": "方治",
+        "emergency_mobile": "13970462141",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11791,
+      "house_name": "之寓·未来-A4栋-1单元-812",
+      "building": 4,
+      "unit": 1,
+      "floor": 8,
+      "room_in_floor": 12,
+      "room_number": "812",
+      "tenants": [
+        {
+          "id": 27434,
+          "guests_id": "28105",
+          "tenant_name": "陈梦瑶",
+          "mobile": "18103853282",
+          "is_main": 1,
+          "certificate_num": "41018520010216202X",
+          "emergency_contact": "陈朝辉",
+          "emergency_mobile": "15188391905",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27434,
+        "guests_id": "28105",
+        "tenant_name": "陈梦瑶",
+        "mobile": "18103853282",
+        "is_main": 1,
+        "certificate_num": "41018520010216202X",
+        "emergency_contact": "陈朝辉",
+        "emergency_mobile": "15188391905",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11792,
+      "house_name": "之寓·未来-A4栋-1单元-901",
+      "building": 4,
+      "unit": 1,
+      "floor": 9,
+      "room_in_floor": 1,
+      "room_number": "901",
+      "tenants": [
+        {
+          "id": 27441,
+          "guests_id": "29423",
+          "tenant_name": "李宝萍",
+          "mobile": "13387201094",
+          "is_main": 1,
+          "certificate_num": "421003200201141526",
+          "emergency_contact": "李红文",
+          "emergency_mobile": "18972155683",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27441,
+        "guests_id": "29423",
+        "tenant_name": "李宝萍",
+        "mobile": "13387201094",
+        "is_main": 1,
+        "certificate_num": "421003200201141526",
+        "emergency_contact": "李红文",
+        "emergency_mobile": "18972155683",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11793,
+      "house_name": "之寓·未来-A4栋-1单元-902",
+      "building": 4,
+      "unit": 1,
+      "floor": 9,
+      "room_in_floor": 2,
+      "room_number": "902",
+      "tenants": [
+        {
+          "id": 27444,
+          "guests_id": "31481",
+          "tenant_name": "刘世杰",
+          "mobile": "18635636100",
+          "is_main": 1,
+          "certificate_num": "140502200105061019",
+          "emergency_contact": "刘婷",
+          "emergency_mobile": "18834698069",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27444,
+        "guests_id": "31481",
+        "tenant_name": "刘世杰",
+        "mobile": "18635636100",
+        "is_main": 1,
+        "certificate_num": "140502200105061019",
+        "emergency_contact": "刘婷",
+        "emergency_mobile": "18834698069",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11794,
+      "house_name": "之寓·未来-A4栋-1单元-903",
+      "building": 4,
+      "unit": 1,
+      "floor": 9,
+      "room_in_floor": 3,
+      "room_number": "903",
+      "tenants": [
+        {
+          "id": 27486,
+          "guests_id": "28218",
+          "tenant_name": "望苏雅",
+          "mobile": "15623906069",
+          "is_main": 1,
+          "certificate_num": "420684200006195027",
+          "emergency_contact": "望庆辉",
+          "emergency_mobile": "18757594636",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27486,
+        "guests_id": "28218",
+        "tenant_name": "望苏雅",
+        "mobile": "15623906069",
+        "is_main": 1,
+        "certificate_num": "420684200006195027",
+        "emergency_contact": "望庆辉",
+        "emergency_mobile": "18757594636",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11795,
+      "house_name": "之寓·未来-A4栋-1单元-904",
+      "building": 4,
+      "unit": 1,
+      "floor": 9,
+      "room_in_floor": 4,
+      "room_number": "904",
+      "tenants": [
+        {
+          "id": 27690,
+          "guests_id": "34066",
+          "tenant_name": "廖胤翔",
+          "mobile": "15572700569",
+          "is_main": 1,
+          "certificate_num": "420502200111308054",
+          "emergency_contact": "廖光荣",
+          "emergency_mobile": "15897518099",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27690,
+        "guests_id": "34066",
+        "tenant_name": "廖胤翔",
+        "mobile": "15572700569",
+        "is_main": 1,
+        "certificate_num": "420502200111308054",
+        "emergency_contact": "廖光荣",
+        "emergency_mobile": "15897518099",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_9_5",
+      "house_name": "之寓·未来-A4栋-1单元-905",
+      "building": 4,
+      "unit": 1,
+      "floor": 9,
+      "room_in_floor": 5,
+      "room_number": "905",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_9_6",
+      "house_name": "之寓·未来-A4栋-1单元-906",
+      "building": 4,
+      "unit": 1,
+      "floor": 9,
+      "room_in_floor": 6,
+      "room_number": "906",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11798,
+      "house_name": "之寓·未来-A4栋-1单元-907",
+      "building": 4,
+      "unit": 1,
+      "floor": 9,
+      "room_in_floor": 7,
+      "room_number": "907",
+      "tenants": [
+        {
+          "id": 27691,
+          "guests_id": "34068",
+          "tenant_name": "王聪",
+          "mobile": "19156217986",
+          "is_main": 1,
+          "certificate_num": "34071120010715001X",
+          "emergency_contact": "施鲜凤",
+          "emergency_mobile": "13365623915",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27691,
+        "guests_id": "34068",
+        "tenant_name": "王聪",
+        "mobile": "19156217986",
+        "is_main": 1,
+        "certificate_num": "34071120010715001X",
+        "emergency_contact": "施鲜凤",
+        "emergency_mobile": "13365623915",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11799,
+      "house_name": "之寓·未来-A4栋-1单元-908",
+      "building": 4,
+      "unit": 1,
+      "floor": 9,
+      "room_in_floor": 8,
+      "room_number": "908",
+      "tenants": [
+        {
+          "id": 31644,
+          "guests_id": "23484",
+          "tenant_name": "张歌杨",
+          "mobile": "18772194946",
+          "is_main": 1,
+          "certificate_num": "421125200006292074",
+          "emergency_contact": "15811826655",
+          "emergency_mobile": "18772194946",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31644,
+        "guests_id": "23484",
+        "tenant_name": "张歌杨",
+        "mobile": "18772194946",
+        "is_main": 1,
+        "certificate_num": "421125200006292074",
+        "emergency_contact": "15811826655",
+        "emergency_mobile": "18772194946",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11800,
+      "house_name": "之寓·未来-A4栋-1单元-909",
+      "building": 4,
+      "unit": 1,
+      "floor": 9,
+      "room_in_floor": 9,
+      "room_number": "909",
+      "tenants": [
+        {
+          "id": 26870,
+          "guests_id": "35883",
+          "tenant_name": "李阿倩",
+          "mobile": "19881065829",
+          "is_main": 1,
+          "certificate_num": "511129200211300229",
+          "emergency_contact": "兰永学",
+          "emergency_mobile": "15298068208",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 26870,
+        "guests_id": "35883",
+        "tenant_name": "李阿倩",
+        "mobile": "19881065829",
+        "is_main": 1,
+        "certificate_num": "511129200211300229",
+        "emergency_contact": "兰永学",
+        "emergency_mobile": "15298068208",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11801,
+      "house_name": "之寓·未来-A4栋-1单元-910",
+      "building": 4,
+      "unit": 1,
+      "floor": 9,
+      "room_in_floor": 10,
+      "room_number": "910",
+      "tenants": [
+        {
+          "id": 31159,
+          "guests_id": "32478",
+          "tenant_name": "冯子豪",
+          "mobile": "15056871148",
+          "is_main": 1,
+          "certificate_num": "34128120020726421X",
+          "emergency_contact": "游欢",
+          "emergency_mobile": "13527567224",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31159,
+        "guests_id": "32478",
+        "tenant_name": "冯子豪",
+        "mobile": "15056871148",
+        "is_main": 1,
+        "certificate_num": "34128120020726421X",
+        "emergency_contact": "游欢",
+        "emergency_mobile": "13527567224",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11802,
+      "house_name": "之寓·未来-A4栋-1单元-911",
+      "building": 4,
+      "unit": 1,
+      "floor": 9,
+      "room_in_floor": 11,
+      "room_number": "911",
+      "tenants": [
+        {
+          "id": 27447,
+          "guests_id": "31480",
+          "tenant_name": "王赫",
+          "mobile": "15546406766",
+          "is_main": 1,
+          "certificate_num": "23012120000327002X",
+          "emergency_contact": "王晨光",
+          "emergency_mobile": "18645177667",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27447,
+        "guests_id": "31480",
+        "tenant_name": "王赫",
+        "mobile": "15546406766",
+        "is_main": 1,
+        "certificate_num": "23012120000327002X",
+        "emergency_contact": "王晨光",
+        "emergency_mobile": "18645177667",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11803,
+      "house_name": "之寓·未来-A4栋-1单元-912",
+      "building": 4,
+      "unit": 1,
+      "floor": 9,
+      "room_in_floor": 12,
+      "room_number": "912",
+      "tenants": [
+        {
+          "id": 27435,
+          "guests_id": "30195",
+          "tenant_name": "余越洋",
+          "mobile": "18702780598",
+          "is_main": 1,
+          "certificate_num": "411303200004170058",
+          "emergency_contact": "余海滨",
+          "emergency_mobile": "13598286098",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27435,
+        "guests_id": "30195",
+        "tenant_name": "余越洋",
+        "mobile": "18702780598",
+        "is_main": 1,
+        "certificate_num": "411303200004170058",
+        "emergency_contact": "余海滨",
+        "emergency_mobile": "13598286098",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11804,
+      "house_name": "之寓·未来-A4栋-1单元-1001",
+      "building": 4,
+      "unit": 1,
+      "floor": 10,
+      "room_in_floor": 1,
+      "room_number": "1001",
+      "tenants": [
+        {
+          "id": 27572,
+          "guests_id": "30350",
+          "tenant_name": "谢子轩",
+          "mobile": "15927403794",
+          "is_main": 1,
+          "certificate_num": "42011420020305581X",
+          "emergency_contact": "孙娟",
+          "emergency_mobile": "15927401924",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27572,
+        "guests_id": "30350",
+        "tenant_name": "谢子轩",
+        "mobile": "15927403794",
+        "is_main": 1,
+        "certificate_num": "42011420020305581X",
+        "emergency_contact": "孙娟",
+        "emergency_mobile": "15927401924",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_10_2",
+      "house_name": "之寓·未来-A4栋-1单元-1002",
+      "building": 4,
+      "unit": 1,
+      "floor": 10,
+      "room_in_floor": 2,
+      "room_number": "1002",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11806,
+      "house_name": "之寓·未来-A4栋-1单元-1003",
+      "building": 4,
+      "unit": 1,
+      "floor": 10,
+      "room_in_floor": 3,
+      "room_number": "1003",
+      "tenants": [
+        {
+          "id": 27579,
+          "guests_id": "28220",
+          "tenant_name": "陈可溢",
+          "mobile": "18156929802",
+          "is_main": 1,
+          "certificate_num": "340824200011022440",
+          "emergency_contact": "张志结",
+          "emergency_mobile": "18133060950",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27579,
+        "guests_id": "28220",
+        "tenant_name": "陈可溢",
+        "mobile": "18156929802",
+        "is_main": 1,
+        "certificate_num": "340824200011022440",
+        "emergency_contact": "张志结",
+        "emergency_mobile": "18133060950",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11807,
+      "house_name": "之寓·未来-A4栋-1单元-1004",
+      "building": 4,
+      "unit": 1,
+      "floor": 10,
+      "room_in_floor": 4,
+      "room_number": "1004",
+      "tenants": [
+        {
+          "id": 31808,
+          "guests_id": "37786",
+          "tenant_name": "孙贝孜",
+          "mobile": "16671268786",
+          "is_main": 1,
+          "certificate_num": "420902200209042225",
+          "emergency_contact": "李丽萍",
+          "emergency_mobile": "16671268786",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31808,
+        "guests_id": "37786",
+        "tenant_name": "孙贝孜",
+        "mobile": "16671268786",
+        "is_main": 1,
+        "certificate_num": "420902200209042225",
+        "emergency_contact": "李丽萍",
+        "emergency_mobile": "16671268786",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_10_5",
+      "house_name": "之寓·未来-A4栋-1单元-1005",
+      "building": 4,
+      "unit": 1,
+      "floor": 10,
+      "room_in_floor": 5,
+      "room_number": "1005",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11809,
+      "house_name": "之寓·未来-A4栋-1单元-1006",
+      "building": 4,
+      "unit": 1,
+      "floor": 10,
+      "room_in_floor": 6,
+      "room_number": "1006",
+      "tenants": [
+        {
+          "id": 27532,
+          "guests_id": "31507",
+          "tenant_name": "程翔",
+          "mobile": "15527552969",
+          "is_main": 1,
+          "certificate_num": "421023200101257519",
+          "emergency_contact": "李家爱",
+          "emergency_mobile": "18602704928",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27532,
+        "guests_id": "31507",
+        "tenant_name": "程翔",
+        "mobile": "15527552969",
+        "is_main": 1,
+        "certificate_num": "421023200101257519",
+        "emergency_contact": "李家爱",
+        "emergency_mobile": "18602704928",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11810,
+      "house_name": "之寓·未来-A4栋-1单元-1007",
+      "building": 4,
+      "unit": 1,
+      "floor": 10,
+      "room_in_floor": 7,
+      "room_number": "1007",
+      "tenants": [
+        {
+          "id": 31759,
+          "guests_id": "39533",
+          "tenant_name": "易峰名",
+          "mobile": "18383027148",
+          "is_main": 1,
+          "certificate_num": "510521200201222896",
+          "emergency_contact": "谢天祺",
+          "emergency_mobile": "13123957718",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31759,
+        "guests_id": "39533",
+        "tenant_name": "易峰名",
+        "mobile": "18383027148",
+        "is_main": 1,
+        "certificate_num": "510521200201222896",
+        "emergency_contact": "谢天祺",
+        "emergency_mobile": "13123957718",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_10_8",
+      "house_name": "之寓·未来-A4栋-1单元-1008",
+      "building": 4,
+      "unit": 1,
+      "floor": 10,
+      "room_in_floor": 8,
+      "room_number": "1008",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11812,
+      "house_name": "之寓·未来-A4栋-1单元-1009",
+      "building": 4,
+      "unit": 1,
+      "floor": 10,
+      "room_in_floor": 9,
+      "room_number": "1009",
+      "tenants": [
+        {
+          "id": 31742,
+          "guests_id": "39529",
+          "tenant_name": "李浩",
+          "mobile": "18971528650",
+          "is_main": 1,
+          "certificate_num": "42130220020921841X",
+          "emergency_contact": "李建伟",
+          "emergency_mobile": "17771829699",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31742,
+        "guests_id": "39529",
+        "tenant_name": "李浩",
+        "mobile": "18971528650",
+        "is_main": 1,
+        "certificate_num": "42130220020921841X",
+        "emergency_contact": "李建伟",
+        "emergency_mobile": "17771829699",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11813,
+      "house_name": "之寓·未来-A4栋-1单元-1010",
+      "building": 4,
+      "unit": 1,
+      "floor": 10,
+      "room_in_floor": 10,
+      "room_number": "1010",
+      "tenants": [
+        {
+          "id": 25626,
+          "guests_id": "31526",
+          "tenant_name": "胡锦灏",
+          "mobile": "15267720690",
+          "is_main": 1,
+          "certificate_num": "330329200108212833",
+          "emergency_contact": "胡家郁",
+          "emergency_mobile": "13706610687",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25626,
+        "guests_id": "31526",
+        "tenant_name": "胡锦灏",
+        "mobile": "15267720690",
+        "is_main": 1,
+        "certificate_num": "330329200108212833",
+        "emergency_contact": "胡家郁",
+        "emergency_mobile": "13706610687",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_10_11",
+      "house_name": "之寓·未来-A4栋-1单元-1011",
+      "building": 4,
+      "unit": 1,
+      "floor": 10,
+      "room_in_floor": 11,
+      "room_number": "1011",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_10_12",
+      "house_name": "之寓·未来-A4栋-1单元-1012",
+      "building": 4,
+      "unit": 1,
+      "floor": 10,
+      "room_in_floor": 12,
+      "room_number": "1012",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11816,
+      "house_name": "之寓·未来-A4栋-1单元-1101",
+      "building": 4,
+      "unit": 1,
+      "floor": 11,
+      "room_in_floor": 1,
+      "room_number": "1101",
+      "tenants": [
+        {
+          "id": 27693,
+          "guests_id": "34069",
+          "tenant_name": "张龙宇",
+          "mobile": "15342290216",
+          "is_main": 1,
+          "certificate_num": "429001200011294614",
+          "emergency_contact": "张祖华",
+          "emergency_mobile": "17762587131",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27693,
+        "guests_id": "34069",
+        "tenant_name": "张龙宇",
+        "mobile": "15342290216",
+        "is_main": 1,
+        "certificate_num": "429001200011294614",
+        "emergency_contact": "张祖华",
+        "emergency_mobile": "17762587131",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_11_2",
+      "house_name": "之寓·未来-A4栋-1单元-1102",
+      "building": 4,
+      "unit": 1,
+      "floor": 11,
+      "room_in_floor": 2,
+      "room_number": "1102",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11818,
+      "house_name": "之寓·未来-A4栋-1单元-1103",
+      "building": 4,
+      "unit": 1,
+      "floor": 11,
+      "room_in_floor": 3,
+      "room_number": "1103",
+      "tenants": [
+        {
+          "id": 29198,
+          "guests_id": "37895",
+          "tenant_name": "罗意琪",
+          "mobile": "15107056266",
+          "is_main": 1,
+          "certificate_num": "362233200107130517",
+          "emergency_contact": "陈丽",
+          "emergency_mobile": "15107952582",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        },
+        {
+          "id": 30765,
+          "guests_id": "38644",
+          "tenant_name": "陈丽",
+          "mobile": "15107952582",
+          "is_main": 0,
+          "certificate_num": "362233200109210545",
+          "emergency_contact": "罗意琪",
+          "emergency_mobile": "15107952582",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 29198,
+        "guests_id": "37895",
+        "tenant_name": "罗意琪",
+        "mobile": "15107056266",
+        "is_main": 1,
+        "certificate_num": "362233200107130517",
+        "emergency_contact": "陈丽",
+        "emergency_mobile": "15107952582",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": [
+        {
+          "id": 30765,
+          "guests_id": "38644",
+          "tenant_name": "陈丽",
+          "mobile": "15107952582",
+          "is_main": 0,
+          "certificate_num": "362233200109210545",
+          "emergency_contact": "罗意琪",
+          "emergency_mobile": "15107952582",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ]
+    },
+    {
+      "house_id": 11819,
+      "house_name": "之寓·未来-A4栋-1单元-1104",
+      "building": 4,
+      "unit": 1,
+      "floor": 11,
+      "room_in_floor": 4,
+      "room_number": "1104",
+      "tenants": [
+        {
+          "id": 31363,
+          "guests_id": "34020",
+          "tenant_name": "刘程",
+          "mobile": "19907306071",
+          "is_main": 1,
+          "certificate_num": "430602200110222555",
+          "emergency_contact": "任继荣",
+          "emergency_mobile": "13975074382",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31363,
+        "guests_id": "34020",
+        "tenant_name": "刘程",
+        "mobile": "19907306071",
+        "is_main": 1,
+        "certificate_num": "430602200110222555",
+        "emergency_contact": "任继荣",
+        "emergency_mobile": "13975074382",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11820,
+      "house_name": "之寓·未来-A4栋-1单元-1105",
+      "building": 4,
+      "unit": 1,
+      "floor": 11,
+      "room_in_floor": 5,
+      "room_number": "1105",
+      "tenants": [
+        {
+          "id": 31364,
+          "guests_id": "34038",
+          "tenant_name": "向田宇",
+          "mobile": "18062616001",
+          "is_main": 1,
+          "certificate_num": "420106200106200413",
+          "emergency_contact": "雷幼蓉",
+          "emergency_mobile": "18963974710",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31364,
+        "guests_id": "34038",
+        "tenant_name": "向田宇",
+        "mobile": "18062616001",
+        "is_main": 1,
+        "certificate_num": "420106200106200413",
+        "emergency_contact": "雷幼蓉",
+        "emergency_mobile": "18963974710",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_11_6",
+      "house_name": "之寓·未来-A4栋-1单元-1106",
+      "building": 4,
+      "unit": 1,
+      "floor": 11,
+      "room_in_floor": 6,
+      "room_number": "1106",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_11_7",
+      "house_name": "之寓·未来-A4栋-1单元-1107",
+      "building": 4,
+      "unit": 1,
+      "floor": 11,
+      "room_in_floor": 7,
+      "room_number": "1107",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_11_8",
+      "house_name": "之寓·未来-A4栋-1单元-1108",
+      "building": 4,
+      "unit": 1,
+      "floor": 11,
+      "room_in_floor": 8,
+      "room_number": "1108",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_11_9",
+      "house_name": "之寓·未来-A4栋-1单元-1109",
+      "building": 4,
+      "unit": 1,
+      "floor": 11,
+      "room_in_floor": 9,
+      "room_number": "1109",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11825,
+      "house_name": "之寓·未来-A4栋-1单元-1110",
+      "building": 4,
+      "unit": 1,
+      "floor": 11,
+      "room_in_floor": 10,
+      "room_number": "1110",
+      "tenants": [
+        {
+          "id": 31641,
+          "guests_id": "26316",
+          "tenant_name": "王向阳",
+          "mobile": "17633932946",
+          "is_main": 1,
+          "certificate_num": "41272420000126837X",
+          "emergency_contact": "耿景林",
+          "emergency_mobile": "15839469008",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31641,
+        "guests_id": "26316",
+        "tenant_name": "王向阳",
+        "mobile": "17633932946",
+        "is_main": 1,
+        "certificate_num": "41272420000126837X",
+        "emergency_contact": "耿景林",
+        "emergency_mobile": "15839469008",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_11_11",
+      "house_name": "之寓·未来-A4栋-1单元-1111",
+      "building": 4,
+      "unit": 1,
+      "floor": 11,
+      "room_in_floor": 11,
+      "room_number": "1111",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_11_12",
+      "house_name": "之寓·未来-A4栋-1单元-1112",
+      "building": 4,
+      "unit": 1,
+      "floor": 11,
+      "room_in_floor": 12,
+      "room_number": "1112",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_12_1",
+      "house_name": "之寓·未来-A4栋-1单元-1201",
+      "building": 4,
+      "unit": 1,
+      "floor": 12,
+      "room_in_floor": 1,
+      "room_number": "1201",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_12_2",
+      "house_name": "之寓·未来-A4栋-1单元-1202",
+      "building": 4,
+      "unit": 1,
+      "floor": 12,
+      "room_in_floor": 2,
+      "room_number": "1202",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_12_3",
+      "house_name": "之寓·未来-A4栋-1单元-1203",
+      "building": 4,
+      "unit": 1,
+      "floor": 12,
+      "room_in_floor": 3,
+      "room_number": "1203",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11831,
+      "house_name": "之寓·未来-A4栋-1单元-1204",
+      "building": 4,
+      "unit": 1,
+      "floor": 12,
+      "room_in_floor": 4,
+      "room_number": "1204",
+      "tenants": [
+        {
+          "id": 25638,
+          "guests_id": "34037",
+          "tenant_name": "刘祥",
+          "mobile": "15831225832",
+          "is_main": 1,
+          "certificate_num": "130627200005272215",
+          "emergency_contact": "魏朝阳",
+          "emergency_mobile": "19831269472",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25638,
+        "guests_id": "34037",
+        "tenant_name": "刘祥",
+        "mobile": "15831225832",
+        "is_main": 1,
+        "certificate_num": "130627200005272215",
+        "emergency_contact": "魏朝阳",
+        "emergency_mobile": "19831269472",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11832,
+      "house_name": "之寓·未来-A4栋-1单元-1205",
+      "building": 4,
+      "unit": 1,
+      "floor": 12,
+      "room_in_floor": 5,
+      "room_number": "1205",
+      "tenants": [
+        {
+          "id": 31163,
+          "guests_id": "34071",
+          "tenant_name": "朱伟",
+          "mobile": "15180652499",
+          "is_main": 1,
+          "certificate_num": "360424200211032530",
+          "emergency_contact": "张华伟",
+          "emergency_mobile": "18062505159",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31163,
+        "guests_id": "34071",
+        "tenant_name": "朱伟",
+        "mobile": "15180652499",
+        "is_main": 1,
+        "certificate_num": "360424200211032530",
+        "emergency_contact": "张华伟",
+        "emergency_mobile": "18062505159",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11833,
+      "house_name": "之寓·未来-A4栋-1单元-1206",
+      "building": 4,
+      "unit": 1,
+      "floor": 12,
+      "room_in_floor": 6,
+      "room_number": "1206",
+      "tenants": [
+        {
+          "id": 25640,
+          "guests_id": "31482",
+          "tenant_name": "林学涛",
+          "mobile": "15705903912",
+          "is_main": 1,
+          "certificate_num": "35012120010222005X",
+          "emergency_contact": "李美英",
+          "emergency_mobile": "13950290849",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25640,
+        "guests_id": "31482",
+        "tenant_name": "林学涛",
+        "mobile": "15705903912",
+        "is_main": 1,
+        "certificate_num": "35012120010222005X",
+        "emergency_contact": "李美英",
+        "emergency_mobile": "13950290849",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11834,
+      "house_name": "之寓·未来-A4栋-1单元-1207",
+      "building": 4,
+      "unit": 1,
+      "floor": 12,
+      "room_in_floor": 7,
+      "room_number": "1207",
+      "tenants": [
+        {
+          "id": 25641,
+          "guests_id": "32418",
+          "tenant_name": "尹美华",
+          "mobile": "17612709331",
+          "is_main": 1,
+          "certificate_num": "430521200306198722",
+          "emergency_contact": "尹红君",
+          "emergency_mobile": "15876621868",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25641,
+        "guests_id": "32418",
+        "tenant_name": "尹美华",
+        "mobile": "17612709331",
+        "is_main": 1,
+        "certificate_num": "430521200306198722",
+        "emergency_contact": "尹红君",
+        "emergency_mobile": "15876621868",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11835,
+      "house_name": "之寓·未来-A4栋-1单元-1208",
+      "building": 4,
+      "unit": 1,
+      "floor": 12,
+      "room_in_floor": 8,
+      "room_number": "1208",
+      "tenants": [
+        {
+          "id": 27694,
+          "guests_id": "33996",
+          "tenant_name": "张紫玥",
+          "mobile": "15797206979",
+          "is_main": 1,
+          "certificate_num": "420982200112010026",
+          "emergency_contact": "孙海霞",
+          "emergency_mobile": "15797206979",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27694,
+        "guests_id": "33996",
+        "tenant_name": "张紫玥",
+        "mobile": "15797206979",
+        "is_main": 1,
+        "certificate_num": "420982200112010026",
+        "emergency_contact": "孙海霞",
+        "emergency_mobile": "15797206979",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_12_9",
+      "house_name": "之寓·未来-A4栋-1单元-1209",
+      "building": 4,
+      "unit": 1,
+      "floor": 12,
+      "room_in_floor": 9,
+      "room_number": "1209",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_12_10",
+      "house_name": "之寓·未来-A4栋-1单元-1210",
+      "building": 4,
+      "unit": 1,
+      "floor": 12,
+      "room_in_floor": 10,
+      "room_number": "1210",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11838,
+      "house_name": "之寓·未来-A4栋-1单元-1211",
+      "building": 4,
+      "unit": 1,
+      "floor": 12,
+      "room_in_floor": 11,
+      "room_number": "1211",
+      "tenants": [
+        {
+          "id": 25644,
+          "guests_id": "24728",
+          "tenant_name": "张道航",
+          "mobile": "17600973686",
+          "is_main": 1,
+          "certificate_num": "110108199802253716",
+          "emergency_contact": "张善海",
+          "emergency_mobile": "13801100763",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25644,
+        "guests_id": "24728",
+        "tenant_name": "张道航",
+        "mobile": "17600973686",
+        "is_main": 1,
+        "certificate_num": "110108199802253716",
+        "emergency_contact": "张善海",
+        "emergency_mobile": "13801100763",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11839,
+      "house_name": "之寓·未来-A4栋-1单元-1212",
+      "building": 4,
+      "unit": 1,
+      "floor": 12,
+      "room_in_floor": 12,
+      "room_number": "1212",
+      "tenants": [
+        {
+          "id": 25645,
+          "guests_id": "24732",
+          "tenant_name": "路旭辉",
+          "mobile": "15101171586",
+          "is_main": 1,
+          "certificate_num": "342601199910230033",
+          "emergency_contact": "许玉梅",
+          "emergency_mobile": "13805655105",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25645,
+        "guests_id": "24732",
+        "tenant_name": "路旭辉",
+        "mobile": "15101171586",
+        "is_main": 1,
+        "certificate_num": "342601199910230033",
+        "emergency_contact": "许玉梅",
+        "emergency_mobile": "13805655105",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_13_1",
+      "house_name": "之寓·未来-A4栋-1单元-1301",
+      "building": 4,
+      "unit": 1,
+      "floor": 13,
+      "room_in_floor": 1,
+      "room_number": "1301",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_13_2",
+      "house_name": "之寓·未来-A4栋-1单元-1302",
+      "building": 4,
+      "unit": 1,
+      "floor": 13,
+      "room_in_floor": 2,
+      "room_number": "1302",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_13_3",
+      "house_name": "之寓·未来-A4栋-1单元-1303",
+      "building": 4,
+      "unit": 1,
+      "floor": 13,
+      "room_in_floor": 3,
+      "room_number": "1303",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_13_4",
+      "house_name": "之寓·未来-A4栋-1单元-1304",
+      "building": 4,
+      "unit": 1,
+      "floor": 13,
+      "room_in_floor": 4,
+      "room_number": "1304",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11844,
+      "house_name": "之寓·未来-A4栋-1单元-1305",
+      "building": 4,
+      "unit": 1,
+      "floor": 13,
+      "room_in_floor": 5,
+      "room_number": "1305",
+      "tenants": [
+        {
+          "id": 25648,
+          "guests_id": "31484",
+          "tenant_name": "徐佳一",
+          "mobile": "13476001655",
+          "is_main": 1,
+          "certificate_num": "420902200102040836",
+          "emergency_contact": "徐桂",
+          "emergency_mobile": "13971271137",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25648,
+        "guests_id": "31484",
+        "tenant_name": "徐佳一",
+        "mobile": "13476001655",
+        "is_main": 1,
+        "certificate_num": "420902200102040836",
+        "emergency_contact": "徐桂",
+        "emergency_mobile": "13971271137",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_13_6",
+      "house_name": "之寓·未来-A4栋-1单元-1306",
+      "building": 4,
+      "unit": 1,
+      "floor": 13,
+      "room_in_floor": 6,
+      "room_number": "1306",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_13_7",
+      "house_name": "之寓·未来-A4栋-1单元-1307",
+      "building": 4,
+      "unit": 1,
+      "floor": 13,
+      "room_in_floor": 7,
+      "room_number": "1307",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11847,
+      "house_name": "之寓·未来-A4栋-1单元-1308",
+      "building": 4,
+      "unit": 1,
+      "floor": 13,
+      "room_in_floor": 8,
+      "room_number": "1308",
+      "tenants": [
+        {
+          "id": 25651,
+          "guests_id": "34270",
+          "tenant_name": "魏慈则",
+          "mobile": "18186688863",
+          "is_main": 1,
+          "certificate_num": "429006199512233920",
+          "emergency_contact": "王雅琳",
+          "emergency_mobile": "15631788902",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25651,
+        "guests_id": "34270",
+        "tenant_name": "魏慈则",
+        "mobile": "18186688863",
+        "is_main": 1,
+        "certificate_num": "429006199512233920",
+        "emergency_contact": "王雅琳",
+        "emergency_mobile": "15631788902",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_13_9",
+      "house_name": "之寓·未来-A4栋-1单元-1309",
+      "building": 4,
+      "unit": 1,
+      "floor": 13,
+      "room_in_floor": 9,
+      "room_number": "1309",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_13_10",
+      "house_name": "之寓·未来-A4栋-1单元-1310",
+      "building": 4,
+      "unit": 1,
+      "floor": 13,
+      "room_in_floor": 10,
+      "room_number": "1310",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_13_11",
+      "house_name": "之寓·未来-A4栋-1单元-1311",
+      "building": 4,
+      "unit": 1,
+      "floor": 13,
+      "room_in_floor": 11,
+      "room_number": "1311",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_13_12",
+      "house_name": "之寓·未来-A4栋-1单元-1312",
+      "building": 4,
+      "unit": 1,
+      "floor": 13,
+      "room_in_floor": 12,
+      "room_number": "1312",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_14_1",
+      "house_name": "之寓·未来-A4栋-1单元-1401",
+      "building": 4,
+      "unit": 1,
+      "floor": 14,
+      "room_in_floor": 1,
+      "room_number": "1401",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_14_2",
+      "house_name": "之寓·未来-A4栋-1单元-1402",
+      "building": 4,
+      "unit": 1,
+      "floor": 14,
+      "room_in_floor": 2,
+      "room_number": "1402",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_14_3",
+      "house_name": "之寓·未来-A4栋-1单元-1403",
+      "building": 4,
+      "unit": 1,
+      "floor": 14,
+      "room_in_floor": 3,
+      "room_number": "1403",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11855,
+      "house_name": "之寓·未来-A4栋-1单元-1404",
+      "building": 4,
+      "unit": 1,
+      "floor": 14,
+      "room_in_floor": 4,
+      "room_number": "1404",
+      "tenants": [
+        {
+          "id": 25654,
+          "guests_id": "32175",
+          "tenant_name": "叶子杰",
+          "mobile": "18042652568",
+          "is_main": 1,
+          "certificate_num": "65230120010604555X",
+          "emergency_contact": "叶建兵",
+          "emergency_mobile": "18999172110",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25654,
+        "guests_id": "32175",
+        "tenant_name": "叶子杰",
+        "mobile": "18042652568",
+        "is_main": 1,
+        "certificate_num": "65230120010604555X",
+        "emergency_contact": "叶建兵",
+        "emergency_mobile": "18999172110",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11856,
+      "house_name": "之寓·未来-A4栋-1单元-1405",
+      "building": 4,
+      "unit": 1,
+      "floor": 14,
+      "room_in_floor": 5,
+      "room_number": "1405",
+      "tenants": [
+        {
+          "id": 25814,
+          "guests_id": "34558",
+          "tenant_name": "周奕濛",
+          "mobile": "15727240012",
+          "is_main": 1,
+          "certificate_num": "420802200211120856",
+          "emergency_contact": "周君武",
+          "emergency_mobile": "13986770825",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25814,
+        "guests_id": "34558",
+        "tenant_name": "周奕濛",
+        "mobile": "15727240012",
+        "is_main": 1,
+        "certificate_num": "420802200211120856",
+        "emergency_contact": "周君武",
+        "emergency_mobile": "13986770825",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11857,
+      "house_name": "之寓·未来-A4栋-1单元-1406",
+      "building": 4,
+      "unit": 1,
+      "floor": 14,
+      "room_in_floor": 6,
+      "room_number": "1406",
+      "tenants": [
+        {
+          "id": 25655,
+          "guests_id": "23545",
+          "tenant_name": "张正旭",
+          "mobile": "15149861767",
+          "is_main": 1,
+          "certificate_num": "152824199904070010",
+          "emergency_contact": "张君毅",
+          "emergency_mobile": "13947822864",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25655,
+        "guests_id": "23545",
+        "tenant_name": "张正旭",
+        "mobile": "15149861767",
+        "is_main": 1,
+        "certificate_num": "152824199904070010",
+        "emergency_contact": "张君毅",
+        "emergency_mobile": "13947822864",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11858,
+      "house_name": "之寓·未来-A4栋-1单元-1407",
+      "building": 4,
+      "unit": 1,
+      "floor": 14,
+      "room_in_floor": 7,
+      "room_number": "1407",
+      "tenants": [
+        {
+          "id": 25656,
+          "guests_id": "29339",
+          "tenant_name": "许怡然",
+          "mobile": "18653825339",
+          "is_main": 1,
+          "certificate_num": "370902200107021840",
+          "emergency_contact": "李东阳",
+          "emergency_mobile": "17633535684",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25656,
+        "guests_id": "29339",
+        "tenant_name": "许怡然",
+        "mobile": "18653825339",
+        "is_main": 1,
+        "certificate_num": "370902200107021840",
+        "emergency_contact": "李东阳",
+        "emergency_mobile": "17633535684",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11859,
+      "house_name": "之寓·未来-A4栋-1单元-1408",
+      "building": 4,
+      "unit": 1,
+      "floor": 14,
+      "room_in_floor": 8,
+      "room_number": "1408",
+      "tenants": [
+        {
+          "id": 25657,
+          "guests_id": "31550",
+          "tenant_name": "张洪瑞",
+          "mobile": "13820010608",
+          "is_main": 1,
+          "certificate_num": "120109200107287010",
+          "emergency_contact": "张法新",
+          "emergency_mobile": "13820010608",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25657,
+        "guests_id": "31550",
+        "tenant_name": "张洪瑞",
+        "mobile": "13820010608",
+        "is_main": 1,
+        "certificate_num": "120109200107287010",
+        "emergency_contact": "张法新",
+        "emergency_mobile": "13820010608",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11860,
+      "house_name": "之寓·未来-A4栋-1单元-1409",
+      "building": 4,
+      "unit": 1,
+      "floor": 14,
+      "room_in_floor": 9,
+      "room_number": "1409",
+      "tenants": [
+        {
+          "id": 25658,
+          "guests_id": "31535",
+          "tenant_name": "汪千一",
+          "mobile": "18346076971",
+          "is_main": 1,
+          "certificate_num": "230103200108087325",
+          "emergency_contact": "汪璋琨",
+          "emergency_mobile": "13763435299",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25658,
+        "guests_id": "31535",
+        "tenant_name": "汪千一",
+        "mobile": "18346076971",
+        "is_main": 1,
+        "certificate_num": "230103200108087325",
+        "emergency_contact": "汪璋琨",
+        "emergency_mobile": "13763435299",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11861,
+      "house_name": "之寓·未来-A4栋-1单元-1410",
+      "building": 4,
+      "unit": 1,
+      "floor": 14,
+      "room_in_floor": 10,
+      "room_number": "1410",
+      "tenants": [
+        {
+          "id": 25659,
+          "guests_id": "31529",
+          "tenant_name": "曹成成",
+          "mobile": "18627019197",
+          "is_main": 1,
+          "certificate_num": "410922200109034539",
+          "emergency_contact": "曹世展",
+          "emergency_mobile": "18506397900",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25659,
+        "guests_id": "31529",
+        "tenant_name": "曹成成",
+        "mobile": "18627019197",
+        "is_main": 1,
+        "certificate_num": "410922200109034539",
+        "emergency_contact": "曹世展",
+        "emergency_mobile": "18506397900",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_14_11",
+      "house_name": "之寓·未来-A4栋-1单元-1411",
+      "building": 4,
+      "unit": 1,
+      "floor": 14,
+      "room_in_floor": 11,
+      "room_number": "1411",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11863,
+      "house_name": "之寓·未来-A4栋-1单元-1412",
+      "building": 4,
+      "unit": 1,
+      "floor": 14,
+      "room_in_floor": 12,
+      "room_number": "1412",
+      "tenants": [
+        {
+          "id": 25660,
+          "guests_id": "27027",
+          "tenant_name": "兰小斌",
+          "mobile": "13121149972",
+          "is_main": 1,
+          "certificate_num": "142631199501274511",
+          "emergency_contact": "石清",
+          "emergency_mobile": "18225512980",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25660,
+        "guests_id": "27027",
+        "tenant_name": "兰小斌",
+        "mobile": "13121149972",
+        "is_main": 1,
+        "certificate_num": "142631199501274511",
+        "emergency_contact": "石清",
+        "emergency_mobile": "18225512980",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11864,
+      "house_name": "之寓·未来-A4栋-1单元-1501",
+      "building": 4,
+      "unit": 1,
+      "floor": 15,
+      "room_in_floor": 1,
+      "room_number": "1501",
+      "tenants": [
+        {
+          "id": 27464,
+          "guests_id": "24920",
+          "tenant_name": "卢崇萱",
+          "mobile": "18717171775",
+          "is_main": 1,
+          "certificate_num": "420107199905280027",
+          "emergency_contact": "陈齐",
+          "emergency_mobile": "13163236566",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27464,
+        "guests_id": "24920",
+        "tenant_name": "卢崇萱",
+        "mobile": "18717171775",
+        "is_main": 1,
+        "certificate_num": "420107199905280027",
+        "emergency_contact": "陈齐",
+        "emergency_mobile": "13163236566",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11865,
+      "house_name": "之寓·未来-A4栋-1单元-1502",
+      "building": 4,
+      "unit": 1,
+      "floor": 15,
+      "room_in_floor": 2,
+      "room_number": "1502",
+      "tenants": [
+        {
+          "id": 27465,
+          "guests_id": "8233",
+          "tenant_name": "文晶晶",
+          "mobile": "13476125255",
+          "is_main": 1,
+          "certificate_num": "42010619870914406X",
+          "emergency_contact": "文浩",
+          "emergency_mobile": "13871287336",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27465,
+        "guests_id": "8233",
+        "tenant_name": "文晶晶",
+        "mobile": "13476125255",
+        "is_main": 1,
+        "certificate_num": "42010619870914406X",
+        "emergency_contact": "文浩",
+        "emergency_mobile": "13871287336",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_15_3",
+      "house_name": "之寓·未来-A4栋-1单元-1503",
+      "building": 4,
+      "unit": 1,
+      "floor": 15,
+      "room_in_floor": 3,
+      "room_number": "1503",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11867,
+      "house_name": "之寓·未来-A4栋-1单元-1504",
+      "building": 4,
+      "unit": 1,
+      "floor": 15,
+      "room_in_floor": 4,
+      "room_number": "1504",
+      "tenants": [
+        {
+          "id": 25661,
+          "guests_id": "31478",
+          "tenant_name": "李京翔",
+          "mobile": "15600123988",
+          "is_main": 1,
+          "certificate_num": "320724200012233013",
+          "emergency_contact": "李保书",
+          "emergency_mobile": "18911450146",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        },
+        {
+          "id": 25662,
+          "guests_id": "32833",
+          "tenant_name": "路梦琪",
+          "mobile": "15684713516",
+          "is_main": 0,
+          "certificate_num": "370305199901084727",
+          "emergency_contact": "李京翔",
+          "emergency_mobile": "15600123988",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25661,
+        "guests_id": "31478",
+        "tenant_name": "李京翔",
+        "mobile": "15600123988",
+        "is_main": 1,
+        "certificate_num": "320724200012233013",
+        "emergency_contact": "李保书",
+        "emergency_mobile": "18911450146",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": [
+        {
+          "id": 25662,
+          "guests_id": "32833",
+          "tenant_name": "路梦琪",
+          "mobile": "15684713516",
+          "is_main": 0,
+          "certificate_num": "370305199901084727",
+          "emergency_contact": "李京翔",
+          "emergency_mobile": "15600123988",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ]
+    },
+    {
+      "house_id": 11868,
+      "house_name": "之寓·未来-A4栋-1单元-1505",
+      "building": 4,
+      "unit": 1,
+      "floor": 15,
+      "room_in_floor": 5,
+      "room_number": "1505",
+      "tenants": [
+        {
+          "id": 31597,
+          "guests_id": "23506",
+          "tenant_name": "孔程浩",
+          "mobile": "13871978880",
+          "is_main": 1,
+          "certificate_num": "421102200010023235",
+          "emergency_contact": "孔小梅",
+          "emergency_mobile": "15072850952",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31597,
+        "guests_id": "23506",
+        "tenant_name": "孔程浩",
+        "mobile": "13871978880",
+        "is_main": 1,
+        "certificate_num": "421102200010023235",
+        "emergency_contact": "孔小梅",
+        "emergency_mobile": "15072850952",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_15_6",
+      "house_name": "之寓·未来-A4栋-1单元-1506",
+      "building": 4,
+      "unit": 1,
+      "floor": 15,
+      "room_in_floor": 6,
+      "room_number": "1506",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_15_7",
+      "house_name": "之寓·未来-A4栋-1单元-1507",
+      "building": 4,
+      "unit": 1,
+      "floor": 15,
+      "room_in_floor": 7,
+      "room_number": "1507",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_15_8",
+      "house_name": "之寓·未来-A4栋-1单元-1508",
+      "building": 4,
+      "unit": 1,
+      "floor": 15,
+      "room_in_floor": 8,
+      "room_number": "1508",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11872,
+      "house_name": "之寓·未来-A4栋-1单元-1509",
+      "building": 4,
+      "unit": 1,
+      "floor": 15,
+      "room_in_floor": 9,
+      "room_number": "1509",
+      "tenants": [
+        {
+          "id": 31596,
+          "guests_id": "23505",
+          "tenant_name": "郑晨旭",
+          "mobile": "15539566606",
+          "is_main": 1,
+          "certificate_num": "41282420000906393X",
+          "emergency_contact": "郑红照",
+          "emergency_mobile": "13839511900",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 31596,
+        "guests_id": "23505",
+        "tenant_name": "郑晨旭",
+        "mobile": "15539566606",
+        "is_main": 1,
+        "certificate_num": "41282420000906393X",
+        "emergency_contact": "郑红照",
+        "emergency_mobile": "13839511900",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11873,
+      "house_name": "之寓·未来-A4栋-1单元-1510",
+      "building": 4,
+      "unit": 1,
+      "floor": 15,
+      "room_in_floor": 10,
+      "room_number": "1510",
+      "tenants": [
+        {
+          "id": 25668,
+          "guests_id": "32484",
+          "tenant_name": "秦泽宇",
+          "mobile": "13037154917",
+          "is_main": 1,
+          "certificate_num": "420105200105252418",
+          "emergency_contact": "秦剑",
+          "emergency_mobile": "13971495719",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25668,
+        "guests_id": "32484",
+        "tenant_name": "秦泽宇",
+        "mobile": "13037154917",
+        "is_main": 1,
+        "certificate_num": "420105200105252418",
+        "emergency_contact": "秦剑",
+        "emergency_mobile": "13971495719",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_15_11",
+      "house_name": "之寓·未来-A4栋-1单元-1511",
+      "building": 4,
+      "unit": 1,
+      "floor": 15,
+      "room_in_floor": 11,
+      "room_number": "1511",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_15_12",
+      "house_name": "之寓·未来-A4栋-1单元-1512",
+      "building": 4,
+      "unit": 1,
+      "floor": 15,
+      "room_in_floor": 12,
+      "room_number": "1512",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_16_1",
+      "house_name": "之寓·未来-A4栋-1单元-1601",
+      "building": 4,
+      "unit": 1,
+      "floor": 16,
+      "room_in_floor": 1,
+      "room_number": "1601",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11877,
+      "house_name": "之寓·未来-A4栋-1单元-1602",
+      "building": 4,
+      "unit": 1,
+      "floor": 16,
+      "room_in_floor": 2,
+      "room_number": "1602",
+      "tenants": [
+        {
+          "id": 25671,
+          "guests_id": "24814",
+          "tenant_name": "刘湘粤",
+          "mobile": "15707351057",
+          "is_main": 1,
+          "certificate_num": "431023200106280031",
+          "emergency_contact": "陈",
+          "emergency_mobile": "13367171649",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25671,
+        "guests_id": "24814",
+        "tenant_name": "刘湘粤",
+        "mobile": "15707351057",
+        "is_main": 1,
+        "certificate_num": "431023200106280031",
+        "emergency_contact": "陈",
+        "emergency_mobile": "13367171649",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11878,
+      "house_name": "之寓·未来-A4栋-1单元-1603",
+      "building": 4,
+      "unit": 1,
+      "floor": 16,
+      "room_in_floor": 3,
+      "room_number": "1603",
+      "tenants": [
+        {
+          "id": 25672,
+          "guests_id": "24905",
+          "tenant_name": "韩国强",
+          "mobile": "15755591408",
+          "is_main": 1,
+          "certificate_num": "142226199802035212",
+          "emergency_contact": "王露",
+          "emergency_mobile": "17711385429",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        },
+        {
+          "id": 25673,
+          "guests_id": "31168",
+          "tenant_name": "杨晓丽",
+          "mobile": "15071419312",
+          "is_main": 0,
+          "certificate_num": "420621199602288667",
+          "emergency_contact": "李艳芳",
+          "emergency_mobile": "18162328848",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25672,
+        "guests_id": "24905",
+        "tenant_name": "韩国强",
+        "mobile": "15755591408",
+        "is_main": 1,
+        "certificate_num": "142226199802035212",
+        "emergency_contact": "王露",
+        "emergency_mobile": "17711385429",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": [
+        {
+          "id": 25673,
+          "guests_id": "31168",
+          "tenant_name": "杨晓丽",
+          "mobile": "15071419312",
+          "is_main": 0,
+          "certificate_num": "420621199602288667",
+          "emergency_contact": "李艳芳",
+          "emergency_mobile": "18162328848",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ]
+    },
+    {
+      "house_id": "empty_16_4",
+      "house_name": "之寓·未来-A4栋-1单元-1604",
+      "building": 4,
+      "unit": 1,
+      "floor": 16,
+      "room_in_floor": 4,
+      "room_number": "1604",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11880,
+      "house_name": "之寓·未来-A4栋-1单元-1605",
+      "building": 4,
+      "unit": 1,
+      "floor": 16,
+      "room_in_floor": 5,
+      "room_number": "1605",
+      "tenants": [
+        {
+          "id": 25675,
+          "guests_id": "31527",
+          "tenant_name": "丁宁",
+          "mobile": "18847649328",
+          "is_main": 1,
+          "certificate_num": "150404200112190918",
+          "emergency_contact": "丁云丰",
+          "emergency_mobile": "13948567932",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25675,
+        "guests_id": "31527",
+        "tenant_name": "丁宁",
+        "mobile": "18847649328",
+        "is_main": 1,
+        "certificate_num": "150404200112190918",
+        "emergency_contact": "丁云丰",
+        "emergency_mobile": "13948567932",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11881,
+      "house_name": "之寓·未来-A4栋-1单元-1606",
+      "building": 4,
+      "unit": 1,
+      "floor": 16,
+      "room_in_floor": 6,
+      "room_number": "1606",
+      "tenants": [
+        {
+          "id": 25676,
+          "guests_id": "31525",
+          "tenant_name": "虞俊文",
+          "mobile": "18907124915",
+          "is_main": 1,
+          "certificate_num": "420115200109150016",
+          "emergency_contact": "曹珍",
+          "emergency_mobile": "13971374955",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25676,
+        "guests_id": "31525",
+        "tenant_name": "虞俊文",
+        "mobile": "18907124915",
+        "is_main": 1,
+        "certificate_num": "420115200109150016",
+        "emergency_contact": "曹珍",
+        "emergency_mobile": "13971374955",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11882,
+      "house_name": "之寓·未来-A4栋-1单元-1607",
+      "building": 4,
+      "unit": 1,
+      "floor": 16,
+      "room_in_floor": 7,
+      "room_number": "1607",
+      "tenants": [
+        {
+          "id": 25677,
+          "guests_id": "31549",
+          "tenant_name": "陈尚峰",
+          "mobile": "13972488221",
+          "is_main": 1,
+          "certificate_num": "420302200105181578",
+          "emergency_contact": "董久容",
+          "emergency_mobile": "13972488221",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25677,
+        "guests_id": "31549",
+        "tenant_name": "陈尚峰",
+        "mobile": "13972488221",
+        "is_main": 1,
+        "certificate_num": "420302200105181578",
+        "emergency_contact": "董久容",
+        "emergency_mobile": "13972488221",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11883,
+      "house_name": "之寓·未来-A4栋-1单元-1608",
+      "building": 4,
+      "unit": 1,
+      "floor": 16,
+      "room_in_floor": 8,
+      "room_number": "1608",
+      "tenants": [
+        {
+          "id": 25678,
+          "guests_id": "29669",
+          "tenant_name": "王宜州",
+          "mobile": "15623766018",
+          "is_main": 1,
+          "certificate_num": "420684200005185011",
+          "emergency_contact": "余艳青",
+          "emergency_mobile": "13986338208",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25678,
+        "guests_id": "29669",
+        "tenant_name": "王宜州",
+        "mobile": "15623766018",
+        "is_main": 1,
+        "certificate_num": "420684200005185011",
+        "emergency_contact": "余艳青",
+        "emergency_mobile": "13986338208",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_16_9",
+      "house_name": "之寓·未来-A4栋-1单元-1609",
+      "building": 4,
+      "unit": 1,
+      "floor": 16,
+      "room_in_floor": 9,
+      "room_number": "1609",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_16_10",
+      "house_name": "之寓·未来-A4栋-1单元-1610",
+      "building": 4,
+      "unit": 1,
+      "floor": 16,
+      "room_in_floor": 10,
+      "room_number": "1610",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_16_11",
+      "house_name": "之寓·未来-A4栋-1单元-1611",
+      "building": 4,
+      "unit": 1,
+      "floor": 16,
+      "room_in_floor": 11,
+      "room_number": "1611",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_16_12",
+      "house_name": "之寓·未来-A4栋-1单元-1612",
+      "building": 4,
+      "unit": 1,
+      "floor": 16,
+      "room_in_floor": 12,
+      "room_number": "1612",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11888,
+      "house_name": "之寓·未来-A4栋-1单元-1701",
+      "building": 4,
+      "unit": 1,
+      "floor": 17,
+      "room_in_floor": 1,
+      "room_number": "1701",
+      "tenants": [
+        {
+          "id": 27448,
+          "guests_id": "36174",
+          "tenant_name": "王兴坤",
+          "mobile": "13249641196",
+          "is_main": 1,
+          "certificate_num": "412326198808180337",
+          "emergency_contact": "王金民",
+          "emergency_mobile": "15896915086",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27448,
+        "guests_id": "36174",
+        "tenant_name": "王兴坤",
+        "mobile": "13249641196",
+        "is_main": 1,
+        "certificate_num": "412326198808180337",
+        "emergency_contact": "王金民",
+        "emergency_mobile": "15896915086",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11889,
+      "house_name": "之寓·未来-A4栋-1单元-1702",
+      "building": 4,
+      "unit": 1,
+      "floor": 17,
+      "room_in_floor": 2,
+      "room_number": "1702",
+      "tenants": [
+        {
+          "id": 27181,
+          "guests_id": "36170",
+          "tenant_name": "朱良俊",
+          "mobile": "17760879369",
+          "is_main": 1,
+          "certificate_num": "340825199803251314",
+          "emergency_contact": "朱灯平",
+          "emergency_mobile": "17730276006",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27181,
+        "guests_id": "36170",
+        "tenant_name": "朱良俊",
+        "mobile": "17760879369",
+        "is_main": 1,
+        "certificate_num": "340825199803251314",
+        "emergency_contact": "朱灯平",
+        "emergency_mobile": "17730276006",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11890,
+      "house_name": "之寓·未来-A4栋-1单元-1703",
+      "building": 4,
+      "unit": 1,
+      "floor": 17,
+      "room_in_floor": 3,
+      "room_number": "1703",
+      "tenants": [
+        {
+          "id": 27399,
+          "guests_id": "36239",
+          "tenant_name": "冯晨",
+          "mobile": "15629168241",
+          "is_main": 1,
+          "certificate_num": "430321199502010110",
+          "emergency_contact": "陈惠",
+          "emergency_mobile": "15073256385",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27399,
+        "guests_id": "36239",
+        "tenant_name": "冯晨",
+        "mobile": "15629168241",
+        "is_main": 1,
+        "certificate_num": "430321199502010110",
+        "emergency_contact": "陈惠",
+        "emergency_mobile": "15073256385",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_17_4",
+      "house_name": "之寓·未来-A4栋-1单元-1704",
+      "building": 4,
+      "unit": 1,
+      "floor": 17,
+      "room_in_floor": 4,
+      "room_number": "1704",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_17_5",
+      "house_name": "之寓·未来-A4栋-1单元-1705",
+      "building": 4,
+      "unit": 1,
+      "floor": 17,
+      "room_in_floor": 5,
+      "room_number": "1705",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_17_6",
+      "house_name": "之寓·未来-A4栋-1单元-1706",
+      "building": 4,
+      "unit": 1,
+      "floor": 17,
+      "room_in_floor": 6,
+      "room_number": "1706",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11894,
+      "house_name": "之寓·未来-A4栋-1单元-1707",
+      "building": 4,
+      "unit": 1,
+      "floor": 17,
+      "room_in_floor": 7,
+      "room_number": "1707",
+      "tenants": [
+        {
+          "id": 30645,
+          "guests_id": "37957",
+          "tenant_name": "田海洋",
+          "mobile": "17764258189",
+          "is_main": 1,
+          "certificate_num": "420529200210190012",
+          "emergency_contact": "刘梦琪",
+          "emergency_mobile": "13545858245",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 30645,
+        "guests_id": "37957",
+        "tenant_name": "田海洋",
+        "mobile": "17764258189",
+        "is_main": 1,
+        "certificate_num": "420529200210190012",
+        "emergency_contact": "刘梦琪",
+        "emergency_mobile": "13545858245",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_17_8",
+      "house_name": "之寓·未来-A4栋-1单元-1708",
+      "building": 4,
+      "unit": 1,
+      "floor": 17,
+      "room_in_floor": 8,
+      "room_number": "1708",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_17_9",
+      "house_name": "之寓·未来-A4栋-1单元-1709",
+      "building": 4,
+      "unit": 1,
+      "floor": 17,
+      "room_in_floor": 9,
+      "room_number": "1709",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_17_10",
+      "house_name": "之寓·未来-A4栋-1单元-1710",
+      "building": 4,
+      "unit": 1,
+      "floor": 17,
+      "room_in_floor": 10,
+      "room_number": "1710",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11898,
+      "house_name": "之寓·未来-A4栋-1单元-1711",
+      "building": 4,
+      "unit": 1,
+      "floor": 17,
+      "room_in_floor": 11,
+      "room_number": "1711",
+      "tenants": [
+        {
+          "id": 30886,
+          "guests_id": "38874",
+          "tenant_name": "李南星",
+          "mobile": "18372280246",
+          "is_main": 1,
+          "certificate_num": "420683200012210047",
+          "emergency_contact": "刘海敏",
+          "emergency_mobile": "13797665248",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 30886,
+        "guests_id": "38874",
+        "tenant_name": "李南星",
+        "mobile": "18372280246",
+        "is_main": 1,
+        "certificate_num": "420683200012210047",
+        "emergency_contact": "刘海敏",
+        "emergency_mobile": "13797665248",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_17_12",
+      "house_name": "之寓·未来-A4栋-1单元-1712",
+      "building": 4,
+      "unit": 1,
+      "floor": 17,
+      "room_in_floor": 12,
+      "room_number": "1712",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11900,
+      "house_name": "之寓·未来-A4栋-1单元-1801",
+      "building": 4,
+      "unit": 1,
+      "floor": 18,
+      "room_in_floor": 1,
+      "room_number": "1801",
+      "tenants": [
+        {
+          "id": 27785,
+          "guests_id": "36504",
+          "tenant_name": "黄柏源",
+          "mobile": "13537729550",
+          "is_main": 1,
+          "certificate_num": "06345910",
+          "emergency_contact": "郭鹏",
+          "emergency_mobile": "18665208366",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27785,
+        "guests_id": "36504",
+        "tenant_name": "黄柏源",
+        "mobile": "13537729550",
+        "is_main": 1,
+        "certificate_num": "06345910",
+        "emergency_contact": "郭鹏",
+        "emergency_mobile": "18665208366",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11901,
+      "house_name": "之寓·未来-A4栋-1单元-1802",
+      "building": 4,
+      "unit": 1,
+      "floor": 18,
+      "room_in_floor": 2,
+      "room_number": "1802",
+      "tenants": [
+        {
+          "id": 27273,
+          "guests_id": "36240",
+          "tenant_name": "罗锋",
+          "mobile": "18772939570",
+          "is_main": 1,
+          "certificate_num": "420323198705070515",
+          "emergency_contact": "杨婷婷",
+          "emergency_mobile": "13872752166",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27273,
+        "guests_id": "36240",
+        "tenant_name": "罗锋",
+        "mobile": "18772939570",
+        "is_main": 1,
+        "certificate_num": "420323198705070515",
+        "emergency_contact": "杨婷婷",
+        "emergency_mobile": "13872752166",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11902,
+      "house_name": "之寓·未来-A4栋-1单元-1803",
+      "building": 4,
+      "unit": 1,
+      "floor": 18,
+      "room_in_floor": 3,
+      "room_number": "1803",
+      "tenants": [
+        {
+          "id": 27272,
+          "guests_id": "36241",
+          "tenant_name": "毛钺文",
+          "mobile": "18872043870",
+          "is_main": 1,
+          "certificate_num": "420325199008086113",
+          "emergency_contact": "毛洪兵",
+          "emergency_mobile": "18872043870",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27272,
+        "guests_id": "36241",
+        "tenant_name": "毛钺文",
+        "mobile": "18872043870",
+        "is_main": 1,
+        "certificate_num": "420325199008086113",
+        "emergency_contact": "毛洪兵",
+        "emergency_mobile": "18872043870",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_18_4",
+      "house_name": "之寓·未来-A4栋-1单元-1804",
+      "building": 4,
+      "unit": 1,
+      "floor": 18,
+      "room_in_floor": 4,
+      "room_number": "1804",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11904,
+      "house_name": "之寓·未来-A4栋-1单元-1805",
+      "building": 4,
+      "unit": 1,
+      "floor": 18,
+      "room_in_floor": 5,
+      "room_number": "1805",
+      "tenants": [
+        {
+          "id": 29442,
+          "guests_id": "37884",
+          "tenant_name": "刘根",
+          "mobile": "15921967501",
+          "is_main": 1,
+          "certificate_num": "420704198805286615",
+          "emergency_contact": "刘雁冰",
+          "emergency_mobile": "13177371839",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 29442,
+        "guests_id": "37884",
+        "tenant_name": "刘根",
+        "mobile": "15921967501",
+        "is_main": 1,
+        "certificate_num": "420704198805286615",
+        "emergency_contact": "刘雁冰",
+        "emergency_mobile": "13177371839",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11905,
+      "house_name": "之寓·未来-A4栋-1单元-1806",
+      "building": 4,
+      "unit": 1,
+      "floor": 18,
+      "room_in_floor": 6,
+      "room_number": "1806",
+      "tenants": [
+        {
+          "id": 29770,
+          "guests_id": "37478",
+          "tenant_name": "袁吉舜",
+          "mobile": "18012966536",
+          "is_main": 1,
+          "certificate_num": "341322200208160418",
+          "emergency_contact": "袁小龙",
+          "emergency_mobile": "18012966536",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 29770,
+        "guests_id": "37478",
+        "tenant_name": "袁吉舜",
+        "mobile": "18012966536",
+        "is_main": 1,
+        "certificate_num": "341322200208160418",
+        "emergency_contact": "袁小龙",
+        "emergency_mobile": "18012966536",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11906,
+      "house_name": "之寓·未来-A4栋-1单元-1807",
+      "building": 4,
+      "unit": 1,
+      "floor": 18,
+      "room_in_floor": 7,
+      "room_number": "1807",
+      "tenants": [
+        {
+          "id": 27628,
+          "guests_id": "36347",
+          "tenant_name": "黄喜",
+          "mobile": "18216347707",
+          "is_main": 1,
+          "certificate_num": "430681200007289343",
+          "emergency_contact": "黄欢",
+          "emergency_mobile": "18216347707",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27628,
+        "guests_id": "36347",
+        "tenant_name": "黄喜",
+        "mobile": "18216347707",
+        "is_main": 1,
+        "certificate_num": "430681200007289343",
+        "emergency_contact": "黄欢",
+        "emergency_mobile": "18216347707",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11907,
+      "house_name": "之寓·未来-A4栋-1单元-1808",
+      "building": 4,
+      "unit": 1,
+      "floor": 18,
+      "room_in_floor": 8,
+      "room_number": "1808",
+      "tenants": [
+        {
+          "id": 30755,
+          "guests_id": "38281",
+          "tenant_name": "吴南",
+          "mobile": "19115283882",
+          "is_main": 1,
+          "certificate_num": "500236200208111386",
+          "emergency_contact": "周少菊",
+          "emergency_mobile": "19936467506",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 30755,
+        "guests_id": "38281",
+        "tenant_name": "吴南",
+        "mobile": "19115283882",
+        "is_main": 1,
+        "certificate_num": "500236200208111386",
+        "emergency_contact": "周少菊",
+        "emergency_mobile": "19936467506",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_18_9",
+      "house_name": "之寓·未来-A4栋-1单元-1809",
+      "building": 4,
+      "unit": 1,
+      "floor": 18,
+      "room_in_floor": 9,
+      "room_number": "1809",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11909,
+      "house_name": "之寓·未来-A4栋-1单元-1810",
+      "building": 4,
+      "unit": 1,
+      "floor": 18,
+      "room_in_floor": 10,
+      "room_number": "1810",
+      "tenants": [
+        {
+          "id": 27285,
+          "guests_id": "36238",
+          "tenant_name": "杨宇璇",
+          "mobile": "19174147573",
+          "is_main": 1,
+          "certificate_num": "430524199912230722",
+          "emergency_contact": "杨立平",
+          "emergency_mobile": "13873901298",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27285,
+        "guests_id": "36238",
+        "tenant_name": "杨宇璇",
+        "mobile": "19174147573",
+        "is_main": 1,
+        "certificate_num": "430524199912230722",
+        "emergency_contact": "杨立平",
+        "emergency_mobile": "13873901298",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11910,
+      "house_name": "之寓·未来-A4栋-1单元-1811",
+      "building": 4,
+      "unit": 1,
+      "floor": 18,
+      "room_in_floor": 11,
+      "room_number": "1811",
+      "tenants": [
+        {
+          "id": 27632,
+          "guests_id": "36541",
+          "tenant_name": "刘桂林",
+          "mobile": "15077879636",
+          "is_main": 1,
+          "certificate_num": "411524200109016025",
+          "emergency_contact": "余世云",
+          "emergency_mobile": "17839721689",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27632,
+        "guests_id": "36541",
+        "tenant_name": "刘桂林",
+        "mobile": "15077879636",
+        "is_main": 1,
+        "certificate_num": "411524200109016025",
+        "emergency_contact": "余世云",
+        "emergency_mobile": "17839721689",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11911,
+      "house_name": "之寓·未来-A4栋-1单元-1812",
+      "building": 4,
+      "unit": 1,
+      "floor": 18,
+      "room_in_floor": 12,
+      "room_number": "1812",
+      "tenants": [
+        {
+          "id": 30406,
+          "guests_id": "38465",
+          "tenant_name": "王健羽",
+          "mobile": "13161692186",
+          "is_main": 1,
+          "certificate_num": "371122199709200018",
+          "emergency_contact": "周明霞",
+          "emergency_mobile": "18810217286",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 30406,
+        "guests_id": "38465",
+        "tenant_name": "王健羽",
+        "mobile": "13161692186",
+        "is_main": 1,
+        "certificate_num": "371122199709200018",
+        "emergency_contact": "周明霞",
+        "emergency_mobile": "18810217286",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11912,
+      "house_name": "之寓·未来-A4栋-1单元-1901",
+      "building": 4,
+      "unit": 1,
+      "floor": 19,
+      "room_in_floor": 1,
+      "room_number": "1901",
+      "tenants": [
+        {
+          "id": 25695,
+          "guests_id": "28387",
+          "tenant_name": "孔璇",
+          "mobile": "13507154584",
+          "is_main": 1,
+          "certificate_num": "42011119811215408X",
+          "emergency_contact": "张志远",
+          "emergency_mobile": "18871627553",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25695,
+        "guests_id": "28387",
+        "tenant_name": "孔璇",
+        "mobile": "13507154584",
+        "is_main": 1,
+        "certificate_num": "42011119811215408X",
+        "emergency_contact": "张志远",
+        "emergency_mobile": "18871627553",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11913,
+      "house_name": "之寓·未来-A4栋-1单元-1902",
+      "building": 4,
+      "unit": 1,
+      "floor": 19,
+      "room_in_floor": 2,
+      "room_number": "1902",
+      "tenants": [
+        {
+          "id": 25696,
+          "guests_id": "28387",
+          "tenant_name": "孔璇",
+          "mobile": "13507154584",
+          "is_main": 1,
+          "certificate_num": "42011119811215408X",
+          "emergency_contact": "张志远",
+          "emergency_mobile": "18871627553",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25696,
+        "guests_id": "28387",
+        "tenant_name": "孔璇",
+        "mobile": "13507154584",
+        "is_main": 1,
+        "certificate_num": "42011119811215408X",
+        "emergency_contact": "张志远",
+        "emergency_mobile": "18871627553",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11914,
+      "house_name": "之寓·未来-A4栋-1单元-1903",
+      "building": 4,
+      "unit": 1,
+      "floor": 19,
+      "room_in_floor": 3,
+      "room_number": "1903",
+      "tenants": [
+        {
+          "id": 30142,
+          "guests_id": "38282",
+          "tenant_name": "尹李祎",
+          "mobile": "18387542624",
+          "is_main": 1,
+          "certificate_num": "533122200205260022",
+          "emergency_contact": "李艳萍",
+          "emergency_mobile": "15987571280",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 30142,
+        "guests_id": "38282",
+        "tenant_name": "尹李祎",
+        "mobile": "18387542624",
+        "is_main": 1,
+        "certificate_num": "533122200205260022",
+        "emergency_contact": "李艳萍",
+        "emergency_mobile": "15987571280",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_19_4",
+      "house_name": "之寓·未来-A4栋-1单元-1904",
+      "building": 4,
+      "unit": 1,
+      "floor": 19,
+      "room_in_floor": 4,
+      "room_number": "1904",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11916,
+      "house_name": "之寓·未来-A4栋-1单元-1905",
+      "building": 4,
+      "unit": 1,
+      "floor": 19,
+      "room_in_floor": 5,
+      "room_number": "1905",
+      "tenants": [
+        {
+          "id": 25698,
+          "guests_id": "31900",
+          "tenant_name": "张炜豪",
+          "mobile": "13080644191",
+          "is_main": 1,
+          "certificate_num": "450304199908090517",
+          "emergency_contact": "张健",
+          "emergency_mobile": "13737708173",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25698,
+        "guests_id": "31900",
+        "tenant_name": "张炜豪",
+        "mobile": "13080644191",
+        "is_main": 1,
+        "certificate_num": "450304199908090517",
+        "emergency_contact": "张健",
+        "emergency_mobile": "13737708173",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11917,
+      "house_name": "之寓·未来-A4栋-1单元-1906",
+      "building": 4,
+      "unit": 1,
+      "floor": 19,
+      "room_in_floor": 6,
+      "room_number": "1906",
+      "tenants": [
+        {
+          "id": 25699,
+          "guests_id": "32314",
+          "tenant_name": "姚贺凯",
+          "mobile": "18304232092",
+          "is_main": 1,
+          "certificate_num": "21142220001221461X",
+          "emergency_contact": "臧红梅",
+          "emergency_mobile": "13464382708",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25699,
+        "guests_id": "32314",
+        "tenant_name": "姚贺凯",
+        "mobile": "18304232092",
+        "is_main": 1,
+        "certificate_num": "21142220001221461X",
+        "emergency_contact": "臧红梅",
+        "emergency_mobile": "13464382708",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11918,
+      "house_name": "之寓·未来-A4栋-1单元-1907",
+      "building": 4,
+      "unit": 1,
+      "floor": 19,
+      "room_in_floor": 7,
+      "room_number": "1907",
+      "tenants": [
+        {
+          "id": 25700,
+          "guests_id": "32478",
+          "tenant_name": "冯子豪",
+          "mobile": "15056871148",
+          "is_main": 1,
+          "certificate_num": "34128120020726421X",
+          "emergency_contact": "游欢",
+          "emergency_mobile": "13527567224",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25700,
+        "guests_id": "32478",
+        "tenant_name": "冯子豪",
+        "mobile": "15056871148",
+        "is_main": 1,
+        "certificate_num": "34128120020726421X",
+        "emergency_contact": "游欢",
+        "emergency_mobile": "13527567224",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11919,
+      "house_name": "之寓·未来-A4栋-1单元-1908",
+      "building": 4,
+      "unit": 1,
+      "floor": 19,
+      "room_in_floor": 8,
+      "room_number": "1908",
+      "tenants": [
+        {
+          "id": 25701,
+          "guests_id": "34020",
+          "tenant_name": "刘程",
+          "mobile": "19907306071",
+          "is_main": 1,
+          "certificate_num": "430602200110222555",
+          "emergency_contact": "任继荣",
+          "emergency_mobile": "13975074382",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25701,
+        "guests_id": "34020",
+        "tenant_name": "刘程",
+        "mobile": "19907306071",
+        "is_main": 1,
+        "certificate_num": "430602200110222555",
+        "emergency_contact": "任继荣",
+        "emergency_mobile": "13975074382",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11920,
+      "house_name": "之寓·未来-A4栋-1单元-1909",
+      "building": 4,
+      "unit": 1,
+      "floor": 19,
+      "room_in_floor": 9,
+      "room_number": "1909",
+      "tenants": [
+        {
+          "id": 25702,
+          "guests_id": "34071",
+          "tenant_name": "朱伟",
+          "mobile": "15180652499",
+          "is_main": 1,
+          "certificate_num": "360424200211032530",
+          "emergency_contact": "张华伟",
+          "emergency_mobile": "18062505159",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25702,
+        "guests_id": "34071",
+        "tenant_name": "朱伟",
+        "mobile": "15180652499",
+        "is_main": 1,
+        "certificate_num": "360424200211032530",
+        "emergency_contact": "张华伟",
+        "emergency_mobile": "18062505159",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11921,
+      "house_name": "之寓·未来-A4栋-1单元-1910",
+      "building": 4,
+      "unit": 1,
+      "floor": 19,
+      "room_in_floor": 10,
+      "room_number": "1910",
+      "tenants": [
+        {
+          "id": 25703,
+          "guests_id": "34038",
+          "tenant_name": "向田宇",
+          "mobile": "18062616001",
+          "is_main": 1,
+          "certificate_num": "420106200106200413",
+          "emergency_contact": "雷幼蓉",
+          "emergency_mobile": "18963974710",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25703,
+        "guests_id": "34038",
+        "tenant_name": "向田宇",
+        "mobile": "18062616001",
+        "is_main": 1,
+        "certificate_num": "420106200106200413",
+        "emergency_contact": "雷幼蓉",
+        "emergency_mobile": "18963974710",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11922,
+      "house_name": "之寓·未来-A4栋-1单元-1911",
+      "building": 4,
+      "unit": 1,
+      "floor": 19,
+      "room_in_floor": 11,
+      "room_number": "1911",
+      "tenants": [
+        {
+          "id": 27803,
+          "guests_id": "36573",
+          "tenant_name": "万惠",
+          "mobile": "15172039868",
+          "is_main": 1,
+          "certificate_num": "420203200010102145",
+          "emergency_contact": "万维龙",
+          "emergency_mobile": "13972804938",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27803,
+        "guests_id": "36573",
+        "tenant_name": "万惠",
+        "mobile": "15172039868",
+        "is_main": 1,
+        "certificate_num": "420203200010102145",
+        "emergency_contact": "万维龙",
+        "emergency_mobile": "13972804938",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11923,
+      "house_name": "之寓·未来-A4栋-1单元-1912",
+      "building": 4,
+      "unit": 1,
+      "floor": 19,
+      "room_in_floor": 12,
+      "room_number": "1912",
+      "tenants": [
+        {
+          "id": 30887,
+          "guests_id": "38872",
+          "tenant_name": "张金子钰",
+          "mobile": "15671672072",
+          "is_main": 1,
+          "certificate_num": "371102200011067825",
+          "emergency_contact": "管庆宇",
+          "emergency_mobile": "18184311624",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 30887,
+        "guests_id": "38872",
+        "tenant_name": "张金子钰",
+        "mobile": "15671672072",
+        "is_main": 1,
+        "certificate_num": "371102200011067825",
+        "emergency_contact": "管庆宇",
+        "emergency_mobile": "18184311624",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_20_1",
+      "house_name": "之寓·未来-A4栋-1单元-2001",
+      "building": 4,
+      "unit": 1,
+      "floor": 20,
+      "room_in_floor": 1,
+      "room_number": "2001",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11925,
+      "house_name": "之寓·未来-A4栋-1单元-2002",
+      "building": 4,
+      "unit": 1,
+      "floor": 20,
+      "room_in_floor": 2,
+      "room_number": "2002",
+      "tenants": [
+        {
+          "id": 28676,
+          "guests_id": "37586",
+          "tenant_name": "杨焯月",
+          "mobile": "18327026392",
+          "is_main": 1,
+          "certificate_num": "41020520000501052X",
+          "emergency_contact": "杨先生",
+          "emergency_mobile": "13598820051",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 28676,
+        "guests_id": "37586",
+        "tenant_name": "杨焯月",
+        "mobile": "18327026392",
+        "is_main": 1,
+        "certificate_num": "41020520000501052X",
+        "emergency_contact": "杨先生",
+        "emergency_mobile": "13598820051",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11926,
+      "house_name": "之寓·未来-A4栋-1单元-2003",
+      "building": 4,
+      "unit": 1,
+      "floor": 20,
+      "room_in_floor": 3,
+      "room_number": "2003",
+      "tenants": [
+        {
+          "id": 28675,
+          "guests_id": "37588",
+          "tenant_name": "邹卫华",
+          "mobile": "15937623628",
+          "is_main": 1,
+          "certificate_num": "411522200111011239",
+          "emergency_contact": "邹业强",
+          "emergency_mobile": "15919126818",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 28675,
+        "guests_id": "37588",
+        "tenant_name": "邹卫华",
+        "mobile": "15937623628",
+        "is_main": 1,
+        "certificate_num": "411522200111011239",
+        "emergency_contact": "邹业强",
+        "emergency_mobile": "15919126818",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11927,
+      "house_name": "之寓·未来-A4栋-1单元-2004",
+      "building": 4,
+      "unit": 1,
+      "floor": 20,
+      "room_in_floor": 4,
+      "room_number": "2004",
+      "tenants": [
+        {
+          "id": 28673,
+          "guests_id": "37592",
+          "tenant_name": "邹一卉",
+          "mobile": "15713801263",
+          "is_main": 1,
+          "certificate_num": "411702200404280868",
+          "emergency_contact": "徐爱梅",
+          "emergency_mobile": "13461865036",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 28673,
+        "guests_id": "37592",
+        "tenant_name": "邹一卉",
+        "mobile": "15713801263",
+        "is_main": 1,
+        "certificate_num": "411702200404280868",
+        "emergency_contact": "徐爱梅",
+        "emergency_mobile": "13461865036",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11928,
+      "house_name": "之寓·未来-A4栋-1单元-2005",
+      "building": 4,
+      "unit": 1,
+      "floor": 20,
+      "room_in_floor": 5,
+      "room_number": "2005",
+      "tenants": [
+        {
+          "id": 28668,
+          "guests_id": "37400",
+          "tenant_name": "刘茜",
+          "mobile": "13545109474",
+          "is_main": 1,
+          "certificate_num": "430524200010268663",
+          "emergency_contact": "夏",
+          "emergency_mobile": "17680241460",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 28668,
+        "guests_id": "37400",
+        "tenant_name": "刘茜",
+        "mobile": "13545109474",
+        "is_main": 1,
+        "certificate_num": "430524200010268663",
+        "emergency_contact": "夏",
+        "emergency_mobile": "17680241460",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_20_6",
+      "house_name": "之寓·未来-A4栋-1单元-2006",
+      "building": 4,
+      "unit": 1,
+      "floor": 20,
+      "room_in_floor": 6,
+      "room_number": "2006",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11930,
+      "house_name": "之寓·未来-A4栋-1单元-2007",
+      "building": 4,
+      "unit": 1,
+      "floor": 20,
+      "room_in_floor": 7,
+      "room_number": "2007",
+      "tenants": [
+        {
+          "id": 25707,
+          "guests_id": "34381",
+          "tenant_name": "杨慧",
+          "mobile": "17371994752",
+          "is_main": 1,
+          "certificate_num": "430611200109020020",
+          "emergency_contact": "17371994752",
+          "emergency_mobile": "17371994752",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25707,
+        "guests_id": "34381",
+        "tenant_name": "杨慧",
+        "mobile": "17371994752",
+        "is_main": 1,
+        "certificate_num": "430611200109020020",
+        "emergency_contact": "17371994752",
+        "emergency_mobile": "17371994752",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11931,
+      "house_name": "之寓·未来-A4栋-1单元-2008",
+      "building": 4,
+      "unit": 1,
+      "floor": 20,
+      "room_in_floor": 8,
+      "room_number": "2008",
+      "tenants": [
+        {
+          "id": 25708,
+          "guests_id": "34576",
+          "tenant_name": "胡艳均",
+          "mobile": "13618639606",
+          "is_main": 1,
+          "certificate_num": "44068120010223422X",
+          "emergency_contact": "林倩梅",
+          "emergency_mobile": "13534479991",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 25708,
+        "guests_id": "34576",
+        "tenant_name": "胡艳均",
+        "mobile": "13618639606",
+        "is_main": 1,
+        "certificate_num": "44068120010223422X",
+        "emergency_contact": "林倩梅",
+        "emergency_mobile": "13534479991",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": 11932,
+      "house_name": "之寓·未来-A4栋-1单元-2009",
+      "building": 4,
+      "unit": 1,
+      "floor": 20,
+      "room_in_floor": 9,
+      "room_number": "2009",
+      "tenants": [
+        {
+          "id": 27887,
+          "guests_id": "35631",
+          "tenant_name": "游好",
+          "mobile": "18650061226",
+          "is_main": 1,
+          "certificate_num": "350102200106011600",
+          "emergency_contact": "游涛乐",
+          "emergency_mobile": "18650061226",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 27887,
+        "guests_id": "35631",
+        "tenant_name": "游好",
+        "mobile": "18650061226",
+        "is_main": 1,
+        "certificate_num": "350102200106011600",
+        "emergency_contact": "游涛乐",
+        "emergency_mobile": "18650061226",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    },
+    {
+      "house_id": "empty_20_10",
+      "house_name": "之寓·未来-A4栋-1单元-2010",
+      "building": 4,
+      "unit": 1,
+      "floor": 20,
+      "room_in_floor": 10,
+      "room_number": "2010",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": "empty_20_11",
+      "house_name": "之寓·未来-A4栋-1单元-2011",
+      "building": 4,
+      "unit": 1,
+      "floor": 20,
+      "room_in_floor": 11,
+      "room_number": "2011",
+      "tenants": [],
+      "main_tenant": null,
+      "co_tenants": [],
+      "is_vacant": true
+    },
+    {
+      "house_id": 11935,
+      "house_name": "之寓·未来-A4栋-1单元-2012",
+      "building": 4,
+      "unit": 1,
+      "floor": 20,
+      "room_in_floor": 12,
+      "room_number": "2012",
+      "tenants": [
+        {
+          "id": 28861,
+          "guests_id": "37716",
+          "tenant_name": "陈秦虎",
+          "mobile": "15291102485",
+          "is_main": 1,
+          "certificate_num": "610422199807254015",
+          "emergency_contact": "陈政斌",
+          "emergency_mobile": "13484406773",
+          "sign_status": 1,
+          "occupancy_flag": 1
+        }
+      ],
+      "main_tenant": {
+        "id": 28861,
+        "guests_id": "37716",
+        "tenant_name": "陈秦虎",
+        "mobile": "15291102485",
+        "is_main": 1,
+        "certificate_num": "610422199807254015",
+        "emergency_contact": "陈政斌",
+        "emergency_mobile": "13484406773",
+        "sign_status": 1,
+        "occupancy_flag": 1
+      },
+      "co_tenants": []
+    }
+  ],
+  "timestamp": "2025-07-04T19:14:59.611243",
+  "layout_info": {
+    "building": "A4栋",
+    "floors": 20,
+    "floor_1_rooms": 10,
+    "regular_floor_rooms": 12,
+    "total_designed_rooms": 238
+  }
+}
