@@ -13,6 +13,14 @@ import re
 from datetime import datetime
 from config import Config
 
+# 尝试导入认证管理器
+try:
+    from auth_manager import get_fresh_auth_info
+    AUTO_AUTH_AVAILABLE = True
+except ImportError:
+    AUTO_AUTH_AVAILABLE = False
+    logging.warning("认证管理器不可用，将使用配置文件中的认证信息")
+
 logger = logging.getLogger(__name__)
 
 
@@ -22,12 +30,45 @@ class RoomsAPIClient:
     def __init__(self):
         """初始化API客户端"""
         self.session = requests.Session()
+        self.auth_refreshed = False
         self.setup_session()
     
     def setup_session(self):
         """配置会话"""
         self.session.headers.update(Config.API_HEADERS)
         self.session.cookies.update(Config.API_COOKIES)
+    
+    def refresh_auth_if_needed(self):
+        """如果需要，刷新认证信息"""
+        if not AUTO_AUTH_AVAILABLE:
+            logger.warning("自动认证不可用，使用配置文件中的认证信息")
+            return False
+        
+        if self.auth_refreshed:
+            logger.info("认证信息已在本次会话中刷新过")
+            return True
+        
+        try:
+            logger.info("尝试获取最新认证信息...")
+            fresh_auth = get_fresh_auth_info()
+            
+            if fresh_auth:
+                # 更新会话cookies
+                self.session.cookies.update(fresh_auth)
+                
+                # 更新配置（可选，用于调试）
+                Config.update_cookies(fresh_auth)
+                
+                self.auth_refreshed = True
+                logger.info("认证信息刷新成功")
+                return True
+            else:
+                logger.error("无法获取最新认证信息")
+                return False
+                
+        except Exception as e:
+            logger.error(f"刷新认证信息时发生错误: {str(e)}")
+            return False
     
     def make_request(self, page_number: int = 1, page_size: int = None) -> Optional[Dict[str, Any]]:
         """
@@ -52,6 +93,16 @@ class RoomsAPIClient:
                     timeout=Config.API_TIMEOUT
                 )
                 
+                # 检查是否是认证失败
+                if response.status_code == 401:
+                    logger.warning("认证失败，尝试刷新认证信息...")
+                    if self.refresh_auth_if_needed():
+                        logger.info("认证信息已刷新，重新尝试请求...")
+                        continue
+                    else:
+                        logger.error("无法刷新认证信息，请求失败")
+                        return None
+                
                 response.raise_for_status()
                 
                 data = response.json()
@@ -61,6 +112,14 @@ class RoomsAPIClient:
                 
             except requests.exceptions.RequestException as e:
                 logger.warning(f"第 {page_number} 页请求失败 (尝试 {attempt + 1}/{Config.API_MAX_RETRIES}): {str(e)}")
+                
+                # 如果是401错误且还没有刷新过认证信息，尝试刷新
+                if "401" in str(e) and not self.auth_refreshed:
+                    logger.warning("检测到401错误，尝试刷新认证信息...")
+                    if self.refresh_auth_if_needed():
+                        logger.info("认证信息已刷新，重新尝试请求...")
+                        continue
+                
                 if attempt < Config.API_MAX_RETRIES - 1:
                     logger.info(f"等待 {Config.API_RETRY_DELAY} 秒后重试...")
                     time.sleep(Config.API_RETRY_DELAY)

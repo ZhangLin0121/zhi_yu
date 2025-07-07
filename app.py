@@ -240,6 +240,46 @@ def get_all_rooms_details():
             'error': str(e)
         }), 500
 
+@app.route('/api/auth/update', methods=['POST'])
+def update_auth():
+    """更新认证信息"""
+    try:
+        auth_data = request.get_json()
+        if not auth_data:
+            return jsonify({'error': '无效的请求数据'}), 400
+        
+        # 尝试导入认证管理器
+        try:
+            from auth_manager import update_auth_info
+            
+            # 验证必要的认证信息
+            required_fields = ['_ams_token', '_common_token']
+            for field in required_fields:
+                if field not in auth_data:
+                    return jsonify({'error': f'缺少必要字段: {field}'}), 400
+            
+            # 更新认证信息
+            if update_auth_info(auth_data):
+                # 重新初始化数据管理器
+                global data_manager
+                data_manager = RoomsDataManager()
+                
+                logger.info("认证信息更新成功")
+                return jsonify({
+                    'success': True,
+                    'message': '认证信息更新成功',
+                    'timestamp': datetime.now().isoformat()
+                })
+            else:
+                return jsonify({'error': '认证信息保存失败'}), 500
+                
+        except ImportError:
+            return jsonify({'error': '认证管理器不可用'}), 500
+            
+    except Exception as e:
+        logger.error(f"更新认证信息失败: {str(e)}")
+        return jsonify({'error': f'更新失败: {str(e)}'}), 500
+
 if __name__ == '__main__':
     # 启动应用
     logger.info("启动房间管理系统...")
