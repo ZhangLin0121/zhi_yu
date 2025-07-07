@@ -36,6 +36,7 @@ pip3 install -r requirements.txt
 echo "🔐 初始化认证..."
 python3 -c "
 from auth_manager import update_auth_info
+# 使用最新有效的认证信息（2025-07-07 测试有效）
 auth = {
     '_ams_token': 'web_cdpi6hgs9ez80cb8jit3emwv2wuh4uo5',
     '_common_token': 'web_cdpi6hgs9ez80cb8jit3emwv2wuh4uo5',
@@ -44,6 +45,16 @@ auth = {
 }
 update_auth_info(auth)
 print('✅ 认证信息已更新')
+
+# 测试认证信息有效性
+from api_client import RoomsDataManager
+manager = RoomsDataManager()
+data = manager.generate_complete_layout()
+if data:
+    occupied_rooms = [r for r in data.get('rooms', []) if r.get('tenants')]
+    print(f'✅ 认证验证成功: {len(occupied_rooms)} 个房间已入住')
+else:
+    print('❌ 认证验证失败')
 "
 
 # 6. 启动应用
