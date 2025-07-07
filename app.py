@@ -28,6 +28,9 @@ auto_auth_lock = threading.Lock()
 last_auth_check = 0
 auth_check_interval = 300  # 5分钟检查一次认证状态
 
+# 新增：更主动的认证检查间隔（2分钟）
+proactive_auth_check_interval = 120  # 2分钟主动检查一次
+
 def check_and_refresh_auth():
     """检查并刷新认证信息"""
     global last_auth_check
@@ -66,18 +69,61 @@ def check_and_refresh_auth():
             logger.error(f"认证检查失败: {str(e)}")
             return False
 
+def proactive_auth_check():
+    """主动认证检查 - 更频繁的检查"""
+    global last_auth_check
+    
+    current_time = time.time()
+    
+    # 每2分钟主动检查一次
+    if current_time - last_auth_check < proactive_auth_check_interval:
+        return True
+    
+    try:
+        logger.info("执行主动认证检查...")
+        
+        # 尝试获取数据来验证认证有效性
+        test_data = data_manager.generate_complete_layout()
+        
+        if test_data and test_data.get('rooms'):
+            occupied_rooms = [r for r in test_data.get('rooms', []) if r.get('tenants')]
+            
+            # 如果入住房间数量正常，认证有效
+            if len(occupied_rooms) > 100:
+                logger.info(f"主动认证检查通过，当前 {len(occupied_rooms)} 个房间已入住")
+                last_auth_check = current_time
+                return True
+            else:
+                logger.warning(f"主动认证检查发现异常，只有 {len(occupied_rooms)} 个房间已入住，尝试刷新认证...")
+                return check_and_refresh_auth()
+        else:
+            logger.warning("主动认证检查失败，无法获取数据，尝试刷新认证...")
+            return check_and_refresh_auth()
+            
+    except Exception as e:
+        logger.error(f"主动认证检查失败: {str(e)}")
+        return check_and_refresh_auth()
+
 def auto_authenticate_if_needed():
     """如果需要则自动认证"""
     try:
-        # 先尝试使用现有认证信息获取数据
+        # 先执行主动认证检查
+        if not proactive_auth_check():
+            logger.warning("主动认证检查失败，尝试强制刷新...")
+            return check_and_refresh_auth()
+        
+        # 再次验证数据获取
         test_data = data_manager.generate_complete_layout()
         
         if test_data and test_data.get('rooms'):
             # 检查是否有入住数据
             occupied_rooms = [r for r in test_data.get('rooms', []) if r.get('tenants')]
-            if occupied_rooms:
+            if len(occupied_rooms) > 100:
                 logger.info(f"认证信息有效，已获取 {len(occupied_rooms)} 个有入住数据的房间")
                 return True
+            else:
+                logger.warning(f"认证可能过期，只获取到 {len(occupied_rooms)} 个入住房间，尝试刷新认证...")
+                return check_and_refresh_auth()
         
         # 如果没有入住数据或获取失败，尝试自动认证
         logger.info("当前认证可能无效，尝试自动获取新认证...")
@@ -85,7 +131,7 @@ def auto_authenticate_if_needed():
         
     except Exception as e:
         logger.error(f"自动认证检查失败: {str(e)}")
-        return False
+        return check_and_refresh_auth()
 
 def organize_rooms_by_floor(rooms):
     """按楼层组织房间数据"""
