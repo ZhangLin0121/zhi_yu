@@ -311,18 +311,54 @@ class RoomsDataManager:
     def __init__(self):
         """初始化数据管理器"""
         self.api_client = RoomsAPIClient()
+        # 导入数据库管理器
+        try:
+            from database_manager import db_manager
+            self.db_manager = db_manager
+            self.use_database = True
+            logger.info("数据库管理器已加载")
+        except ImportError as e:
+            logger.warning(f"数据库管理器不可用: {e}")
+            self.db_manager = None
+            self.use_database = False
     
     def generate_complete_layout(self) -> Dict[str, Any]:
         """
         生成完整的房间布局数据
+        优先从API获取最新数据，同步到数据库后返回带标签的数据
         
         Returns:
             完整的房间布局数据
         """
         try:
-            # 获取实际入住数据
+            logger.info("开始生成完整布局数据...")
+            
+            # 步骤1：从API获取最新的人员数据
+            logger.info("从API获取最新人员数据...")
             raw_data = self.api_client.fetch_all_rooms_data()
-            occupied_rooms = self.api_client.process_room_data(raw_data)
+            occupied_rooms_api = self.api_client.process_room_data(raw_data)
+            logger.info(f"API返回 {len(occupied_rooms_api)} 个有人房间")
+            
+            occupied_rooms = occupied_rooms_api  # 默认使用API数据
+            
+            # 步骤2：如果使用数据库，同步数据并获取带标签的完整数据
+            if self.use_database and self.db_manager:
+                logger.info("同步数据到数据库并获取标签信息...")
+                
+                # 转换数据格式以适配数据库
+                rooms_for_db = self._convert_rooms_for_database(occupied_rooms_api)
+                
+                # 保存到数据库（智能保留标签）
+                if self.db_manager.save_rooms_data(rooms_for_db):
+                    logger.info("房间数据已智能同步到数据库，标签信息已保留")
+                    
+                    # 从数据库获取带标签的完整数据
+                    occupied_rooms = self._get_rooms_with_tags()
+                    logger.info(f"从数据库获取 {len(occupied_rooms)} 个带标签的房间数据")
+                else:
+                    logger.warning("数据库同步失败，使用API原始数据（无标签信息）")
+            else:
+                logger.warning("数据库不可用，使用API原始数据（无标签信息）")
             
             # 创建已入住房间的映射
             occupied_rooms_map = {}
@@ -364,9 +400,14 @@ class RoomsDataManager:
             # 按楼层和房间号排序
             all_rooms.sort(key=lambda x: (x['floor'], x['room_in_floor']))
             
+            # 计算统计信息
+            occupied_count = sum(1 for room in all_rooms if room.get('tenants'))
+            
             # 生成完整数据结构
             complete_data = {
                 'total_rooms': len(all_rooms),
+                'occupied_count': occupied_count,
+                'vacant_count': len(all_rooms) - occupied_count,
                 'rooms': all_rooms,
                 'timestamp': datetime.now().isoformat(),
                 'layout_info': {
@@ -378,12 +419,152 @@ class RoomsDataManager:
                 }
             }
             
-            logger.info(f"完整布局生成成功，共 {len(all_rooms)} 个房间")
+            # 如果使用数据库，添加标签统计
+            if self.use_database and self.db_manager:
+                tag_stats = self.db_manager.get_tag_statistics()
+                complete_data['tag_statistics'] = tag_stats
+            
+            logger.info(f"完整布局生成成功，共 {len(all_rooms)} 个房间，{occupied_count} 个已入住")
             return complete_data
             
         except Exception as e:
             logger.error(f"生成完整布局失败: {str(e)}")
             raise
+    
+    def _convert_rooms_for_database(self, occupied_rooms: List[Dict]) -> List[Dict]:
+        """转换房间数据格式以适配数据库"""
+        rooms_for_db = []
+        
+        for room in occupied_rooms:
+            # 转换租户数据
+            tenants_for_db = []
+            for tenant in room.get('tenants', []):
+                tenant_data = {
+                    'student_id': tenant.get('guests_id') or tenant.get('id'),
+                    'name': tenant.get('tenant_name', ''),
+                    'mobile': tenant.get('mobile', ''),
+                    'is_main': tenant.get('is_main', 0),
+                    'certificate_num': tenant.get('certificate_num', ''),
+                    'emergency_contact': tenant.get('emergency_contact', ''),
+                    'emergency_mobile': tenant.get('emergency_mobile', ''),
+                    'sign_status': tenant.get('sign_status', 0),
+                    'occupancy_flag': tenant.get('occupancy_flag', 0),
+                    'check_in_date': datetime.now().isoformat()  # 可以从其他字段获取
+                }
+                tenants_for_db.append(tenant_data)
+            
+            # 房间数据
+            room_data = {
+                'room_number': room.get('room_number'),
+                'building': room.get('building'),
+                'floor': room.get('floor'),
+                'room_type': '标准间',  # 可以根据需要调整
+                'capacity': len(tenants_for_db) if tenants_for_db else 2,  # 默认容量
+                'occupied': len(tenants_for_db) > 0,
+                'tenants': tenants_for_db
+            }
+            
+            rooms_for_db.append(room_data)
+        
+        return rooms_for_db
+    
+    def get_rooms_with_tags(self) -> Optional[Dict]:
+        """获取带标签的房间数据 - 优先从数据库读取"""
+        if self.use_database and self.db_manager:
+            return self.db_manager.get_rooms_with_tags_from_db()
+        return None
+    
+    def get_room_detail_from_db(self, house_id: str) -> Optional[Dict]:
+        """从数据库获取房间详情"""
+        if self.use_database and self.db_manager:
+            return self.db_manager.get_room_detail_from_db(house_id)
+        return None
+    
+    def _get_rooms_with_tags(self) -> List[Dict]:
+        """从数据库获取带标签的房间数据"""
+        try:
+            # 获取房间数据
+            rooms_data = self.db_manager.get_rooms_data({'occupied': True})
+            
+            # 转换回原格式并添加标签信息
+            rooms_with_tags = []
+            for room in rooms_data:
+                # 获取房间的学生数据（带标签）
+                students = self.db_manager.get_students_data({'room_number': room['room_number']})
+                
+                # 转换租户数据格式
+                tenants = []
+                main_tenant = None
+                co_tenants = []
+                
+                for student in students:
+                    tenant = {
+                        'id': student.get('student_id'),
+                        'guests_id': student.get('student_id'),
+                        'tenant_name': student.get('name', ''),
+                        'mobile': student.get('mobile', ''),
+                        'is_main': student.get('is_main', 0),
+                        'certificate_num': student.get('certificate_num', ''),
+                        'emergency_contact': student.get('emergency_contact', ''),
+                        'emergency_mobile': student.get('emergency_mobile', ''),
+                        'sign_status': student.get('sign_status', 0),
+                        'occupancy_flag': student.get('occupancy_flag', 0),
+                        'tag': student.get('tag', '未分类')  # 添加标签信息
+                    }
+                    
+                    tenants.append(tenant)
+                    
+                    if tenant['is_main'] == 1:
+                        main_tenant = tenant
+                    else:
+                        co_tenants.append(tenant)
+                
+                # 构建房间数据
+                room_data = {
+                    'house_id': room.get('_id') or f"db_{room['room_number']}",
+                    'house_name': f"之寓·未来-A{room['building']}栋-1单元-{room['room_number']}",
+                    'building': room['building'],
+                    'unit': 1,
+                    'floor': room['floor'],
+                    'room_in_floor': int(room['room_number'][-2:]) if len(room['room_number']) >= 2 else 1,
+                    'room_number': room['room_number'],
+                    'tenants': tenants,
+                    'main_tenant': main_tenant,
+                    'co_tenants': co_tenants,
+                    'is_vacant': False
+                }
+                
+                rooms_with_tags.append(room_data)
+            
+            return rooms_with_tags
+            
+        except Exception as e:
+            logger.error(f"从数据库获取房间数据失败: {e}")
+            return []
+    
+    def get_students_by_tag(self, tag: str) -> List[Dict]:
+        """根据标签获取学生列表"""
+        if self.use_database and self.db_manager:
+            return self.db_manager.get_students_by_tag(tag)
+        return []
+    
+    def update_student_tag(self, student_id: str, tag: str) -> bool:
+        """更新学生标签"""
+        if self.use_database and self.db_manager:
+            return self.db_manager.update_student_tag(student_id, tag)
+        return False
+    
+    def get_available_tags(self) -> List[str]:
+        """获取可用标签列表"""
+        if self.use_database and self.db_manager:
+            return self.db_manager.get_available_tags()
+        return Config.STUDENT_TAGS['default_tags']
+    
+    def get_tag_statistics(self) -> Dict[str, int]:
+        """获取标签统计"""
+        if self.use_database and self.db_manager:
+            return self.db_manager.get_tag_statistics()
+        return {}
     
     def create_empty_room(self, floor: int, room_number: str, room_in_floor: int) -> Dict[str, Any]:
         """创建空房间数据"""

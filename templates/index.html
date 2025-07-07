@@ -17,6 +17,7 @@
                 <h1><i class="fas fa-building"></i> 之寓·未来 A4栋 房间分配可视化</h1>
                 <div class="header-info">
                     <span id="totalRooms">总房间数: 加载中...</span>
+                    <span id="occupiedRooms">已入住: 加载中...</span>
                     <span id="lastUpdate">最后更新: 加载中...</span>
                 </div>
             </div>
@@ -42,8 +43,14 @@
                         <option value="vacant">空闲</option>
                     </select>
 
+                    <select id="tagFilter">
+                        <option value="">所有标签</option>
+                    </select>
+
                     <button id="refreshData"><i class="fas fa-sync-alt"></i> 刷新数据</button>
                     <button id="refreshAuth" title="刷新认证信息"><i class="fas fa-key"></i> 更新认证</button>
+                    <button id="tagManager" title="标签管理"><i class="fas fa-tags"></i> 标签管理</button>
+                    <button id="clearCache" title="清除浏览器缓存" style="background-color: #ef4444;"><i class="fas fa-trash"></i> 清除缓存</button>
                 </div>
             </div>
         </div>
@@ -113,6 +120,74 @@
             </div>
         </div>
 
+        <!-- 标签管理模态框 -->
+        <div id="tagModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-tags"></i> 标签管理</h3>
+                    <button class="close-btn" onclick="closeTagModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body" id="tagModalBody">
+                    <div class="tag-management">
+                        <div class="tag-stats-section">
+                            <h4><i class="fas fa-chart-pie"></i> 标签统计</h4>
+                            <div id="tagStatsModal" class="tag-stats-modal">
+                                <!-- 标签统计将通过JS动态生成 -->
+                            </div>
+                        </div>
+
+                        <div class="tag-filter-section">
+                            <h4><i class="fas fa-filter"></i> 按标签查看学生</h4>
+                            <select id="tagFilterModal">
+                                <option value="">选择标签</option>
+                            </select>
+                            <div id="studentsByTag" class="students-by-tag">
+                                <!-- 学生列表将通过JS动态生成 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 学生标签编辑模态框 -->
+        <div id="studentTagModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-user-tag"></i> 编辑学生标签</h3>
+                    <button class="close-btn" onclick="closeStudentTagModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body" id="studentTagModalBody">
+                    <div class="student-tag-edit">
+                        <div class="student-info">
+                            <h4 id="editStudentName">学生姓名</h4>
+                            <p id="editStudentRoom">房间号</p>
+                        </div>
+
+                        <div class="tag-selection">
+                            <h4><i class="fas fa-tags"></i> 选择标签</h4>
+                            <div id="tagRadioGroup" class="tag-radio-group">
+                                <!-- 标签选择将通过JS动态生成 -->
+                            </div>
+                        </div>
+
+                        <div class="modal-actions">
+                            <button id="saveStudentTag" class="btn btn-primary">
+                                <i class="fas fa-save"></i> 保存
+                            </button>
+                            <button onclick="closeStudentTagModal()" class="btn btn-secondary">
+                                <i class="fas fa-times"></i> 取消
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- 图例 -->
         <div class="legend">
             <h4><i class="fas fa-info-circle"></i> 图例</h4>
@@ -129,8 +204,14 @@
                     <div class="room-card multi-tenant"></div>
                     <span>多人合租</span>
                 </div>
-                <div class="legend-item" style="border-top: 1px solid #e2e8f0; padding-top: 8px; margin-top: 8px;">
-                    <span style="font-size: 12px; color: #64748b; text-align: center; width: 100%;">竖直虚线左侧为50㎡房间<br>右侧为35㎡房间</span>
+                <div class="legend-item" style="border-top: 1px solid #e2e8f0; padding-top: 12px; margin-top: 12px;">
+                    <span style="font-size: 13px; color: #64748b; text-align: center; width: 100%; font-weight: 500;">🏠 左侧竖线标记为50㎡大房间</span>
+                </div>
+                <div class="legend-item" style="border-top: 1px solid #e2e8f0; padding-top: 12px; margin-top: 12px;">
+                    <h5 style="margin: 0 0 10px 0; font-size: 0.9rem; color: #1e293b; font-weight: 600;">🏷️ 学生标签</h5>
+                    <div id="tagLegend" class="tag-legend">
+                        <!-- 标签图例将通过JS动态生成 -->
+                    </div>
                 </div>
             </div>
         </div>

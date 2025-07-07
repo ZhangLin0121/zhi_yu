@@ -6,7 +6,9 @@
 
 from flask import Flask, render_template, jsonify, request
 import logging
+import json
 from datetime import datetime
+from bson import ObjectId
 from config import Config
 from api_client import RoomsDataManager
 from auth_manager import get_fresh_auth_info, update_auth_info
@@ -15,6 +17,25 @@ import time
 
 app = Flask(__name__)
 app.config['DEBUG'] = Config.DEBUG
+
+# 自定义JSON编码器处理MongoDB ObjectId
+class JSONEncoder(json.JSONEncoder):
+    def default(self, o):
+        if isinstance(o, ObjectId):
+            return str(o)
+        return json.JSONEncoder.default(self, o)
+
+# MongoDB ObjectId序列化函数
+def convert_objectid(obj):
+    """递归转换ObjectId为字符串"""
+    if isinstance(obj, ObjectId):
+        return str(obj)
+    elif isinstance(obj, dict):
+        return {key: convert_objectid(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [convert_objectid(item) for item in obj]
+    else:
+        return obj
 
 # 配置日志
 logging.basicConfig(level=getattr(logging, Config.LOG_LEVEL))
@@ -104,7 +125,7 @@ def organize_rooms_by_floor(rooms):
     
     # 每层房间按房间号排序
     for floor in floors:
-        floors[floor].sort(key=lambda x: x['room_in_floor'])
+        floors[floor].sort(key=lambda x: x.get('room_number', ''))
     
     return floors
 
@@ -140,14 +161,19 @@ def get_rooms_data():
         
         logger.info(f"成功获取房间数据，共 {len(rooms)} 个房间，{len(occupied_rooms)} 个已入住")
         
-        return jsonify({
+        response_data = {
             'total_rooms': data.get('total_rooms', 0),
             'floors': floors_data,
             'timestamp': data.get('timestamp', ''),
             'floor_numbers': sorted(floors_data.keys()),
             'layout_info': data.get('layout_info', {}),
             'occupied_count': len(occupied_rooms)
-        })
+        }
+        
+        # 转换ObjectId
+        response_data = convert_objectid(response_data)
+        
+        return jsonify(response_data)
         
     except Exception as e:
         logger.error(f"获取房间数据失败: {str(e)}")
@@ -155,13 +181,20 @@ def get_rooms_data():
 
 @app.route('/api/room/<house_id>')
 def get_room_detail(house_id):
-    """获取房间详细信息"""
+    """获取房间详细信息 - 优先从数据库读取"""
     try:
         logger.info(f"获取房间详情: {house_id}")
         
-        # 移除自动认证检查，直接获取数据
+        # 优先尝试从数据库获取房间详情
+        room_detail = data_manager.get_room_detail_from_db(house_id)
         
-        # 获取完整数据
+        if room_detail:
+            logger.info(f"从数据库获取房间 {house_id} 详情成功")
+            room_detail = convert_objectid(room_detail)
+            return jsonify(room_detail)
+        
+        # 如果数据库中没有，再从API获取
+        logger.warning(f"数据库中未找到房间 {house_id}，尝试从API获取...")
         data = data_manager.generate_complete_layout()
         
         if not data:
@@ -170,6 +203,7 @@ def get_room_detail(house_id):
         rooms = data.get('rooms', [])
         for room in rooms:
             if str(room['house_id']) == str(house_id):
+                room = convert_objectid(room)
                 return jsonify(room)
         
         return jsonify({'error': '房间不存在'}), 404
@@ -230,6 +264,7 @@ def search_rooms():
                 results.append(room)
         
         logger.info(f"搜索完成，找到 {len(results)} 个结果")
+        results = convert_objectid(results)
         return jsonify({'rooms': results})
         
     except Exception as e:
@@ -420,6 +455,269 @@ def refresh_auth():
         return jsonify({
             'success': False,
             'message': f'刷新失败: {str(e)}'
+        }), 500
+
+# ==================== 标签管理API ====================
+
+@app.route('/api/tags')
+def get_available_tags():
+    """获取可用的标签列表"""
+    try:
+        tags = data_manager.get_available_tags()
+        tag_stats = data_manager.get_tag_statistics()
+        
+        # 从配置中获取标签颜色
+        tag_colors = Config.STUDENT_TAGS.get('tag_colors', {})
+        
+        return jsonify({
+            'success': True,
+            'tags': tags,
+            'statistics': tag_stats,
+            'colors': tag_colors
+        })
+        
+    except Exception as e:
+        logger.error(f"获取标签列表失败: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': f'获取标签列表失败: {str(e)}'
+        }), 500
+
+@app.route('/api/tags/statistics')
+def get_tag_statistics():
+    """获取标签统计信息"""
+    try:
+        stats = data_manager.get_tag_statistics()
+        return jsonify({
+            'success': True,
+            'statistics': stats
+        })
+        
+    except Exception as e:
+        logger.error(f"获取标签统计失败: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': f'获取标签统计失败: {str(e)}'
+        }), 500
+
+@app.route('/api/students/<student_id>/tag', methods=['PUT'])
+def update_student_tag(student_id):
+    """更新学生标签"""
+    try:
+        data = request.get_json()
+        if not data or 'tag' not in data:
+            return jsonify({
+                'success': False,
+                'error': '缺少标签参数'
+            }), 400
+        
+        tag = data['tag']
+        
+        # 验证标签是否有效
+        available_tags = data_manager.get_available_tags()
+        if tag not in available_tags:
+            return jsonify({
+                'success': False,
+                'error': f'无效的标签: {tag}'
+            }), 400
+        
+        # 更新标签
+        success = data_manager.update_student_tag(student_id, tag)
+        
+        if success:
+            logger.info(f"学生 {student_id} 标签更新为: {tag}")
+            return jsonify({
+                'success': True,
+                'message': f'标签更新成功: {tag}',
+                'student_id': student_id,
+                'tag': tag
+            })
+        else:
+            return jsonify({
+                'success': False,
+                'error': '标签更新失败'
+            }), 500
+            
+    except Exception as e:
+        logger.error(f"更新学生标签失败: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': f'更新失败: {str(e)}'
+        }), 500
+
+@app.route('/api/students/tag/<tag>')
+def get_students_by_tag(tag):
+    """根据标签获取学生列表"""
+    try:
+        students = data_manager.get_students_by_tag(tag)
+        
+        response_data = {
+            'success': True,
+            'tag': tag,
+            'students': students,
+            'count': len(students)
+        }
+        
+        # 转换ObjectId
+        response_data = convert_objectid(response_data)
+        
+        return jsonify(response_data)
+        
+    except Exception as e:
+        logger.error(f"根据标签获取学生失败: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': f'获取学生失败: {str(e)}'
+        }), 500
+
+@app.route('/api/students/batch-tag', methods=['PUT'])
+def batch_update_student_tags():
+    """批量更新学生标签"""
+    try:
+        data = request.get_json()
+        if not data or 'updates' not in data:
+            return jsonify({
+                'success': False,
+                'error': '缺少更新数据'
+            }), 400
+        
+        updates = data['updates']  # [{'student_id': 'xxx', 'tag': 'yyy'}, ...]
+        
+        if not isinstance(updates, list):
+            return jsonify({
+                'success': False,
+                'error': '更新数据格式错误'
+            }), 400
+        
+        # 验证标签
+        available_tags = data_manager.get_available_tags()
+        
+        success_count = 0
+        failed_updates = []
+        
+        for update in updates:
+            student_id = update.get('student_id')
+            tag = update.get('tag')
+            
+            if not student_id or not tag:
+                failed_updates.append({
+                    'student_id': student_id,
+                    'error': '缺少学生ID或标签'
+                })
+                continue
+            
+            if tag not in available_tags:
+                failed_updates.append({
+                    'student_id': student_id,
+                    'error': f'无效标签: {tag}'
+                })
+                continue
+            
+            # 更新标签
+            if data_manager.update_student_tag(student_id, tag):
+                success_count += 1
+            else:
+                failed_updates.append({
+                    'student_id': student_id,
+                    'error': '更新失败'
+                })
+        
+        logger.info(f"批量更新完成: {success_count} 成功, {len(failed_updates)} 失败")
+        
+        return jsonify({
+            'success': True,
+            'message': f'批量更新完成: {success_count} 成功, {len(failed_updates)} 失败',
+            'success_count': success_count,
+            'failed_count': len(failed_updates),
+            'failed_updates': failed_updates
+        })
+        
+    except Exception as e:
+        logger.error(f"批量更新学生标签失败: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': f'批量更新失败: {str(e)}'
+        }), 500
+
+@app.route('/api/sync', methods=['POST'])
+def sync_data():
+    """同步数据从外部API到数据库"""
+    try:
+        logger.info("开始同步数据...")
+        
+        # 从外部API获取完整数据并存入数据库
+        data = data_manager.generate_complete_layout()
+        
+        if not data:
+            logger.error("数据同步失败，无法获取外部API数据")
+            return jsonify({'error': '数据同步失败', 'success': False}), 500
+        
+        logger.info(f"数据同步成功，共同步 {len(data.get('rooms', []))} 个房间")
+        
+        response_data = {
+            'success': True,
+            'message': '数据同步成功',
+            'synced_rooms': len(data.get('rooms', [])),
+            'timestamp': data.get('timestamp', datetime.now().isoformat())
+        }
+        
+        return jsonify(response_data)
+        
+    except Exception as e:
+        logger.error(f"数据同步失败: {str(e)}")
+        return jsonify({'error': f'数据同步失败: {str(e)}', 'success': False}), 500
+
+@app.route('/api/rooms/with-tags')
+def get_rooms_with_tags():
+    """获取带标签信息的房间数据 - 优先从数据库读取"""
+    try:
+        logger.info("获取带标签的房间数据...")
+        
+        # 优先从数据库获取数据
+        data = data_manager.get_rooms_with_tags()
+        
+        if not data or not data.get('rooms'):
+            logger.warning("数据库中无数据，尝试从API获取并同步...")
+            # 如果数据库中没有数据，则从API获取并同步
+            data = data_manager.generate_complete_layout()
+            
+            if not data:
+                return jsonify({
+                    'success': False,
+                    'error': '无法获取房间数据'
+                }), 500
+        
+        # 按楼层组织数据
+        rooms = data.get('rooms', [])
+        floors_data = organize_rooms_by_floor(rooms)
+        
+        # 统计标签信息
+        tag_stats = data.get('tag_statistics', {})
+        
+        logger.info(f"成功获取带标签的房间数据，共 {len(rooms)} 个房间")
+        
+        response_data = {
+            'success': True,
+            'total_rooms': data.get('total_rooms', 0),
+            'occupied_count': data.get('occupied_count', 0),
+            'vacant_count': data.get('vacant_count', 0),
+            'floors': floors_data,
+            'timestamp': data.get('timestamp', ''),
+            'floor_numbers': sorted(floors_data.keys()),
+            'layout_info': data.get('layout_info', {}),
+            'tag_statistics': tag_stats
+        }
+        
+        # 转换ObjectId
+        response_data = convert_objectid(response_data)
+        
+        return jsonify(response_data)
+        
+    except Exception as e:
+        logger.error(f"获取带标签房间数据失败: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': f'获取数据失败: {str(e)}'
         }), 500
 
 if __name__ == '__main__':

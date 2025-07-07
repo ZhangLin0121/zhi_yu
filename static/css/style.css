@@ -25,13 +25,13 @@ body {
 /* 头部样式 */
 
 .header {
-    background: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
-    padding: 16px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-bottom: none;
+    padding: 20px 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .header .container {
@@ -41,22 +41,23 @@ body {
 }
 
 .header h1 {
-    color: #1e293b;
-    font-size: 1.4rem;
+    color: #ffffff;
+    font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: -0.01em;
 }
 
 .header h1 i {
-    color: #3b82f6;
+    color: #fbbf24;
     margin-right: 8px;
+    font-size: 1.3rem;
 }
 
 .header-info {
     display: flex;
     gap: 24px;
     font-size: 0.875rem;
-    color: #64748b;
+    color: rgba(255, 255, 255, 0.9);
     font-weight: 500;
 }
 
@@ -65,8 +66,9 @@ body {
 
 .control-panel {
     background: #ffffff;
-    padding: 16px 0;
+    padding: 20px 0;
     border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .control-panel .container {
@@ -80,12 +82,12 @@ body {
 .search-box {
     position: relative;
     flex: 1;
-    max-width: 320px;
+    max-width: 350px;
 }
 
 .search-box i {
     position: absolute;
-    left: 12px;
+    left: 14px;
     top: 50%;
     transform: translateY(-50%);
     color: #94a3b8;
@@ -94,30 +96,30 @@ body {
 
 .search-box input {
     width: 100%;
-    padding: 8px 40px 8px 36px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
+    padding: 12px 40px 12px 40px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
     font-size: 14px;
     background: #ffffff;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .search-box input:focus {
     outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
 }
 
 .search-box button {
     position: absolute;
-    right: 8px;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
     background: none;
     border: none;
-    padding: 6px;
+    padding: 8px;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 6px;
     transition: all 0.2s ease;
     color: #94a3b8;
 }
@@ -134,43 +136,63 @@ body {
 }
 
 .filters select {
-    padding: 8px 12px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
+    padding: 10px 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
     background: #ffffff;
     font-size: 14px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     color: #1e293b;
+    min-width: 120px;
 }
 
 .filters select:focus {
     outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
 }
 
 .filters button {
-    padding: 8px 16px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
+    padding: 10px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
     background: #ffffff;
     color: #1e293b;
     font-size: 14px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 6px;
+    font-weight: 500;
 }
 
 .filters button:hover {
-    background: #f8fafc;
-    border-color: #94a3b8;
+    background: #667eea;
+    color: #ffffff;
+    border-color: #667eea;
+    transform: translateY(-1px);
 }
 
 .filters button:active {
-    background: #f1f5f9;
+    transform: translateY(0);
+}
+
+
+/* 标签管理按钮特殊样式 */
+
+#tagManager {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    border: 2px solid transparent;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+}
+
+#tagManager:hover {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
 
@@ -178,7 +200,7 @@ body {
 
 .view-navigator {
     background: #ffffff;
-    padding: 12px 0;
+    padding: 16px 0;
     border-bottom: 1px solid #e2e8f0;
 }
 
@@ -188,51 +210,57 @@ body {
 }
 
 .view-btn {
-    padding: 8px 16px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
+    padding: 12px 24px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
     background: #ffffff;
     color: #64748b;
     font-size: 14px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .view-btn:hover {
     background: #f8fafc;
-    color: #1e293b;
+    border-color: #667eea;
+    color: #667eea;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .view-btn.active {
-    background: #3b82f6;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #ffffff;
-    border-color: #3b82f6;
+    border-color: #667eea;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
 .floor-buttons {
     display: flex;
-    gap: 6px;
-    margin-top: 12px;
+    gap: 8px;
     flex-wrap: wrap;
+    margin-top: 12px;
 }
 
 .floor-btn {
-    padding: 4px 10px;
+    padding: 6px 12px;
     border: 1px solid #d1d5db;
     border-radius: 6px;
     background: #ffffff;
     color: #64748b;
-    font-size: 12px;
+    font-size: 13px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .floor-btn:hover {
     background: #f8fafc;
-    color: #1e293b;
+    border-color: #94a3b8;
 }
 
 .floor-btn.active {
@@ -242,54 +270,58 @@ body {
 }
 
 
-/* 主内容 */
+/* 主要内容区域 */
 
 .main-content {
-    padding: 20px 0;
+    padding: 32px 0;
 }
 
 .loading,
 .error {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 60px 20px;
-    color: #64748b;
+    text-align: center;
 }
 
 .loading i {
-    font-size: 24px;
-    margin-bottom: 12px;
-    color: #3b82f6;
+    font-size: 3rem;
+    color: #667eea;
+    margin-bottom: 16px;
 }
 
 .error i {
-    font-size: 24px;
-    margin-bottom: 12px;
+    font-size: 3rem;
     color: #ef4444;
+    margin-bottom: 16px;
 }
 
 .loading p,
 .error p {
-    font-size: 16px;
-    margin-top: 8px;
+    color: #64748b;
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 500;
 }
 
 
 /* 搜索结果 */
 
 .search-results {
-    margin-bottom: 20px;
-    padding: 16px;
     background: #ffffff;
     border-radius: 12px;
-    border: 1px solid #e2e8f0;
+    padding: 24px;
+    margin-bottom: 24px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .search-results h3 {
-    font-size: 1rem;
-    font-weight: 600;
     color: #1e293b;
-    margin-bottom: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
 }
 
 .search-results h3 i {
@@ -298,162 +330,145 @@ body {
 }
 
 
-/* 全景视图 - 优化布局 */
+/* 全景视图 */
 
 .overview-view {
     background: #ffffff;
     border-radius: 12px;
-    border: 1px solid #e2e8f0;
-    overflow: hidden;
+    padding: 24px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .building-overview {
-    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
-
-/* 建筑信息头部 */
-
 .building-header {
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-    color: white;
-    padding: 16px 24px;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
 }
 
 .building-title {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 600;
-    margin-bottom: 4px;
+    color: #1e293b;
 }
 
 .building-stats {
-    font-size: 0.9rem;
-    opacity: 0.9;
-    line-height: 1.6;
+    display: flex;
+    gap: 32px;
 }
 
 .stats-row {
-    margin-bottom: 6px;
+    display: flex;
+    gap: 24px;
+    font-size: 0.875rem;
+    color: #64748b;
 }
 
 .stats-row:last-child {
-    margin-bottom: 0;
+    margin-top: 4px;
 }
 
 .stats-row strong {
-    color: #1e293b;
     font-weight: 600;
-    margin-right: 4px;
+    color: #1e293b;
 }
 
 .room-type-legend {
-    background: #f8fafc;
-    padding: 16px 24px;
-    border-bottom: 1px solid #e2e8f0;
     display: flex;
-    justify-content: center;
-    gap: 32px;
+    gap: 24px;
+    margin-bottom: 16px;
+    padding: 12px 16px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
     font-size: 0.875rem;
     color: #64748b;
-    flex-wrap: wrap;
 }
 
 .legend-item-inline {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin: 4px 0;
 }
 
 .legend-item-inline .mini-room {
-    width: 24px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     border-radius: 3px;
-    font-size: 10px;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
+    border: 1px solid #d1d5db;
+}
+
+.legend-item-inline .mini-room.occupied {
+    background: #3b82f6;
+    border-color: #2563eb;
+}
+
+.legend-item-inline .mini-room.vacant {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
 }
 
 .floor-row {
-    display: flex;
-    align-items: center;
-    padding: 4px 20px;
-    border-bottom: 1px solid #f1f5f9;
-    transition: all 0.2s ease;
-    min-height: 36px;
-}
-
-.floor-row:last-child {
-    border-bottom: none;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
 }
 
 .floor-row:hover {
-    background: #f8fafc;
+    border-color: #667eea;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
 }
 
 .floor-label {
-    min-width: 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 10px;
     font-weight: 600;
-    color: #1e293b;
-    font-size: 14px;
+    font-size: 0.95rem;
+    display: inline-block;
+    margin-bottom: 16px;
     margin-right: 16px;
+    min-width: 80px;
     text-align: center;
-    background: #f1f5f9;
-    padding: 6px 10px;
-    border-radius: 6px;
 }
 
 .floor-rooms {
-    display: flex;
-    gap: 18px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+    gap: 6px;
     flex: 1;
-    align-items: center;
-    justify-content: center;
-}
-
-
-/* 房间分隔虚线 - 在3号和4号房间之间，10号和11号房间之间 */
-
-.mini-room.room-divider-after::after {
-    content: '';
-    position: absolute;
-    right: -11px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2px;
-    height: 28px;
-    border-right: 2px dashed #cbd5e1;
-    z-index: 5;
+    padding: 12px;
+    background: #f8fafc;
+    border-radius: 10px;
+    max-height: 120px;
+    overflow-y: auto;
 }
 
 .mini-room {
-    width: 48px;
-    height: 36px;
-    border-radius: 4px;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s ease;
-    border: 1px solid transparent;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 600;
-    color: white;
-    margin: 2px 0;
+    border: 2px solid transparent;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    justify-self: center;
 }
 
 .mini-room:hover {
-    transform: scale(1.05);
-    border-color: #3b82f6;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transform: scale(1.1);
     z-index: 10;
+    position: relative;
 }
 
 .mini-room.occupied {
@@ -462,7 +477,6 @@ body {
 
 .mini-room.vacant {
     background: #94a3b8;
-    color: white;
 }
 
 .mini-room.multi-tenant {
@@ -470,77 +484,70 @@ body {
 }
 
 .mini-room.large-room {
-    width: 48px;
-    height: 36px;
-    border-radius: 4px;
-    font-weight: 600;
+    width: 38px;
+    height: 38px;
     position: relative;
 }
 
 .mini-room.large-room.occupied {
     background: #10b981;
-    color: white;
 }
 
 .mini-room.large-room.vacant {
     background: #94a3b8;
-    color: white;
 }
 
 .mini-room.large-room.multi-tenant {
     background: #f59e0b;
-    color: white;
 }
 
 .mini-room.passage {
-    background: #f1f5f9;
+    background: transparent;
+    border: none;
     cursor: default;
-    border: 1px dashed #cbd5e1;
-    color: #94a3b8;
-    font-size: 8px;
-    font-weight: 400;
+    width: 12px;
+    height: 32px;
+    position: relative;
 }
 
 .mini-room.passage:hover {
     transform: none;
-    border-color: #cbd5e1;
     box-shadow: none;
 }
 
 .floor-stats {
-    min-width: 140px;
-    text-align: right;
-    font-size: 12px;
+    min-width: 120px;
+    font-size: 0.75rem;
     color: #64748b;
-    line-height: 1.3;
-    background: #f8fafc;
-    padding: 6px 10px;
-    border-radius: 6px;
-    margin-left: 12px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
 .floor-stats .stat-line {
-    display: block;
-    margin-bottom: 1px;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
 }
 
 .floor-stats .stat-line:last-child {
-    margin-bottom: 0;
+    margin-top: 2px;
 }
 
 .occupied-count {
-    color: #059669;
+    color: #3b82f6;
     font-weight: 600;
 }
 
 .vacant-count {
-    color: #64748b;
+    color: #94a3b8;
     font-weight: 600;
 }
 
 .occupancy-rate {
-    color: #3b82f6;
     font-weight: 600;
+    color: #1e293b;
 }
 
 
@@ -549,16 +556,18 @@ body {
 .floor-view {
     background: #ffffff;
     border-radius: 12px;
-    border: 1px solid #e2e8f0;
-    margin-bottom: 24px;
-    overflow: hidden;
+    padding: 32px;
+    margin-bottom: 32px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .floor-header {
-    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    padding-bottom: 12px;
     border-bottom: 1px solid #f1f5f9;
-    background: #f8fafc;
 }
 
 .floor-title {
@@ -568,165 +577,171 @@ body {
 }
 
 .floor-info {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: #64748b;
-    margin-top: 4px;
 }
 
 .rooms-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 16px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+    padding: 8px;
 }
 
 .room-card {
     background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    padding: 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
     cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 120px;
 }
 
 .room-card:hover {
-    border-color: #3b82f6;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transform: translateY(-1px);
+    border-color: #667eea;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(102, 126, 234, 0.18);
 }
 
 .room-card.occupied-room {
-    border-left: 4px solid #10b981;
-    background: #f0fdf4;
+    border-color: #10b981;
+    background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
 }
 
 .room-card.vacant-room {
-    border-left: 4px solid #94a3b8;
-    background: #f8fafc;
+    border-color: #94a3b8;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
 }
 
 .room-card.multi-tenant {
-    border-left: 4px solid #f59e0b;
-    background: #fffbeb;
+    border-color: #f59e0b;
+    background: linear-gradient(135deg, #ffffff 0%, #fffbeb 100%);
 }
 
 .room-card.large-room {
-    border: 2px solid #fbbf24;
-    background: #fefce8;
     position: relative;
 }
 
 .room-card.large-room::before {
-    content: '50m²';
+    content: '';
     position: absolute;
-    top: 8px;
-    right: 12px;
-    color: #1e293b;
-    font-size: 12px;
-    background: white;
-    border-radius: 4px;
-    padding: 2px 4px;
-    font-weight: 600;
-    border: 1px solid #fbbf24;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 0 4px 4px 0;
 }
 
 .room-number {
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 700;
     color: #1e293b;
     margin-bottom: 8px;
 }
 
 .tenant-info {
-    font-size: 14px;
-    color: #64748b;
+    margin-bottom: 12px;
 }
 
 .tenant-name {
+    font-weight: 600;
     color: #1e293b;
-    font-weight: 500;
+    font-size: 0.9rem;
 }
 
 .tenant-count {
-    background: #e2e8f0;
-    color: #64748b;
-    padding: 2px 8px;
-    border-radius: 12px;
-    font-size: 12px;
-    font-weight: 500;
     display: inline-block;
-    margin-top: 4px;
+    background: #f1f5f9;
+    color: #64748b;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.room-card.occupied-room .tenant-count {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.room-card.multi-tenant .tenant-count {
+    background: #fef3c7;
+    color: #92400e;
 }
 
 
-/* 模态框 */
+/* 模态框样式优化 */
 
 .modal {
     display: none;
     position: fixed;
-    top: 0;
+    z-index: 1000;
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease-out;
 }
 
 .modal-content {
-    background: #ffffff;
+    background-color: #ffffff;
+    margin: 5% auto;
     padding: 0;
-    border-radius: 12px;
+    border-radius: 16px;
     width: 90%;
-    max-width: 800px;
-    max-height: 90vh;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideInUp 0.3s ease-out;
 }
 
 .modal-header {
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-    color: white;
-    padding: 20px 24px;
-    border-bottom: 1px solid #e2e8f0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e2e8f0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: 16px 16px 0 0;
 }
 
 .modal-header h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
+    margin: 0;
     color: #1e293b;
+    font-size: 1.3rem;
+    font-weight: 600;
 }
 
 .close-btn {
     background: none;
     border: none;
-    font-size: 18px;
+    font-size: 24px;
     cursor: pointer;
     color: #64748b;
     padding: 4px;
-    border-radius: 4px;
+    border-radius: 8px;
     transition: all 0.2s ease;
 }
 
 .close-btn:hover {
-    background: #e2e8f0;
+    background: #f1f5f9;
     color: #1e293b;
 }
 
 .modal-body {
     padding: 24px;
-    max-height: calc(90vh - 120px);
-    overflow-y: auto;
 }
 
 .room-detail {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .room-detail:last-child {
@@ -734,33 +749,35 @@ body {
 }
 
 .room-detail h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
     color: #1e293b;
-    margin-bottom: 16px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #f1f5f9;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
+.room-detail h4 i {
+    color: #3b82f6;
+}
+
 .detail-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
+    grid-template-columns: 1fr 2fr;
+    gap: 8px;
     margin-bottom: 16px;
 }
 
 .detail-label {
-    font-size: 14px;
-    color: #64748b;
     font-weight: 500;
+    color: #64748b;
+    font-size: 0.875rem;
 }
 
 .detail-value {
-    font-size: 14px;
     color: #1e293b;
+    font-size: 0.875rem;
 }
 
 .tenant-card {
@@ -768,17 +785,18 @@ body {
     border: 1px solid #e2e8f0;
     border-radius: 8px;
     padding: 16px;
+    margin-bottom: 12px;
     transition: all 0.2s ease;
 }
 
 .tenant-card:hover {
-    border-color: #3b82f6;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: #f1f5f9;
+    border-color: #cbd5e1;
 }
 
 .tenant-card.main-tenant {
-    border-left: 4px solid #3b82f6;
-    background: #eff6ff;
+    background: #f0f9ff;
+    border-color: #3b82f6;
 }
 
 .tenant-header {
@@ -798,89 +816,96 @@ body {
     background: #e2e8f0;
     color: #64748b;
     padding: 2px 8px;
-    border-radius: 12px;
-    font-size: 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
     font-weight: 500;
 }
 
 .tenant-badge.main {
     background: #dbeafe;
-    color: #3b82f6;
+    color: #1e40af;
 }
 
 
-/* 图例 */
+/* 图例优化 */
 
 .legend {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 24px;
+    right: 24px;
     background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
     padding: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    min-width: 200px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+    max-width: 280px;
 }
 
 .legend h4 {
-    font-size: 0.9rem;
-    font-weight: 600;
+    margin: 0 0 12px 0;
     color: #1e293b;
-    margin-bottom: 12px;
-    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .legend h4 i {
-    color: #3b82f6;
-    margin-right: 6px;
+    color: #667eea;
+    font-size: 0.9rem;
 }
 
 .legend-items {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .legend-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .legend .room-card {
     width: 24px;
-    height: 18px;
-    border-radius: 4px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
     padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 8px;
-    font-weight: 600;
-    color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    cursor: default;
+    transition: none;
+}
+
+.legend .room-card:hover {
+    transform: none;
+    box-shadow: none;
 }
 
 .legend .room-card.occupied-room {
     background: #10b981;
+    border-color: #10b981;
 }
 
 .legend .room-card.vacant-room {
     background: #94a3b8;
+    border-color: #94a3b8;
 }
 
 .legend .room-card.multi-tenant {
     background: #f59e0b;
+    border-color: #f59e0b;
 }
 
 .legend .room-card.large-room {
-    background: #fbbf24;
+    position: relative;
 }
 
 .legend-item span {
-    font-size: 13px;
+    font-size: 0.875rem;
     color: #64748b;
     font-weight: 500;
 }
@@ -891,7 +916,6 @@ body {
 @media (max-width: 768px) {
     .container {
         padding: 0 16px;
-        max-width: 100%;
     }
     .header .container {
         flex-direction: column;
@@ -902,38 +926,40 @@ body {
         align-items: stretch;
     }
     .search-box {
-        max-width: 100%;
+        max-width: none;
     }
     .filters {
         justify-content: center;
     }
     .rooms-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 4px;
     }
     .legend {
         position: static;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        margin-top: 24px;
     }
     .modal-content {
         width: 95%;
-        margin: 20px;
+        margin: 10% auto;
     }
     .mini-room {
-        width: 36px;
-        height: 28px;
+        width: 20px;
+        height: 20px;
     }
     .mini-room.large-room {
-        width: 42px;
-        height: 28px;
+        width: 28px;
+        height: 20px;
     }
     .floor-rooms {
-        gap: 12px;
+        gap: 4px;
+        grid-template-columns: repeat(auto-fill, minmax(28px, 1fr));
+        padding: 8px;
     }
     .room-type-legend {
         flex-direction: column;
-        gap: 12px;
-        text-align: center;
+        gap: 8px;
     }
 }
 
@@ -942,8 +968,8 @@ body {
         justify-content: center;
     }
     .floor-btn {
-        font-size: 11px;
-        padding: 3px 8px;
+        font-size: 12px;
+        padding: 4px 8px;
     }
     .container {
         padding: 0 12px;
@@ -952,48 +978,48 @@ body {
         padding: 16px 0;
     }
     .floor-row {
-        padding: 3px 16px;
-        min-height: 32px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
     }
     .floor-label {
-        min-width: 70px;
-        font-size: 12px;
-        padding: 4px 8px;
+        align-self: flex-start;
     }
     .mini-room {
-        width: 32px;
+        width: 24px;
         height: 24px;
-        font-size: 9px;
     }
     .mini-room.large-room {
-        width: 38px;
-        height: 24px;
+        width: 28px;
+        height: 28px;
     }
     .floor-stats {
-        min-width: 120px;
-        font-size: 11px;
-        padding: 4px 8px;
+        align-self: flex-start;
+        text-align: left;
     }
     .floor-rooms {
-        gap: 10px;
+        width: 100%;
+        grid-template-columns: repeat(auto-fill, minmax(26px, 1fr));
+        gap: 3px;
+        padding: 6px;
     }
 }
 
 
-/* 通知样式 */
+/* 通知优化 */
 
 .notification {
     position: fixed;
-    top: 80px;
+    top: 20px;
     right: 20px;
-    max-width: 400px;
+    z-index: 1001;
     background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
-    opacity: 1;
-    transition: all 0.3s ease;
-    border-left: 4px solid #3b82f6;
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    animation: slideInRight 0.3s ease-out;
+    max-width: 350px;
+    border-left: 4px solid #667eea;
 }
 
 .notification-success {
@@ -1005,15 +1031,14 @@ body {
 }
 
 .notification-content {
-    padding: 16px 20px;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 12px;
 }
 
 .notification-content i {
-    margin-top: 2px;
-    font-size: 16px;
+    font-size: 1.2rem;
+    color: #667eea;
 }
 
 .notification-success .notification-content i {
@@ -1025,65 +1050,595 @@ body {
 }
 
 .notification-content span {
-    flex: 1;
-    font-size: 14px;
-    line-height: 1.5;
     color: #1e293b;
+    font-weight: 500;
 }
 
-.notification-close {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-    border-radius: 4px;
-    color: #94a3b8;
-    transition: all 0.2s ease;
-    margin-left: 8px;
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
-
-.notification-close:hover {
-    background: #f1f5f9;
-    color: #1e293b;
-}
-
-
-/* 认证刷新按钮样式 */
 
 #refreshAuth {
-    background: #10b981 !important;
-    color: #ffffff !important;
-    border-color: #10b981 !important;
+    background: #f59e0b;
+    color: white;
+    border-color: #f59e0b;
 }
 
 #refreshAuth:hover {
-    background: #059669 !important;
-    border-color: #059669 !important;
+    background: #d97706;
+    border-color: #d97706;
 }
 
 #refreshAuth:disabled {
-    background: #94a3b8 !important;
-    border-color: #94a3b8 !important;
-    cursor: not-allowed !important;
+    background: #9ca3af;
+    border-color: #9ca3af;
+    cursor: not-allowed;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
-/* 缓存状态提示 */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
 
 .cache-status-success {
-    background: #dcfce7;
-    color: #166534;
+    background: #10b981;
+    color: white;
     padding: 8px 16px;
-    font-size: 12px;
-    text-align: center;
-    border-bottom: 1px solid #bbf7d0;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 6px;
+    gap: 8px;
+    margin-top: 8px;
     transition: opacity 0.3s ease;
 }
 
 .cache-status-success i {
-    color: #16a34a;
+    font-size: 1rem;
+}
+
+
+/* 标签相关样式 */
+
+
+/* 标签统计面板 */
+
+.tag-statistics {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 20px 0;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 10px;
+}
+
+.tag-statistics h4 {
+    color: #1e293b;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tag-statistics h4 i {
+    color: #667eea;
+    font-size: 1rem;
+}
+
+.tag-stats-content {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.tag-stat-item {
+    background: #ffffff;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    text-align: center;
+}
+
+.tag-stat-item:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+}
+
+.tag-stat-item.active {
+    border-color: #667eea;
+    background: #667eea;
+    color: #ffffff;
+}
+
+.tag-stat-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.tag-stat-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.tag-stat-count {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.tag-stat-item.active .tag-stat-count {
+    color: #ffffff;
+}
+
+
+/* 房间卡片中的标签 */
+
+.room-tags {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+}
+
+.student-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 12px;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    margin: 1px 2px;
+}
+
+.student-tag:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.student-tag.tag-22级硕博士 {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+.student-tag.tag-23级硕博士 {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.student-tag.tag-24级硕博士 {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.student-tag.tag-实习实践 {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+}
+
+.student-tag.tag-未分类 {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+}
+
+
+/* 标签管理模态框 */
+
+.tag-management {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tag-stats-section,
+.tag-filter-section {
+    margin-bottom: 24px;
+    padding: 24px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.tag-stats-section h4,
+.tag-filter-section h4 {
+    color: #1e293b;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tag-stats-modal {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.tag-filter-section select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    background: #ffffff;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.students-by-tag {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.student-item {
+    background: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.student-item:hover {
+    border-color: #667eea;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+}
+
+.student-info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.student-name {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.student-room {
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.edit-tag-btn {
+    padding: 6px 12px;
+    background: #667eea;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.edit-tag-btn:hover {
+    background: #5a67d8;
+    transform: translateY(-1px);
+}
+
+
+/* 学生标签编辑模态框 */
+
+.student-tag-edit {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.student-info {
+    background: #f8fafc;
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.student-info h4 {
+    color: #1e293b;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.student-info p {
+    color: #64748b;
+    font-size: 0.875rem;
+}
+
+.tag-selection h4 {
+    color: #1e293b;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.tag-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tag-radio-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #ffffff;
+}
+
+.tag-radio-item:hover {
+    border-color: #667eea;
+    background: #f8fafc;
+}
+
+.tag-radio-item.selected {
+    border-color: #667eea;
+    background: #667eea;
+    color: #ffffff;
+}
+
+.tag-radio-item input[type="radio"] {
+    margin-right: 12px;
+}
+
+.tag-radio-label {
+    font-weight: 500;
+    flex: 1;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-primary {
+    background: #667eea;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: #5a67d8;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: #e2e8f0;
+    color: #64748b;
+}
+
+.btn-secondary:hover {
+    background: #cbd5e1;
+    color: #1e293b;
+}
+
+
+/* 标签图例 */
+
+.tag-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.tag-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tag-legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.tag-legend-label {
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+
+/* 小房间卡片中的标签 */
+
+.mini-room-tags {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    z-index: 5;
+    display: flex;
+    gap: 2px;
+}
+
+.mini-room-tag {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+/* 标签过滤器激活状态 */
+
+.filters select.tag-filtered {
+    background: #dbeafe;
+    border-color: #3b82f6;
+    color: #1e40af;
+}
+
+
+/* 响应式设计 - 标签相关 */
+
+@media (max-width: 768px) {
+    .tag-stats-content {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .tag-stats-modal {
+        grid-template-columns: 1fr;
+    }
+    .tag-management {
+        gap: 16px;
+    }
+    .modal-actions {
+        flex-direction: column;
+    }
+    .btn {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .tag-radio-group {
+        gap: 6px;
+    }
+    .tag-radio-item {
+        padding: 6px 8px;
+    }
+    .student-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .edit-tag-btn {
+        align-self: flex-end;
+    }
+}
+
+
+/* 附加动画效果 */
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulseGlow {
+    0%,
+    100% {
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+    }
+    50% {
+        box-shadow: 0 4px 16px rgba(102, 126, 234, 0.4);
+    }
+}
+
+
+/* 为标签管理按钮添加脉冲效果 */
+
+#tagManager:focus {
+    animation: pulseGlow 1.5s infinite;
+}
+
+
+/* 为房间卡片添加优雅的悬停效果 */
+
+.room-card:hover .student-tag {
+    transform: scale(1.05);
+}
+
+
+/* 为mini房间添加动画 */
+
+.mini-room {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* 为标签添加更流畅的动画 */
+
+.student-tag {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* 模态框背景模糊增强 */
+
+.modal {
+    backdrop-filter: blur(8px);
+}
+
+
+/* 为按钮添加更好的视觉反馈 */
+
+.filters button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.view-btn:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
 }

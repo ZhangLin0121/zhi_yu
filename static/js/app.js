@@ -3,13 +3,17 @@
 class RoomVisualization {
     constructor() {
         this.roomsData = null;
-        this.roomsDetailsCache = null; // 新增：缓存所有房间详细信息
+        // 移除房间详情缓存，直接从数据库获取
         this.currentFloor = null;
         this.searchTerm = '';
         this.filterFloor = '';
         this.filterStatus = '';
+        this.filterTag = ''; // 新增：标签过滤
         this.currentView = 'overview'; // 'overview' 或 'floors'
         this.cacheLoaded = false; // 新增：标记缓存是否已加载
+        this.tagsData = null; // 新增：标签数据
+        this.tagStatistics = null; // 新增：标签统计
+        this.currentEditingStudent = null; // 新增：当前编辑的学生
 
         this.init();
     }
@@ -52,6 +56,11 @@ class RoomVisualization {
             this.applyFilters();
         });
 
+        document.getElementById('tagFilter').addEventListener('change', (e) => {
+            this.filterTag = e.target.value;
+            this.applyFilters();
+        });
+
         // 刷新数据
         document.getElementById('refreshData').addEventListener('click', () => {
             this.loadRoomsData();
@@ -60,6 +69,16 @@ class RoomVisualization {
         // 刷新认证信息
         document.getElementById('refreshAuth').addEventListener('click', () => {
             this.refreshAuth();
+        });
+
+        // 标签管理
+        document.getElementById('tagManager').addEventListener('click', () => {
+            this.openTagManager();
+        });
+
+        // 清除缓存
+        document.getElementById('clearCache').addEventListener('click', () => {
+            this.clearAllCache();
         });
 
         // 视图切换
@@ -78,53 +97,100 @@ class RoomVisualization {
             }
         });
 
+        // 标签管理模态框关闭
+        document.getElementById('tagModal').addEventListener('click', (e) => {
+            if (e.target.id === 'tagModal') {
+                this.closeTagModal();
+            }
+        });
+
+        // 学生标签编辑模态框关闭
+        document.getElementById('studentTagModal').addEventListener('click', (e) => {
+            if (e.target.id === 'studentTagModal') {
+                this.closeStudentTagModal();
+            }
+        });
+
         // ESC键关闭模态框
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 this.closeModal();
+                this.closeTagModal();
+                this.closeStudentTagModal();
             }
         });
     }
 
-    async loadRoomsData() {
+    async loadRoomsData(skipSync = false) {
         try {
             this.showLoading();
 
-            // 同时加载基本数据和详细数据
             // 自动检测API基础路径
             const basePath = window.location.pathname.includes('/rooms/') ? '/rooms' : '';
-            const [basicResponse, detailsResponse] = await Promise.all([
-                fetch(`${basePath}/api/rooms`),
-                fetch(`${basePath}/api/rooms/details`)
+
+            // 如果是首次加载（skipSync=false），先同步数据
+            if (!skipSync) {
+                console.log('首次加载，开始同步外部API数据到数据库...');
+                try {
+                    const syncResponse = await fetch(`${basePath}/api/sync`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    const syncData = await syncResponse.json();
+                    if (syncData.success) {
+                        console.log('数据同步成功:', syncData.message);
+                    } else {
+                        console.warn('数据同步失败:', syncData.error);
+                    }
+                } catch (syncError) {
+                    console.warn('数据同步发生错误，但继续从数据库加载:', syncError);
+                }
+            }
+
+            console.log('开始从数据库加载房间数据...');
+
+            const [basicResponse, tagsResponse] = await Promise.all([
+                fetch(`${basePath}/api/rooms/with-tags`), // 从数据库读取
+                fetch(`${basePath}/api/tags`)
             ]);
 
             const basicData = await basicResponse.json();
-            const detailsData = await detailsResponse.json();
+            const tagsData = await tagsResponse.json();
 
-            if (basicData.error) {
-                throw new Error(basicData.error);
+            // 检查基本数据是否成功获取
+            if (basicData.error || !basicData.success) {
+                throw new Error(basicData.error || '获取房间数据失败');
             }
 
-            if (detailsData.error) {
-                console.warn('加载详细数据失败，将使用基本数据:', detailsData.error);
-                this.roomsDetailsCache = null;
-                this.cacheLoaded = false;
+            console.log('房间数据加载成功，包含标签统计:', basicData.tag_statistics);
+
+            // 处理标签数据
+            if (tagsData.success) {
+                this.tagsData = tagsData.tags;
+                this.tagStatistics = tagsData.statistics;
+                console.log('标签数据加载成功:', this.tagsData);
             } else {
-                // 将详细数据转换为以房间ID为键的映射，便于快速查找
-                this.roomsDetailsCache = new Map();
-                detailsData.rooms.forEach(room => {
-                    // 确保house_id统一转换为字符串类型，避免类型不匹配
-                    const houseIdStr = String(room.house_id);
-                    this.roomsDetailsCache.set(houseIdStr, room);
-                });
-                this.cacheLoaded = true;
-                console.log(`已缓存 ${detailsData.rooms.length} 个房间的详细信息`);
+                console.warn('加载标签数据失败:', tagsData.error);
+                this.tagsData = ['22级硕博士', '23级硕博士', '24级硕博士', '实习实践', '未分类'];
+                this.tagStatistics = {};
+            }
+
+            // 优先使用带标签数据中的标签统计
+            if (basicData.tag_statistics) {
+                this.tagStatistics = basicData.tag_statistics;
+                console.log('使用带标签数据中的标签统计:', this.tagStatistics);
             }
 
             this.roomsData = basicData;
+            this.cacheLoaded = true;
+
             this.updateHeaderInfo();
             this.createFloorButtons();
             this.populateFloorFilter();
+            this.populateTagFilter();
+            this.updateTagLegend();
             this.renderCurrentView();
             this.hideLoading();
 
@@ -139,6 +205,25 @@ class RoomVisualization {
 
     updateHeaderInfo() {
         document.getElementById('totalRooms').textContent = `总房间数: ${this.roomsData.total_rooms}`;
+
+        // 添加入住统计信息
+        const occupiedCount = this.roomsData.occupied_count || 0;
+        const vacantCount = this.roomsData.vacant_count || 0;
+        const occupancyRate = this.roomsData.total_rooms > 0 ?
+            ((occupiedCount / this.roomsData.total_rooms) * 100).toFixed(1) : 0;
+
+        // 更新或创建入住统计显示
+        let statsElement = document.getElementById('occupancyStats');
+        if (!statsElement) {
+            statsElement = document.createElement('div');
+            statsElement.id = 'occupancyStats';
+            statsElement.style.cssText = 'margin: 10px 0; color: #475569; font-size: 14px;';
+            document.getElementById('totalRooms').parentNode.appendChild(statsElement);
+        }
+
+        statsElement.innerHTML = `
+            <div>已入住: ${occupiedCount} 间 | 空置: ${vacantCount} 间 | 入住率: ${occupancyRate}%</div>
+        `;
 
         if (this.roomsData.timestamp) {
             const date = new Date(this.roomsData.timestamp);
@@ -263,16 +348,16 @@ class RoomVisualization {
         const multiTenantRooms = allRooms.filter(room => room.tenants.length > 1).length;
 
         // 50平米房间统计
-        const largeRooms = allRooms.filter(room => this.isLargeRoom(room.room_in_floor)).length;
+        const largeRooms = allRooms.filter(room => this.isLargeRoom(room.room_number)).length;
         const largeRoomsOccupied = allRooms.filter(room =>
-            this.isLargeRoom(room.room_in_floor) && room.tenants.length > 0
+            this.isLargeRoom(room.room_number) && room.tenants.length > 0
         ).length;
         const largeRoomsVacant = largeRooms - largeRoomsOccupied;
 
         // 35平米房间统计
-        const smallRooms = allRooms.filter(room => !this.isLargeRoom(room.room_in_floor)).length;
+        const smallRooms = allRooms.filter(room => !this.isLargeRoom(room.room_number)).length;
         const smallRoomsOccupied = allRooms.filter(room =>
-            !this.isLargeRoom(room.room_in_floor) && room.tenants.length > 0
+            !this.isLargeRoom(room.room_number) && room.tenants.length > 0
         ).length;
         const smallRoomsVacant = smallRooms - smallRoomsOccupied;
 
@@ -366,13 +451,23 @@ class RoomVisualization {
     }
 
     // 判断是否为50平米房间 (1、2、3和11、12号房间)
-    isLargeRoom(roomInFloor) {
+    isLargeRoom(roomNumberOrInFloor) {
+        let roomInFloor;
+        if (typeof roomNumberOrInFloor === 'string') {
+            // 从完整房间号提取房间内编号 (如 "1001" -> 1)
+            roomInFloor = parseInt(roomNumberOrInFloor.slice(-2));
+        } else {
+            roomInFloor = roomNumberOrInFloor;
+        }
         return [1, 2, 3, 11, 12].includes(roomInFloor);
     }
 
     createFloorRoomsOverview(rooms, floor) {
-        // 确保房间按房间号排序
-        const sortedRooms = [...rooms].sort((a, b) => a.room_in_floor - b.room_in_floor);
+        // 确保房间按房间号排序，并添加room_in_floor字段
+        const sortedRooms = [...rooms].map(room => ({
+            ...room,
+            room_in_floor: parseInt(room.room_number.slice(-2))
+        })).sort((a, b) => a.room_in_floor - b.room_in_floor);
         const roomsHtml = [];
 
         if (floor === 1) {
@@ -577,7 +672,7 @@ class RoomVisualization {
         let tenantInfo = '';
 
         // 检查是否为50平米房间
-        if (this.isLargeRoom(room.room_in_floor)) {
+        if (this.isLargeRoom(room.room_number)) {
             cardClass += ' large-room';
         }
 
@@ -586,27 +681,63 @@ class RoomVisualization {
             tenantInfo = '<div class="tenant-info">空闲</div>';
         } else if (tenantCount === 1) {
             cardClass += ' occupied-room';
-            const tenant = room.main_tenant || room.tenants[0];
+            const tenant = room.tenants.find(t => t.is_main === 1) || room.tenants[0];
+
+            // 收集标签
+            const tags = new Set();
+            if (tenant.tag && tenant.tag !== '未分类') {
+                tags.add(tenant.tag);
+            }
+
+            let tagsHtml = '';
+            if (tags.size > 0) {
+                tagsHtml = '<div class="room-tags">';
+                tags.forEach(tag => {
+                    tagsHtml += `<span class="student-tag tag-${tag}">${tag}</span>`;
+                });
+                tagsHtml += '</div>';
+            }
+
             tenantInfo = `
                 <div class="tenant-info">
                     <div class="tenant-name">${tenant.tenant_name}</div>
+                    ${tagsHtml}
                 </div>
             `;
         } else {
             cardClass += ' multi-tenant';
-            const mainTenant = room.main_tenant;
+            const mainTenant = room.tenants.find(t => t.is_main === 1);
+
+            // 收集所有租户的标签
+            const tags = new Set();
+            room.tenants.forEach(tenant => {
+                if (tenant.tag && tenant.tag !== '未分类') {
+                    tags.add(tenant.tag);
+                }
+            });
+
+            let tagsHtml = '';
+            if (tags.size > 0) {
+                tagsHtml = '<div class="room-tags">';
+                tags.forEach(tag => {
+                    tagsHtml += `<span class="student-tag tag-${tag}">${tag}</span>`;
+                });
+                tagsHtml += '</div>';
+            }
+
             tenantInfo = `
                 <div class="tenant-info">
                     <div class="tenant-name">${mainTenant ? mainTenant.tenant_name : room.tenants[0].tenant_name}</div>
                     <div class="tenant-count">+${tenantCount - 1}人合租</div>
+                    ${tagsHtml}
                 </div>
             `;
         }
 
-        const roomTitle = `${room.room_number}${this.isLargeRoom(room.room_in_floor) ? ' (50㎡)' : ''}`;
+        const roomTitle = `${room.room_number}${this.isLargeRoom(room.room_number) ? ' (50㎡)' : ''}`;
 
         return `
-            <div class="${cardClass}" onclick="app.showRoomDetail('${room.house_id}')">
+            <div class="${cardClass}" onclick="app.showRoomDetail('${room.house_id || room.room_number}')">
                 <div class="room-number">${roomTitle}</div>
                 ${tenantInfo}
             </div>
@@ -615,38 +746,40 @@ class RoomVisualization {
 
     async showRoomDetail(houseId) {
         try {
-            // 确保houseId为字符串类型，与缓存键类型一致
+            // 确保houseId为字符串类型
             const houseIdStr = String(houseId);
+            console.log(`获取房间详情: ${houseIdStr}`);
 
-            // 优先使用缓存数据
-            if (this.cacheLoaded && this.roomsDetailsCache.has(houseIdStr)) {
-                const room = this.roomsDetailsCache.get(houseIdStr);
-                this.displayRoomModal(room);
-                console.log(`从缓存加载房间 ${houseIdStr} 详情`);
-                return;
+            // 检查houseId是否有效
+            if (!houseIdStr || houseIdStr === 'null' || houseIdStr === 'undefined') {
+                throw new Error(`无效的房间ID: ${houseIdStr}`);
             }
 
-            // 如果缓存不可用，则从API获取
-            console.log(`缓存未命中，从API获取房间 ${houseIdStr} 详情`);
-            // 自动检测API基础路径
+            // 直接从API（数据库）获取最新数据
             const basePath = window.location.pathname.includes('/rooms/') ? '/rooms' : '';
-            const response = await fetch(`${basePath}/api/room/${houseIdStr}`);
+            const apiUrl = `${basePath}/api/room/${houseIdStr}`;
+            console.log(`API请求地址: ${apiUrl}`);
+
+            const response = await fetch(apiUrl);
+            console.log(`API响应状态: ${response.status}`);
+
+            if (!response.ok) {
+                throw new Error(`HTTP错误: ${response.status} ${response.statusText}`);
+            }
+
             const room = await response.json();
+            console.log(`API返回数据:`, room);
 
             if (room.error) {
                 throw new Error(room.error);
             }
 
-            // 将获取的数据添加到缓存中
-            if (this.roomsDetailsCache) {
-                this.roomsDetailsCache.set(houseIdStr, room);
-            }
-
             this.displayRoomModal(room);
 
         } catch (error) {
-            console.error('获取房间详情失败:', error);
-            alert('获取房间详情失败，请稍后重试');
+            console.error('获取房间详情失败详细信息:', error);
+            console.error('错误堆栈:', error.stack);
+            alert(`获取房间详情失败: ${error.message}\n请检查浏览器控制台查看详细错误信息`);
         }
     }
 
@@ -682,10 +815,10 @@ class RoomVisualization {
             const modalTitle = modal.querySelector('.modal-header h3');
 
             // 设置标题
-            const isLarge = this.isLargeRoom(room.room_in_floor);
+            const isLarge = this.isLargeRoom(room.room_number);
             modalTitle.innerHTML = `
             <i class="fas fa-home"></i> 
-            ${room.house_name} ${isLarge ? '(50㎡)' : '(35㎡)'}
+            ${room.room_number} ${isLarge ? '(50㎡)' : '(35㎡)'}
         `;
 
             let roomInfo = `
@@ -708,12 +841,17 @@ class RoomVisualization {
             `;
 
             room.tenants.forEach(tenant => {
-                const isMainTenant = room.main_tenant && room.main_tenant.tenant_id === tenant.tenant_id;
+                const isMainTenant = tenant.is_main === 1;
+                const tenantTag = tenant.tag || '未分类';
                 roomInfo += `
                     <div class="tenant-card ${isMainTenant ? 'main-tenant' : ''}">
                         <div class="tenant-header">
                             <div class="tenant-name-large">${tenant.tenant_name}</div>
                             ${isMainTenant ? '<span class="tenant-badge main">主租户</span>' : '<span class="tenant-badge">合租户</span>'}
+                        </div>
+                        <div style="margin-top: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <span class="student-tag tag-${tenantTag}">${tenantTag}</span>
+                            <button class="edit-tag-btn" onclick="app.openStudentTagEditor({student_id: '${tenant.student_id}', name: '${tenant.tenant_name}', room_number: '${room.room_number}', tag: '${tenantTag}'})" style="padding: 4px 8px; font-size: 0.75rem;">编辑标签</button>
                         </div>
                     </div>
                 `;
@@ -741,6 +879,296 @@ class RoomVisualization {
 
     closeModal() {
         document.getElementById('roomModal').style.display = 'none';
+    }
+
+    // 标签相关方法
+    populateTagFilter() {
+        const tagFilter = document.getElementById('tagFilter');
+        tagFilter.innerHTML = '<option value="">所有标签</option>';
+
+        if (this.tagsData) {
+            this.tagsData.forEach(tag => {
+                const option = document.createElement('option');
+                option.value = tag;
+                option.textContent = tag;
+                tagFilter.appendChild(option);
+            });
+        }
+    }
+
+    updateTagLegend() {
+        const tagLegend = document.getElementById('tagLegend');
+        if (!tagLegend || !this.tagsData) return;
+
+        const tagColors = {
+            '22级硕博士': '#fef2f2',
+            '23级硕博士': '#f0fdfa',
+            '24级硕博士': '#eff6ff',
+            '实习实践': '#f0fdf4',
+            '未分类': '#fffbeb'
+        };
+
+        tagLegend.innerHTML = '';
+        this.tagsData.forEach(tag => {
+            const item = document.createElement('div');
+            item.className = 'tag-legend-item';
+            
+            const color = document.createElement('div');
+            color.className = 'tag-legend-color';
+            color.style.backgroundColor = tagColors[tag] || '#f1f5f9';
+            
+            const label = document.createElement('span');
+            label.className = 'tag-legend-label';
+            label.textContent = tag;
+            
+            item.appendChild(color);
+            item.appendChild(label);
+            tagLegend.appendChild(item);
+        });
+    }
+
+    async openTagManager() {
+        try {
+            // 获取最新的标签统计
+            const response = await fetch('/api/tags/statistics');
+            const data = await response.json();
+            
+            if (data.success) {
+                this.tagStatistics = data.statistics;
+            }
+
+            this.renderTagManager();
+            document.getElementById('tagModal').style.display = 'block';
+        } catch (error) {
+            console.error('打开标签管理器失败:', error);
+            this.showNotification('error', '打开标签管理器失败');
+        }
+    }
+
+    renderTagManager() {
+        // 渲染标签统计
+        const tagStatsModal = document.getElementById('tagStatsModal');
+        tagStatsModal.innerHTML = '';
+
+        if (this.tagStatistics) {
+            Object.entries(this.tagStatistics).forEach(([tag, count]) => {
+                const item = document.createElement('div');
+                item.className = 'tag-stat-item';
+                
+                const badge = document.createElement('div');
+                badge.className = 'tag-stat-badge';
+                badge.style.backgroundColor = this.getTagColor(tag);
+                
+                const label = document.createElement('span');
+                label.className = 'tag-stat-label';
+                label.textContent = tag;
+                
+                const countSpan = document.createElement('span');
+                countSpan.className = 'tag-stat-count';
+                countSpan.textContent = count;
+                
+                item.appendChild(badge);
+                item.appendChild(label);
+                item.appendChild(countSpan);
+                tagStatsModal.appendChild(item);
+            });
+        }
+
+        // 填充标签过滤器选择框
+        const tagFilterModal = document.getElementById('tagFilterModal');
+        tagFilterModal.innerHTML = '<option value="">选择标签</option>';
+        
+        if (this.tagsData) {
+            this.tagsData.forEach(tag => {
+                const option = document.createElement('option');
+                option.value = tag;
+                option.textContent = tag;
+                tagFilterModal.appendChild(option);
+            });
+        }
+
+        // 绑定标签过滤器事件
+        tagFilterModal.addEventListener('change', (e) => {
+            if (e.target.value) {
+                this.loadStudentsByTag(e.target.value);
+            } else {
+                document.getElementById('studentsByTag').innerHTML = '';
+            }
+        });
+    }
+
+    async loadStudentsByTag(tag) {
+        try {
+            const response = await fetch(`/api/students/tag/${encodeURIComponent(tag)}`);
+            const data = await response.json();
+            
+            if (data.success) {
+                this.renderStudentsByTag(data.students, tag);
+            } else {
+                console.error('加载学生数据失败:', data.error);
+            }
+        } catch (error) {
+            console.error('加载学生数据失败:', error);
+        }
+    }
+
+    renderStudentsByTag(students, tag) {
+        const container = document.getElementById('studentsByTag');
+        container.innerHTML = '';
+
+        if (students.length === 0) {
+            container.innerHTML = '<p style="text-align: center; color: #64748b;">暂无该标签的学生</p>';
+            return;
+        }
+
+        students.forEach(student => {
+            const item = document.createElement('div');
+            item.className = 'student-item';
+            
+            const info = document.createElement('div');
+            info.className = 'student-info-item';
+            
+            const name = document.createElement('div');
+            name.className = 'student-name';
+            name.textContent = student.name || '未知姓名';
+            
+            const room = document.createElement('div');
+            room.className = 'student-room';
+            room.textContent = `房间: ${student.room_number || '未知'}`;
+            
+            info.appendChild(name);
+            info.appendChild(room);
+            
+            const editBtn = document.createElement('button');
+            editBtn.className = 'edit-tag-btn';
+            editBtn.textContent = '编辑标签';
+            editBtn.onclick = () => this.openStudentTagEditor(student);
+            
+            item.appendChild(info);
+            item.appendChild(editBtn);
+            container.appendChild(item);
+        });
+    }
+
+    openStudentTagEditor(student) {
+        this.currentEditingStudent = student;
+        
+        // 填充学生信息
+        document.getElementById('editStudentName').textContent = student.name || '未知姓名';
+        document.getElementById('editStudentRoom').textContent = `房间: ${student.room_number || '未知'}`;
+        
+        // 创建标签选择器
+        const tagRadioGroup = document.getElementById('tagRadioGroup');
+        tagRadioGroup.innerHTML = '';
+        
+        if (this.tagsData) {
+            this.tagsData.forEach(tag => {
+                const item = document.createElement('div');
+                item.className = 'tag-radio-item';
+                if (student.tag === tag) {
+                    item.classList.add('selected');
+                }
+                
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = 'studentTag';
+                radio.value = tag;
+                radio.checked = student.tag === tag;
+                
+                const label = document.createElement('label');
+                label.className = 'tag-radio-label';
+                label.textContent = tag;
+                label.onclick = () => {
+                    // 更新选中状态
+                    tagRadioGroup.querySelectorAll('.tag-radio-item').forEach(i => i.classList.remove('selected'));
+                    item.classList.add('selected');
+                    radio.checked = true;
+                };
+                
+                item.appendChild(radio);
+                item.appendChild(label);
+                tagRadioGroup.appendChild(item);
+            });
+        }
+        
+        // 绑定保存按钮事件
+        const saveBtn = document.getElementById('saveStudentTag');
+        saveBtn.onclick = () => this.saveStudentTag();
+        
+        document.getElementById('studentTagModal').style.display = 'block';
+    }
+
+    async saveStudentTag() {
+        if (!this.currentEditingStudent) return;
+        
+        const selectedTag = document.querySelector('input[name="studentTag"]:checked');
+        if (!selectedTag) {
+            this.showNotification('error', '请选择一个标签');
+            return;
+        }
+        
+        try {
+            const response = await fetch(`/api/students/${this.currentEditingStudent.student_id}/tag`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    tag: selectedTag.value
+                })
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                this.showNotification('success', '标签更新成功');
+                
+                this.closeStudentTagModal();
+                
+                // 刷新数据，但跳过API同步，直接从数据库读取
+                this.loadRoomsData(true);
+                
+                // 如果房间详情模态框是打开的，重新获取并显示最新数据
+                const roomModal = document.getElementById('roomModal');
+                if (roomModal.style.display === 'block' && this.currentEditingStudent) {
+                    console.log(`重新加载房间 ${this.currentEditingStudent.room_number} 的详情`);
+                    // 延迟一下确保数据已更新
+                    setTimeout(() => {
+                        this.showRoomDetail(this.currentEditingStudent.room_number);
+                    }, 500);
+                }
+                
+                // 如果标签管理器是打开的，刷新它
+                if (document.getElementById('tagModal').style.display === 'block') {
+                    this.openTagManager();
+                }
+            } else {
+                this.showNotification('error', data.error || '标签更新失败');
+            }
+        } catch (error) {
+            console.error('保存标签失败:', error);
+            this.showNotification('error', '保存标签失败');
+        }
+    }
+
+    getTagColor(tag) {
+        const tagColors = {
+            '22级硕博士': '#fecaca',
+            '23级硕博士': '#a7f3d0',
+            '24级硕博士': '#bfdbfe',
+            '实习实践': '#bbf7d0',
+            '未分类': '#fde68a'
+        };
+        return tagColors[tag] || '#f1f5f9';
+    }
+
+    closeTagModal() {
+        document.getElementById('tagModal').style.display = 'none';
+    }
+
+    closeStudentTagModal() {
+        document.getElementById('studentTagModal').style.display = 'none';
+        this.currentEditingStudent = null;
     }
 
     maskIdCard(idCard) {
@@ -823,9 +1251,17 @@ class RoomVisualization {
             this.showAllFloors();
         }
 
-        // 应用状态筛选
-        if (this.filterStatus) {
+        // 应用状态筛选和标签筛选
+        if (this.filterStatus || this.filterTag) {
             this.applyStatusFilter();
+        }
+
+        // 更新标签过滤器样式
+        const tagFilter = document.getElementById('tagFilter');
+        if (this.filterTag) {
+            tagFilter.classList.add('tag-filtered');
+        } else {
+            tagFilter.classList.remove('tag-filtered');
         }
     }
 
@@ -842,10 +1278,26 @@ class RoomVisualization {
 
                 let shouldShow = true;
 
+                // 状态筛选
                 if (this.filterStatus === 'occupied' && !isOccupied) {
                     shouldShow = false;
                 } else if (this.filterStatus === 'vacant' && !isVacant) {
                     shouldShow = false;
+                }
+
+                // 标签筛选
+                if (shouldShow && this.filterTag) {
+                    const houseId = card.dataset.houseId;
+                    const room = this.findRoomByHouseId(houseId);
+                    
+                    if (!room || !room.tenants || room.tenants.length === 0) {
+                        shouldShow = false;
+                    } else {
+                        const hasTag = room.tenants.some(tenant => tenant.tag === this.filterTag);
+                        if (!hasTag) {
+                            shouldShow = false;
+                        }
+                    }
                 }
 
                 card.style.display = shouldShow ? 'block' : 'none';
@@ -855,6 +1307,16 @@ class RoomVisualization {
             // 如果该楼层没有符合条件的房间，隐藏整个楼层
             floorView.style.display = visibleCount > 0 ? 'block' : 'none';
         });
+    }
+
+    findRoomByHouseId(houseId) {
+        if (!this.roomsData || !this.roomsData.floors) return null;
+        
+        for (const floorRooms of Object.values(this.roomsData.floors)) {
+            const room = floorRooms.find(r => String(r.house_id) === String(houseId));
+            if (room) return room;
+        }
+        return null;
     }
 
     showLoading() {
@@ -953,11 +1415,38 @@ class RoomVisualization {
             timeoutId = setTimeout(() => func.apply(this, args), delay);
         };
     }
+
+    clearAllCache() {
+        if (confirm('确定要清除所有缓存并重新加载页面吗？这将刷新所有数据。')) {
+            // 清除应用状态
+            this.cacheLoaded = false;
+            
+            // 清除浏览器缓存
+            if ('caches' in window) {
+                caches.keys().then(names => {
+                    names.forEach(name => {
+                        caches.delete(name);
+                    });
+                });
+            }
+            
+            // 强制刷新页面（绕过缓存）
+            location.reload(true);
+        }
+    }
 }
 
 // 全局函数，供HTML调用
 function closeModal() {
     app.closeModal();
+}
+
+function closeTagModal() {
+    app.closeTagModal();
+}
+
+function closeStudentTagModal() {
+    app.closeStudentTagModal();
 }
 
 // 初始化应用

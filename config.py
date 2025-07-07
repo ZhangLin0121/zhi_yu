@@ -70,6 +70,31 @@ class Config:
     # 日志配置
     LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO')
     
+    # MongoDB配置
+    MONGODB = {
+        'host': os.getenv('MONGODB_HOST', 'localhost'),
+        'port': int(os.getenv('MONGODB_PORT', 27017)),
+        'database': os.getenv('MONGODB_DATABASE', 'room_management'),
+        'username': os.getenv('MONGODB_USERNAME', ''),
+        'password': os.getenv('MONGODB_PASSWORD', ''),
+        'auth_source': os.getenv('MONGODB_AUTH_SOURCE', 'admin'),
+        'connect_timeout': int(os.getenv('MONGODB_CONNECT_TIMEOUT', 10000)),
+        'server_selection_timeout': int(os.getenv('MONGODB_SERVER_SELECTION_TIMEOUT', 5000)),
+        'max_pool_size': int(os.getenv('MONGODB_MAX_POOL_SIZE', 50))
+    }
+    
+    # 学生标签配置
+    STUDENT_TAGS = {
+        'default_tags': ['22级硕博士', '23级硕博士', '24级硕博士', '实习实践', '未分类'],
+        'tag_colors': {
+            '22级硕博士': '#FF6B6B',
+            '23级硕博士': '#4ECDC4', 
+            '24级硕博士': '#45B7D1',
+            '实习实践': '#96CEB4',
+            '未分类': '#FFEAA7'
+        }
+    }
+    
     @classmethod
     def get_api_payload(cls, page_number: int = 1, page_size: int = None) -> Dict[str, Any]:
         """获取API请求载荷"""
