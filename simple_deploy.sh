@@ -67,22 +67,66 @@ echo $APP_PID > app.pid
 echo "⏳ 等待启动..."
 sleep 5
 
-# 8. 测试
+# 8. 强制认证更新（确保获取真实数据）
+echo "🔐 强制更新认证信息..."
+python3 force_auth_update.py
+
+# 9. 重启应用以应用新认证
+echo "🔄 重启应用..."
+if [ -f app.pid ]; then
+    kill $(cat app.pid) 2>/dev/null || true
+    sleep 3
+fi
+
+nohup python3 app.py > app.log 2>&1 &
+echo $! > app.pid
+
+# 10. 等待启动并测试
+echo "⏳ 等待应用重启..."
+sleep 8
+
 echo "🧪 测试应用..."
 if curl -s "http://localhost:5001/api/status" > /dev/null; then
     echo "✅ 应用启动成功"
     
-    # 测试数据
+    # 详细测试数据
+    STATUS_DATA=$(curl -s "http://localhost:5001/api/status")
     ROOM_DATA=$(curl -s "http://localhost:5001/api/rooms")
-    TOTAL_ROOMS=$(echo "$ROOM_DATA" | python3 -c "import json,sys; data=json.load(sys.stdin); print(data.get('total_rooms', 0))")
     
-    echo "📊 房间数据: $TOTAL_ROOMS 个房间"
+    echo "$STATUS_DATA" | python3 -c "
+import json, sys
+try:
+    data = json.load(sys.stdin)
+    occupied = data.get('occupied_count', 0)
+    total = data.get('total_rooms', 0)
+    
+    print(f'📊 API状态: {data.get(\"status\", \"未知\")}')
+    print(f'📊 总房间数: {total}')
+    print(f'📊 已入住: {occupied}')
+    
+    if occupied > 100:
+        print('')
+        print('🎉 部署验证成功！')
+        print(f'✅ 服务器成功获取到 {occupied} 个已入住房间的真实数据')
+    else:
+        print('')
+        print('⚠️  警告：入住房间数量异常，可能需要手动刷新认证')
+except:
+    print('❌ 状态数据解析失败')
+"
+    
+    echo ""
     echo "🎉 部署完成！"
     echo ""
     echo "🌐 访问地址: http://47.122.68.192:5001"
-    echo "📋 管理: kill \$(cat app.pid) # 停止应用"
+    echo "🔗 房间页面: https://www.cacophonyem.me/rooms/"
+    echo "📋 管理命令:"
+    echo "  - 停止应用: kill \$(cat app.pid)"
+    echo "  - 查看日志: tail -f app.log"
+    echo "  - 重启应用: nohup python3 app.py > app.log 2>&1 & echo \$! > app.pid"
 else
     echo "❌ 应用启动失败"
-    echo "📋 查看日志: tail app.log"
+    echo "📋 查看日志: tail -20 app.log"
+    echo "🔧 手动启动: python3 app.py"
     exit 1
 fi 
