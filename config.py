@@ -39,10 +39,10 @@ class Config:
     
     # Cookie配置
     API_COOKIES = {
-        'HWWAFSESID': '26cf673e248a27b3a5',
-        'HWWAFSESTIME': '1751609522843',
-        '_ams_token': 'web_bgd6s9lz980w7c45z8gvkhrd5spkd2mw',
-        '_common_token': 'web_bgd6s9lz980w7c45z8gvkhrd5spkd2mw'
+        'HWWAFSESID': '13733731437c2a43e3',
+        'HWWAFSESTIME': '1751861002097',
+        '_ams_token': 'web_cdpi6hgs9ez80cb8jit3emwv2wuh4uo5',
+        '_common_token': 'web_cdpi6hgs9ez80cb8jit3emwv2wuh4uo5'
     }
     
     # API请求参数
