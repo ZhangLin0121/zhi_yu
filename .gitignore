@@ -60,4 +60,11 @@ temp/
 
 # Deploy packages (keep source files only)
 room-management-deploy/
-*.tar.gz 
+*.tar.gz
+
+# Authentication cache (contains sensitive info)
+auth_cache.json
+
+# Temporary files
+get_cookies.js
+complete_rooms_layout_*.json 
