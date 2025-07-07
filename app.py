@@ -23,13 +23,10 @@ logger = logging.getLogger(__name__)
 # 初始化数据管理器
 data_manager = RoomsDataManager()
 
-# 全局变量用于跟踪自动认证状态
+# 全局变量用于跟踪认证状态
 auto_auth_lock = threading.Lock()
 last_auth_check = 0
-auth_check_interval = 300  # 5分钟检查一次认证状态
-
-# 新增：更主动的认证检查间隔（2分钟）
-proactive_auth_check_interval = 120  # 2分钟主动检查一次
+auth_check_interval = 3600  # 1小时检查一次认证状态（降低频率）
 
 def check_and_refresh_auth():
     """检查并刷新认证信息"""
@@ -37,7 +34,7 @@ def check_and_refresh_auth():
     
     current_time = time.time()
     
-    # 如果距离上次检查不足5分钟，跳过
+    # 如果距离上次检查不足1小时，跳过
     if current_time - last_auth_check < auth_check_interval:
         return True
     
@@ -69,18 +66,10 @@ def check_and_refresh_auth():
             logger.error(f"认证检查失败: {str(e)}")
             return False
 
-def proactive_auth_check():
-    """主动认证检查 - 更频繁的检查"""
-    global last_auth_check
-    
-    current_time = time.time()
-    
-    # 每2分钟主动检查一次
-    if current_time - last_auth_check < proactive_auth_check_interval:
-        return True
-    
+def auth_check_on_page_access():
+    """仅在页面访问时进行认证检查"""
     try:
-        logger.info("执行主动认证检查...")
+        logger.info("页面访问时进行认证检查...")
         
         # 尝试获取数据来验证认证有效性
         test_data = data_manager.generate_complete_layout()
@@ -90,47 +79,17 @@ def proactive_auth_check():
             
             # 如果入住房间数量正常，认证有效
             if len(occupied_rooms) > 100:
-                logger.info(f"主动认证检查通过，当前 {len(occupied_rooms)} 个房间已入住")
-                last_auth_check = current_time
+                logger.info(f"认证检查通过，当前 {len(occupied_rooms)} 个房间已入住")
                 return True
             else:
-                logger.warning(f"主动认证检查发现异常，只有 {len(occupied_rooms)} 个房间已入住，尝试刷新认证...")
+                logger.warning(f"认证检查发现异常，只有 {len(occupied_rooms)} 个房间已入住，尝试刷新认证...")
                 return check_and_refresh_auth()
         else:
-            logger.warning("主动认证检查失败，无法获取数据，尝试刷新认证...")
+            logger.warning("认证检查失败，无法获取数据，尝试刷新认证...")
             return check_and_refresh_auth()
             
     except Exception as e:
-        logger.error(f"主动认证检查失败: {str(e)}")
-        return check_and_refresh_auth()
-
-def auto_authenticate_if_needed():
-    """如果需要则自动认证"""
-    try:
-        # 先执行主动认证检查
-        if not proactive_auth_check():
-            logger.warning("主动认证检查失败，尝试强制刷新...")
-            return check_and_refresh_auth()
-        
-        # 再次验证数据获取
-        test_data = data_manager.generate_complete_layout()
-        
-        if test_data and test_data.get('rooms'):
-            # 检查是否有入住数据
-            occupied_rooms = [r for r in test_data.get('rooms', []) if r.get('tenants')]
-            if len(occupied_rooms) > 100:
-                logger.info(f"认证信息有效，已获取 {len(occupied_rooms)} 个有入住数据的房间")
-                return True
-            else:
-                logger.warning(f"认证可能过期，只获取到 {len(occupied_rooms)} 个入住房间，尝试刷新认证...")
-                return check_and_refresh_auth()
-        
-        # 如果没有入住数据或获取失败，尝试自动认证
-        logger.info("当前认证可能无效，尝试自动获取新认证...")
-        return check_and_refresh_auth()
-        
-    except Exception as e:
-        logger.error(f"自动认证检查失败: {str(e)}")
+        logger.error(f"认证检查失败: {str(e)}")
         return check_and_refresh_auth()
 
 def organize_rooms_by_floor(rooms):
@@ -151,7 +110,9 @@ def organize_rooms_by_floor(rooms):
 
 @app.route('/')
 def index():
-    """主页"""
+    """主页 - 仅在此处进行认证检查"""
+    # 仅在访问主页时进行认证检查
+    auth_check_on_page_access()
     return render_template('index.html')
 
 @app.route('/api/rooms')
@@ -160,8 +121,8 @@ def get_rooms_data():
     try:
         logger.info("开始获取房间数据...")
         
-        # 自动检查和更新认证信息
-        auto_authenticate_if_needed()
+        # 移除自动认证检查，直接获取数据
+        # 如果认证过期，API客户端会自动处理401错误
         
         # 从外部API获取实时数据
         data = data_manager.generate_complete_layout()
@@ -198,8 +159,7 @@ def get_room_detail(house_id):
     try:
         logger.info(f"获取房间详情: {house_id}")
         
-        # 自动检查认证
-        auto_authenticate_if_needed()
+        # 移除自动认证检查，直接获取数据
         
         # 获取完整数据
         data = data_manager.generate_complete_layout()
@@ -286,8 +246,8 @@ def refresh_data():
         global last_auth_check
         last_auth_check = 0  # 重置检查时间，强制重新认证
         
-        # 自动检查和更新认证信息
-        auth_success = auto_authenticate_if_needed()
+        # 强制检查认证信息
+        auth_success = check_and_refresh_auth()
         
         if not auth_success:
             logger.warning("认证更新失败，但继续尝试获取数据...")
@@ -323,8 +283,7 @@ def refresh_data():
 def get_api_status():
     """获取API状态"""
     try:
-        # 自动检查认证
-        auth_status = auto_authenticate_if_needed()
+        # 移除自动认证检查，直接获取数据
         
         # 简单的健康检查
         data = data_manager.generate_complete_layout()
@@ -337,7 +296,7 @@ def get_api_status():
                 'total_rooms': data.get('total_rooms', 0),
                 'occupied_count': len(occupied_rooms),
                 'last_update': data.get('timestamp', ''),
-                'auth_status': 'valid' if auth_status else 'invalid'
+                'auth_status': 'valid'
             })
         else:
             return jsonify({
