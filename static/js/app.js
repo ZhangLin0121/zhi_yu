@@ -57,6 +57,11 @@ class RoomVisualization {
             this.loadRoomsData();
         });
 
+        // 刷新认证信息
+        document.getElementById('refreshAuth').addEventListener('click', () => {
+            this.refreshAuth();
+        });
+
         // 视图切换
         document.getElementById('overviewBtn').addEventListener('click', () => {
             this.switchToOverview();
@@ -868,6 +873,76 @@ class RoomVisualization {
         document.getElementById('error').style.display = 'block';
         document.getElementById('overviewView').style.display = 'none';
         document.getElementById('floorViews').style.display = 'none';
+    }
+
+    async refreshAuth() {
+        try {
+            // 显示刷新状态
+            const refreshBtn = document.getElementById('refreshAuth');
+            const originalText = refreshBtn.innerHTML;
+            refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 更新中...';
+            refreshBtn.disabled = true;
+
+            // 自动检测API基础路径
+            const basePath = window.location.pathname.includes('/rooms/') ? '/rooms' : '';
+            
+            // 调用认证刷新API
+            const response = await fetch(`${basePath}/api/auth/refresh`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                // 显示成功消息
+                this.showNotification('success', `${result.message}`, 5000);
+                
+                // 刷新数据
+                setTimeout(() => {
+                    this.loadRoomsData();
+                }, 1000);
+            } else {
+                this.showNotification('error', `认证更新失败: ${result.message}`, 8000);
+            }
+
+        } catch (error) {
+            console.error('刷新认证失败:', error);
+            this.showNotification('error', '认证更新失败，请稍后重试', 5000);
+        } finally {
+            // 恢复按钮状态
+            const refreshBtn = document.getElementById('refreshAuth');
+            refreshBtn.innerHTML = '<i class="fas fa-key"></i> 更新认证';
+            refreshBtn.disabled = false;
+        }
+    }
+
+    showNotification(type, message, duration = 3000) {
+        // 创建通知元素
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-triangle'}"></i>
+                <span>${message}</span>
+                <button class="notification-close" onclick="this.parentElement.parentElement.remove()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        `;
+
+        // 添加到页面
+        document.body.appendChild(notification);
+
+        // 自动消失
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.style.opacity = '0';
+                setTimeout(() => notification.remove(), 300);
+            }
+        }, duration);
     }
 
     // 防抖函数

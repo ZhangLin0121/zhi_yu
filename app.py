@@ -9,6 +9,9 @@ import logging
 from datetime import datetime
 from config import Config
 from api_client import RoomsDataManager
+from auth_manager import get_fresh_auth_info, update_auth_info
+import threading
+import time
 
 app = Flask(__name__)
 app.config['DEBUG'] = Config.DEBUG
@@ -19,6 +22,70 @@ logger = logging.getLogger(__name__)
 
 # 初始化数据管理器
 data_manager = RoomsDataManager()
+
+# 全局变量用于跟踪自动认证状态
+auto_auth_lock = threading.Lock()
+last_auth_check = 0
+auth_check_interval = 300  # 5分钟检查一次认证状态
+
+def check_and_refresh_auth():
+    """检查并刷新认证信息"""
+    global last_auth_check
+    
+    current_time = time.time()
+    
+    # 如果距离上次检查不足5分钟，跳过
+    if current_time - last_auth_check < auth_check_interval:
+        return True
+    
+    with auto_auth_lock:
+        try:
+            logger.info("检查认证状态...")
+            
+            # 尝试获取新的认证信息
+            fresh_auth = get_fresh_auth_info()
+            
+            if fresh_auth:
+                logger.info("获取到新的认证信息，正在更新...")
+                if update_auth_info(fresh_auth):
+                    logger.info("认证信息更新成功")
+                    # 重新初始化数据管理器
+                    global data_manager
+                    data_manager = RoomsDataManager()
+                    last_auth_check = current_time
+                    return True
+                else:
+                    logger.error("认证信息更新失败")
+                    return False
+            else:
+                logger.warning("未能获取到新的认证信息，使用现有认证信息")
+                last_auth_check = current_time
+                return True
+                
+        except Exception as e:
+            logger.error(f"认证检查失败: {str(e)}")
+            return False
+
+def auto_authenticate_if_needed():
+    """如果需要则自动认证"""
+    try:
+        # 先尝试使用现有认证信息获取数据
+        test_data = data_manager.generate_complete_layout()
+        
+        if test_data and test_data.get('rooms'):
+            # 检查是否有入住数据
+            occupied_rooms = [r for r in test_data.get('rooms', []) if r.get('tenants')]
+            if occupied_rooms:
+                logger.info(f"认证信息有效，已获取 {len(occupied_rooms)} 个有入住数据的房间")
+                return True
+        
+        # 如果没有入住数据或获取失败，尝试自动认证
+        logger.info("当前认证可能无效，尝试自动获取新认证...")
+        return check_and_refresh_auth()
+        
+    except Exception as e:
+        logger.error(f"自动认证检查失败: {str(e)}")
+        return False
 
 def organize_rooms_by_floor(rooms):
     """按楼层组织房间数据"""
@@ -47,6 +114,9 @@ def get_rooms_data():
     try:
         logger.info("开始获取房间数据...")
         
+        # 自动检查和更新认证信息
+        auto_authenticate_if_needed()
+        
         # 从外部API获取实时数据
         data = data_manager.generate_complete_layout()
         
@@ -58,14 +128,18 @@ def get_rooms_data():
         rooms = data.get('rooms', [])
         floors_data = organize_rooms_by_floor(rooms)
         
-        logger.info(f"成功获取房间数据，共 {len(rooms)} 个房间")
+        # 统计入住情况
+        occupied_rooms = [r for r in rooms if r.get('tenants')]
+        
+        logger.info(f"成功获取房间数据，共 {len(rooms)} 个房间，{len(occupied_rooms)} 个已入住")
         
         return jsonify({
             'total_rooms': data.get('total_rooms', 0),
             'floors': floors_data,
             'timestamp': data.get('timestamp', ''),
             'floor_numbers': sorted(floors_data.keys()),
-            'layout_info': data.get('layout_info', {})
+            'layout_info': data.get('layout_info', {}),
+            'occupied_count': len(occupied_rooms)
         })
         
     except Exception as e:
@@ -77,6 +151,9 @@ def get_room_detail(house_id):
     """获取房间详细信息"""
     try:
         logger.info(f"获取房间详情: {house_id}")
+        
+        # 自动检查认证
+        auto_authenticate_if_needed()
         
         # 获取完整数据
         data = data_manager.generate_complete_layout()
@@ -159,6 +236,16 @@ def refresh_data():
     try:
         logger.info("手动刷新数据...")
         
+        # 强制检查认证信息
+        global last_auth_check
+        last_auth_check = 0  # 重置检查时间，强制重新认证
+        
+        # 自动检查和更新认证信息
+        auth_success = auto_authenticate_if_needed()
+        
+        if not auth_success:
+            logger.warning("认证更新失败，但继续尝试获取数据...")
+        
         # 重新初始化数据管理器以清除可能的缓存
         global data_manager
         data_manager = RoomsDataManager()
@@ -169,12 +256,17 @@ def refresh_data():
         if not data:
             return jsonify({'error': '刷新数据失败'}), 500
         
-        logger.info("数据刷新成功")
+        # 统计入住情况
+        occupied_rooms = [r for r in data.get('rooms', []) if r.get('tenants')]
+        
+        logger.info(f"数据刷新成功，{len(occupied_rooms)} 个房间已入住")
         return jsonify({
             'success': True,
-            'message': '数据刷新成功',
+            'message': f'数据刷新成功，{len(occupied_rooms)} 个房间已入住',
             'timestamp': data.get('timestamp', ''),
-            'total_rooms': data.get('total_rooms', 0)
+            'total_rooms': data.get('total_rooms', 0),
+            'occupied_count': len(occupied_rooms),
+            'auth_updated': auth_success
         })
         
     except Exception as e:
@@ -185,27 +277,35 @@ def refresh_data():
 def get_api_status():
     """获取API状态"""
     try:
+        # 自动检查认证
+        auth_status = auto_authenticate_if_needed()
+        
         # 简单的健康检查
         data = data_manager.generate_complete_layout()
         
         if data:
+            occupied_rooms = [r for r in data.get('rooms', []) if r.get('tenants')]
             return jsonify({
                 'status': 'healthy',
                 'timestamp': datetime.now().isoformat(),
                 'total_rooms': data.get('total_rooms', 0),
-                'last_update': data.get('timestamp', '')
+                'occupied_count': len(occupied_rooms),
+                'last_update': data.get('timestamp', ''),
+                'auth_status': 'valid' if auth_status else 'invalid'
             })
         else:
             return jsonify({
                 'status': 'error',
-                'message': '无法获取数据'
+                'message': '无法获取数据',
+                'auth_status': 'invalid'
             }), 500
             
     except Exception as e:
         logger.error(f"API状态检查失败: {str(e)}")
         return jsonify({
             'status': 'error',
-            'message': str(e)
+            'message': str(e),
+            'auth_status': 'unknown'
         }), 500
 
 @app.route('/api/rooms/details')
@@ -279,6 +379,43 @@ def update_auth():
     except Exception as e:
         logger.error(f"更新认证信息失败: {str(e)}")
         return jsonify({'error': f'更新失败: {str(e)}'}), 500
+
+@app.route('/api/auth/refresh', methods=['POST'])
+def refresh_auth():
+    """强制刷新认证信息"""
+    try:
+        logger.info("强制刷新认证信息...")
+        
+        # 重置认证检查时间，强制重新认证
+        global last_auth_check
+        last_auth_check = 0
+        
+        # 强制检查认证
+        auth_success = check_and_refresh_auth()
+        
+        if auth_success:
+            # 测试新认证信息
+            test_data = data_manager.generate_complete_layout()
+            occupied_rooms = [r for r in test_data.get('rooms', []) if r.get('tenants')] if test_data else []
+            
+            return jsonify({
+                'success': True,
+                'message': f'认证信息刷新成功，获取到 {len(occupied_rooms)} 个已入住房间',
+                'timestamp': datetime.now().isoformat(),
+                'occupied_count': len(occupied_rooms)
+            })
+        else:
+            return jsonify({
+                'success': False,
+                'message': '认证信息刷新失败'
+            }), 500
+            
+    except Exception as e:
+        logger.error(f"刷新认证信息失败: {str(e)}")
+        return jsonify({
+            'success': False,
+            'message': f'刷新失败: {str(e)}'
+        }), 500
 
 if __name__ == '__main__':
     # 启动应用

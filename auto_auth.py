@@ -205,20 +205,51 @@ def get_fresh_auth_info() -> Optional[Dict[str, str]]:
     Returns:
         认证信息字典，失败时返回None
     """
-    authenticator = AutoAuthenticator()
-    
-    # 尝试自动登录获取认证信息
-    auth_info = authenticator.login_and_get_auth()
-    
-    if auth_info:
-        # 测试认证信息是否有效
-        if authenticator.test_auth_info(auth_info):
-            return auth_info
-        else:
-            logger.error("获取的认证信息无效")
+    try:
+        # 首先检查是否有可用的Chrome驱动
+        try:
+            from selenium.webdriver.chrome.service import Service
+            from selenium.webdriver.chrome.options import Options
+            from selenium import webdriver
+            
+            # 测试Chrome驱动是否可用
+            chrome_options = Options()
+            chrome_options.add_argument('--headless')
+            chrome_options.add_argument('--no-sandbox')
+            chrome_options.add_argument('--disable-dev-shm-usage')
+            
+            # 快速测试
+            test_driver = webdriver.Chrome(options=chrome_options)
+            test_driver.quit()
+            
+            # 如果测试成功，继续使用自动认证
+            logger.info("Chrome驱动可用，开始自动认证...")
+            
+        except Exception as e:
+            logger.warning(f"Chrome驱动不可用: {str(e)}")
+            logger.info("自动认证功能暂时不可用，请手动更新认证信息")
             return None
-    else:
-        logger.error("无法获取认证信息")
+        
+        # 创建认证器实例
+        authenticator = AutoAuthenticator()
+        
+        # 尝试自动登录获取认证信息
+        auth_info = authenticator.login_and_get_auth()
+        
+        if auth_info:
+            # 测试认证信息是否有效
+            if authenticator.test_auth_info(auth_info):
+                logger.info("自动认证成功")
+                return auth_info
+            else:
+                logger.error("获取的认证信息无效")
+                return None
+        else:
+            logger.error("无法获取认证信息")
+            return None
+            
+    except Exception as e:
+        logger.error(f"自动认证过程中发生错误: {str(e)}")
         return None
 
 

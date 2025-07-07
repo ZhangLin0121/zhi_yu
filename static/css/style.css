@@ -978,3 +978,112 @@ body {
         gap: 10px;
     }
 }
+
+
+/* 通知样式 */
+
+.notification {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    max-width: 400px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    opacity: 1;
+    transition: all 0.3s ease;
+    border-left: 4px solid #3b82f6;
+}
+
+.notification-success {
+    border-left-color: #10b981;
+}
+
+.notification-error {
+    border-left-color: #ef4444;
+}
+
+.notification-content {
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.notification-content i {
+    margin-top: 2px;
+    font-size: 16px;
+}
+
+.notification-success .notification-content i {
+    color: #10b981;
+}
+
+.notification-error .notification-content i {
+    color: #ef4444;
+}
+
+.notification-content span {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #1e293b;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    color: #94a3b8;
+    transition: all 0.2s ease;
+    margin-left: 8px;
+}
+
+.notification-close:hover {
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+
+/* 认证刷新按钮样式 */
+
+#refreshAuth {
+    background: #10b981 !important;
+    color: #ffffff !important;
+    border-color: #10b981 !important;
+}
+
+#refreshAuth:hover {
+    background: #059669 !important;
+    border-color: #059669 !important;
+}
+
+#refreshAuth:disabled {
+    background: #94a3b8 !important;
+    border-color: #94a3b8 !important;
+    cursor: not-allowed !important;
+}
+
+
+/* 缓存状态提示 */
+
+.cache-status-success {
+    background: #dcfce7;
+    color: #166534;
+    padding: 8px 16px;
+    font-size: 12px;
+    text-align: center;
+    border-bottom: 1px solid #bbf7d0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: opacity 0.3s ease;
+}
+
+.cache-status-success i {
+    color: #16a34a;
+}
